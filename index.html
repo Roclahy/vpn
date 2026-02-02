@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoCla VPN - Conecta donde otros no pueden</title>
+
+    <meta name="description"
+        content="RoCla VPN: Navegación segura, privada y sin restricciones. Accede a contenido bloqueado, evade la censura y bloquea anuncios con la mejor VPN impulsada por IA.">
+    <meta name="keywords"
+        content="VPN, privacidad, seguridad, desbloquear sitios, internet libre, Cuba, VPN gratis, RoCla VPN, censura, publicidad">
+    <meta name="author" content="RoCla VPN">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0255F4">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vpn.roclahy.com/">
+    <meta property="og:title" content="RoCla VPN - Conecta donde otros no pueden">
+    <meta property="og:description"
+        content="Conecta donde otros no pueden. Experimenta la velocidad premium con seguridad de próxima generación.">
+    <meta property="og:image" content="https://vpn.roclahy.com/roclavpn-logo-2.webp">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://vpn.roclahy.com/">
+    <meta property="twitter:title" content="RoCla VPN - Conecta donde otros no pueden">
+    <meta property="twitter:description"
+        content="Conecta donde otros no pueden. Experimenta la velocidad premium con seguridad de próxima generación.">
+    <meta property="twitter:image" content="https://vpn.roclahy.com/roclavpn-logo-2.webp">
+
+    <link rel="icon" type="image/webp" href="roclavpn-logo.webp">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon"><img src="roclavpn-logo.webp" alt="RoCla VPN"></span>
+                <span class="logo-text">RoCla <span class="highlight">VPN</span></span>
+            </div>
+            <div class="nav-right">
+                <button id="theme-toggle" aria-label="Cambiar Tema">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <div class="hero-wrapper">
+                <div class="hero-content fade-in-up">
+                    <span class="badge">Impulsado por IA</span>
+                    <h1><span class="text-gradient">Conecta</span> donde otros no pueden</h1>
+                    <p>Experimenta la velocidad premium con la tecnología más avanzada.</p>
+
+                    <div class="hero-socials">
+                        <a href="https://t.me/roclavpn" target="_blank" class="social-btn"><i
+                                class="fa-brands fa-telegram"></i></a>
+                        <a href="https://whatsapp.com/channel/0029VbBi3BqLNSa5Un27zz07" target="_blank"
+                            class="social-btn"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61587195870879&mibextid=ZbWKwL" target="_blank"
+                            class="social-btn"><i class="fa-brands fa-facebook"></i></a>
+                    </div>
+
+                    <a href="#planes" class="cta-button">Ver Planes <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <div class="hero-visual fade-in-up">
+                    <img src="ghost_mascot.webp" alt="Ghost Mascot" class="ghost-mascot">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="planes" class="plans-section">
+        <div class="container">
+            <h2 class="section-title fade-in">Nuestros Planes</h2>
+            <div class="plans-grid">
+
+                <div class="plan-card fade-in">
+                    <div class="plan-icon"><i class="fa-regular fa-paper-plane"></i></div>
+                    <h3>Gratis</h3>
+                    <p>0 CUP / 100 MB</p>
+                    <button class="info-btn" onclick="openModal('gratis')">Más Info <i
+                            class="fa-solid fa-circle-info"></i></button>
+                    <a href="https://t.me/roclahy_vpnpro_bot?start=plan_starter" class="plan-btn">Obtener Gratis</a>
+                </div>
+
+                <div class="plan-card fade-in">
+                    <div class="plan-icon"><i class="fa-solid fa-egg"></i></div>
+                    <h3>Esencial</h3>
+                    <p>150 CUP / 5 GB</p>
+                    <button class="info-btn" onclick="openModal('esencial')">Más Info <i
+                            class="fa-solid fa-circle-info"></i></button>
+                    <a href="https://t.me/roclahy_vpnpro_bot?start=plan_basic" class="plan-btn">Obtener Esencial</a>
+                </div>
+
+                <div class="plan-card fade-in">
+                    <div class="plan-icon"><i class="fa-solid fa-umbrella"></i></div>
+                    <h3>Plus</h3>
+                    <p>250 CUP / 10 GB</p>
+                    <button class="info-btn" onclick="openModal('plus')">Más Info <i
+                            class="fa-solid fa-circle-info"></i></button>
+                    <a href="https://t.me/roclahy_vpnpro_bot?start=plan_plus" class="plan-btn">Obtener Plus</a>
+                </div>
+
+                <div class="plan-card featured fade-in">
+                    <div class="ribbon">Popular</div>
+                    <div class="plan-icon"><i class="fa-solid fa-star"></i></div>
+                    <h3>Pro</h3>
+                    <p>500 CUP / 40 GB</p>
+                    <button class="info-btn" onclick="openModal('pro')">Más Info <i
+                            class="fa-solid fa-circle-info"></i></button>
+                    <a href="https://t.me/roclahy_vpnpro_bot?start=plan_pro" class="plan-btn btn-primary">Obtener
+                        Pro</a>
+                </div>
+
+                <div class="plan-card fade-in">
+                    <div class="plan-icon"><i class="fa-regular fa-gem"></i></div>
+                    <h3>Premium</h3>
+                    <p>1000 CUP / 100 GB</p>
+                    <button class="info-btn" onclick="openModal('premium')">Más Info <i
+                            class="fa-solid fa-circle-info"></i></button>
+                    <a href="https://t.me/roclahy_vpnpro_bot?start=plan_ultra" class="plan-btn">Obtener Premium</a>
+                </div>
+
+                <div class="plan-card fade-in">
+                    <div class="plan-icon"><i class="fa-solid fa-gift"></i></div>
+                    <h3>Promo</h3>
+                    <p>Oferta especial</p>
+                    <a href="https://t.me/roclahy_vpnpro_bot?start=plan_promo" class="plan-btn">Ver Promo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="clientes" class="clients-section">
+        <div class="container">
+            <h2 class="section-title fade-in">Clientes Recomendados</h2>
+            <div class="info-card fade-in">
+                <i class="fa-solid fa-download big-icon"></i>
+                <p>Descarga las aplicaciones compatibles para conectarte a nuestros servidores.</p>
+                <a href="https://telegra.ph/Clientes-12-01" target="_blank" class="plan-btn btn-outline">Ver Lista de
+                    Clientes <i class="fa-solid fa-external-link-alt"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="info-section">
+        <div class="container">
+            <h2 class="section-title fade-in">Todo lo que necesitas</h2>
+            <div class="info-grid">
+                <div class="info-item fade-in">
+                    <i class="fa-solid fa-globe"></i>
+                    <h4>Acceso Global</h4>
+                    <p>Accede a servicios bloqueados en tu país.</p>
+                </div>
+                <div class="info-item fade-in">
+                    <i class="fa-solid fa-mask"></i>
+                    <h4>Sin Censura</h4>
+                    <p>Evade la censura y recupera tu libertad.</p>
+                </div>
+                <div class="info-item fade-in">
+                    <i class="fa-solid fa-user-shield"></i>
+                    <h4>Navegación Privada</h4>
+                    <p>Navega privado y protege tu identidad.</p>
+                </div>
+                <div class="info-item fade-in">
+                    <i class="fa-solid fa-ban"></i>
+                    <h4>Bloqueo de Anuncios</h4>
+                    <p>Dile adiós a la publicidad intrusiva.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-bg-logo">
+            <img src="roclavpn-logo.webp" alt="">
+        </div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">RoCla VPN</div>
+                    <p>Impulsado por Inteligencia Artificial</p>
+                    <div class="footer-socials">
+                        <a href="https://t.me/roclavpn"><i class="fa-brands fa-telegram"></i></a>
+                        <a href="https://whatsapp.com/channel/0029VbBi3BqLNSa5Un27zz07"><i
+                                class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61587195870879&mibextid=ZbWKwL"><i
+                                class="fa-brands fa-facebook"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-nav">
+                    <h4>Legal</h4>
+                    <a href="https://telegra.ph/Descargo-de-responsabilidad-09-20" target="_blank">Descargo de
+                        Responsabilidad</a>
+                    <a href="https://telegra.ph/Pol%C3%ADtica-de-privacidad-12-03-32" target="_blank">Política de
+                        Privacidad</a>
+                    <a href="https://telegra.ph/T%C3%A9rminos-de-uso-12-03" target="_blank">Términos de Uso</a>
+                </div>
+
+                <div class="footer-nav">
+                    <h4>Proyecto</h4>
+                    <a href="https://telegra.ph/Nuestra-hoja-de-ruta-09-05" target="_blank">Hoja de Ruta</a>
+                    <a href="https://t.me/roclavpn">Canal Oficial</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2026 RoCla VPN. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="planModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div id="modal-body">
+
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
