@@ -242,10 +242,11 @@ h1 {
 
 .hero h1 {
     text-wrap: balance;
+    font-size: clamp(3rem, 5vw, 5rem);
 }
 
 .hero p {
-    font-size: 20px;
+    font-size: 16px;
     color: var(--text-secondary);
     margin: auto;
     margin-bottom: 36px;
@@ -1027,4 +1028,5 @@ section {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--text-secondary);
+
 }
