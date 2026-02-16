@@ -319,8 +319,8 @@ h1 {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 300%;
-    height: 350%;
+    width: 400%;
+    height: 450%;
     background: conic-gradient(from 0deg, #ff4545, #00ff99, #006aff, #ff0095, #ff4545);
     transform: translate(-50%, -50%);
     animation: border-spin 3s linear infinite;
@@ -1384,3 +1384,4 @@ section {
 
     }
 }
+
