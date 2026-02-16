@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Generator - RoCla VPN Blog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Josefin+Sans:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #0255F4;
+            --primary-dark: #0244c4;
+            --background: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --border: #e2e8f0;
+            --radius: 12px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: var(--text-primary);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: var(--background);
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        h1 {
+            font-family: 'Josefin Sans', sans-serif;
+            margin-top: 0;
+            color: var(--primary);
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(2, 85, 244, 0.1);
+        }
+
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+            margin-top: 10px;
+        }
+
+        .btn-secondary:hover {
+            background-color: #f1f5f9;
+        }
+
+        #output-area {
+            margin-top: 20px;
+            display: none;
+        }
+
+        textarea {
+            width: 100%;
+            height: 300px;
+            padding: 10px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            resize: vertical;
+            box-sizing: border-box;
+        }
+
+        #status {
+            margin-top: 10px;
+            text-align: center;
+            font-size: 14px;
+            min-height: 20px;
+        }
+
+        .status-error {
+            color: #ef4444;
+        }
+
+        .status-success {
+            color: #10b981;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1><i class="fa-solid fa-pen-nib"></i> Generador de Posts del Blog</h1>
+
+        <div class="form-group">
+            <label for="folder-name">Nombre de la Carpeta del Post (para ruta GitHub)</label>
+            <input type="text" id="folder-name" placeholder="ej. mi-nuevo-post">
+        </div>
+
+        <div class="form-group">
+            <label for="post-date">Fecha de Publicación (Mandatorio)</label>
+            <input type="date" id="post-date"
+                style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 16px; box-sizing: border-box;">
+        </div>
+
+        <div class="form-group">
+            <label for="telegraph-url">URL del Artículo de Telegra.ph</label>
+            <div style="display: flex; gap: 10px;">
+                <input type="text" id="telegraph-url" placeholder="https://telegra.ph/Titulo-12-34">
+                <button class="btn" onclick="fetchArticleData()" style="width: auto;">Generar</button>
+            </div>
+        </div>
+
+
+
+        <div id="status"></div>
+
+        <div id="output-area">
+            <label>Código Generado (Copiar y guardar como index.html)</label>
+            <textarea id="code-output" readonly></textarea>
+            <button class="btn btn-secondary" onclick="copyToClipboard()"><i class="fa-regular fa-copy"></i> Copiar al
+                Portapapeles</button>
+
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <a id="github-btn" href="#" target="_blank" class="btn btn-github"
+                    style="flex: 1; text-align: center; text-decoration: none;" onclick="copyToClipboard()">
+                    <i class="fa-brands fa-github"></i> Subir a GitHub
+                </a>
+                <a id="github-edit-btn" href="#" target="_blank" class="btn btn-secondary"
+                    style="flex: 1; text-align: center; text-decoration: none; margin-top: 0;"
+                    onclick="copyToClipboard()">
+                    <i class="fa-solid fa-pen-to-square"></i> Editar en GitHub
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
