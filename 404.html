@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Página no encontrada | RoCla VPN</title>
+    <meta name="theme-color" content="#0255F4">
+    <link rel="icon" type="image/webp" href="/roclavpn-logo.webp">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/style.css">
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .error-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .error-code {
+            font-size: clamp(80px, 15vw, 150px);
+            font-weight: 800;
+            line-height: 1;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            font-family: 'Josefin Sans', sans-serif;
+        }
+
+        .error-message {
+            font-size: clamp(20px, 4vw, 24px);
+            color: var(--text-primary);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .error-desc {
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 400px;
+        }
+
+        .ghost-img {
+            max-width: 200px;
+            margin-bottom: 30px;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="/" style="display: flex; align-items: center; gap: 10px;">
+                    <span class="logo-icon"><img src="/roclavpn-logo.webp" alt="RoCla VPN"></span>
+                    <span class="logo-text">RoCla <span class="highlight">VPN</span></span>
+                </a>
+            </div>
+            <div class="nav-right">
+                <button id="theme-toggle" aria-label="Cambiar Tema">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="error-container">
+        <img src="/ghost_mascot.webp" alt="Fantasma" class="ghost-img">
+        <div class="error-code">404</div>
+        <h1 class="error-message">Página no encontrada</h1>
+        <p class="error-desc">Parece que te has perdido en el ciberespacio. La página que buscas no existe o ha sido
+            movida.</p>
+
+        <a href="/" class="cta-button" style="text-decoration: none;">
+            <i class="fa-solid fa-house"></i> Volver al Inicio
+        </a>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+
+</html>
