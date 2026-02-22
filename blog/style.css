@@ -1,5 +1,9 @@
 @import url('/style.css');
 
+* {
+    scroll-padding-top: 100px;
+}
+
 body {
     padding-top: 80px;
 
