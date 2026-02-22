@@ -1,10 +1,17 @@
 [
     {
+        "title": "Configurar tu cuenta de RoCla VPN en Amnezia ",
+        "description": "Tutorial para configurar fácilmente cuentas de RoCla VPN en los programas de código abierto de Amnezia.",
+        "date": "2026-02-22",
+        "thumbnail": "https://i.postimg.cc/hvZC7s2m/file-00000000c8cc71fdb62c552c3666b790.webp",
+        "url": "https://vpn.roclahy.com/blog/configurar-amnezia/"
+    },
+    {
         "title": "¿Por qué Rocla VPN?",
         "description": "Creamos RoCla VPN pensando en el usuario cubano. En este artículo comentamos qué nos hace una alternativa atractiva frente la competencia extranjera.",
         "date": "2026-02-21",
         "thumbnail": "https://i.postimg.cc/dtGT7c8g/20260221-224718.webp",
-        "url": "https://vpn.roclahy.com/blog/por-que-roclavpn"
+        "url": "https://vpn.roclahy.com/blog/por-que-roclavpn/"
     },
     {
         "title": "Programa Beta",
@@ -21,5 +28,3 @@
         "url": "https://www.roclahy.com/2026/02/guia-basica-para-comenzar-con-rocla-vpn.html"
     }
 ]
-
-
