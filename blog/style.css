@@ -16,7 +16,7 @@ body {
     max-width: 800px;
     margin: 40px auto;
     padding: 0 24px;
-    width: 100%;
+
     flex: 1;
 
 }
@@ -262,4 +262,23 @@ body {
 
 .blog-btn:hover {
     background: var(--primary-dark);
+}
+
+.share-icons-container {
+    display: grid;
+    grid-template-columns: repeat(6, max-content);
+    gap: 15px;
+    justify-content: center;
+}
+
+@media (max-width: 480px) {
+    .share-icons-container {
+        grid-template-columns: repeat(3, max-content);
+    }
+}
+
+@media (max-width: 300px) {
+    .share-icons-container {
+        grid-template-columns: repeat(2, max-content);
+    }
 }
