@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoCla VPN CMS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="custom-modal-overlay" class="modal-overlay">
+        <div class="glass-card" id="custom-modal-card">
+            <h3 id="modal-title"
+                style="font-size:1.1rem;font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:10px;">
+                Aviso</h3>
+            <p id="modal-message"
+                style="margin-bottom:22px;white-space:pre-wrap;word-break:break-word;color:var(--text-muted);line-height:1.6;">
+            </p>
+            <input type="text" id="modal-prompt-input" style="display:none;width:100%;margin-bottom:20px;">
+            <div style="display:flex;gap:12px;justify-content:flex-end;">
+                <button id="modal-cancel-btn" class="btn btn-secondary" style="display:none;">Cancelar</button>
+                <button id="modal-confirm-btn" class="btn">Aceptar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="auth-gate" class="auth-gate">
+        <div class="glass-card login-card">
+            <div style="font-size:2rem;color:var(--primary);margin-bottom:15px;"><i class="fa-solid fa-cloud-bolt"></i>
+            </div>
+            <h1 style="font-size:1.5rem;font-weight:700;margin-bottom:8px;">RoCla VPN CMS</h1>
+            <p style="color:var(--text-muted);margin-bottom:28px;font-size:0.95rem;">Inicia sesión con tus credenciales
+                de administrador.</p>
+            <div class="form-group">
+                <label>Correo Electrónico</label>
+                <input type="email" id="login-email" placeholder="admin@ejemplo.com">
+            </div>
+            <div class="form-group">
+                <label>Contraseña</label>
+                <input type="password" id="login-password" placeholder="••••••••">
+            </div>
+            <button id="btn-login" class="btn" style="width:100%;margin-top:5px;">
+                <i class="fa-solid fa-right-to-bracket"></i> Ingresar
+            </button>
+            <div id="login-error" style="color:#ef4444;font-size:0.85rem;margin-top:14px;display:none;"></div>
+        </div>
+    </div>
+
+    <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+    <div id="app-wrapper" style="display:none;">
+
+        <header class="app-header">
+            <button id="mobile-menu-toggle" class="hamburger-btn" title="Menú">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="header-logo">
+                <i class="fa-solid fa-cloud-bolt"></i> RoCla Admin
+            </div>
+            <span id="auth-status"
+                style="margin-left:auto;font-size:0.8rem;font-weight:500;color:var(--text-muted);"></span>
+            <div id="pipelineStatusBadge">
+                <i class="fa-solid fa-spinner fa-spin"></i>
+                Construyendo <span id="pipelineCountdown">0</span>s
+            </div>
+        </header>
+
+        <div class="app-body">
+
+            <aside class="sidebar" id="main-sidebar">
+                <button id="mobile-menu-close" class="close-sidebar-btn">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <nav class="sidebar-menu">
+                    <div class="menu-heading">Gestión</div>
+                    <a href="#" class="sidebar-link active" data-target="dashboard-view">
+                        <i class="fa-solid fa-book-open"></i> Publicados
+                    </a>
+                    <a href="#" class="sidebar-link" data-target="folder-view">
+                        <i class="fa-regular fa-folder"></i> Borradores
+                    </a>
+                    <div class="menu-heading">Sistema</div>
+                    <a href="#" class="sidebar-link" data-target="settings-view">
+                        <i class="fa-solid fa-gear"></i> Ajustes GitHub
+                    </a>
+                </nav>
+                <div class="sidebar-footer" style="margin-top:auto;">
+                    <button id="btn-logout" class="btn btn-secondary" style="width:100%;">
+                        <i class="fa-solid fa-right-from-bracket"></i> Salir
+                    </button>
+                    <span style="font-size:0.8rem;color:var(--text-muted);">Made by Makibul</span>
+                </div>
+            </aside>
+
+            <main class="main-content">
+
+                <div id="dashboard-view" class="view-panel">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:28px;">
+                        <h2 class="section-title" style="margin-bottom:0;">
+                            <i class="fa-solid fa-share-nodes" style="color:var(--primary);"></i> Posts Publicados
+                        </h2>
+                        <button id="btnSaveOrdering" class="btn" style="display:none;">
+                            <i class="fa-solid fa-floppy-disk"></i> Guardar Orden
+                        </button>
+                    </div>
+                    <div id="existingPostsList-dynamic" class="post-list-container">
+                        <div style="padding:40px;text-align:center;color:var(--text-muted);">
+                            <i class="fa-solid fa-spinner fa-spin"></i> Cargando...
+                        </div>
+                    </div>
+                </div>
+
+                <div id="folder-view" class="view-panel" style="display:none;">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:28px;">
+                        <h2 class="section-title" style="margin-bottom:0;">
+                            <i class="fa-regular fa-folder" style="color:var(--primary);"></i> Borradores
+                        </h2>
+                        <button id="btnCreateNewFolder" class="btn">
+                            <i class="fa-solid fa-folder-plus"></i> Crear Nuevo
+                        </button>
+                    </div>
+                    <div id="repository-folders-list" class="post-list-container"></div>
+                </div>
+
+                <div id="editor-view" class="view-panel" style="display:none;">
+
+                    <div
+                        style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;gap:10px;">
+                        <button class="btn btn-secondary" onclick="closeEditorView()"
+                            style="padding:9px 18px;flex-shrink:0;">
+                            <i class="fa-solid fa-arrow-left"></i> Volver
+                        </button>
+
+                        <div style="display:flex;gap:10px;">
+
+                            <button id="btnSaveAsNew" class="btn btn-warning" style="display:none;">
+                                <i class="fa-solid fa-folder-plus"></i> Guardar como Nuevo
+                            </button>
+                            <button id="btnSaveToGitHub" class="btn">
+                                <i class="fa-solid fa-cloud-arrow-up"></i> Guardar en GitHub
+                            </button>
+                        </div>
+                    </div>
+
+                    <h4 id="editor-folder-name"
+                        style="color:var(--primary);font-size:1rem;font-weight:600;margin-bottom:22px;"></h4>
+
+                    <div style="display:flex;flex-direction:column;gap:25px;">
+
+                        <div class="glass-card" style="margin-bottom:0;">
+
+                            <div class="form-group">
+                                <label>URL Path (Slug)</label>
+                                <input type="text" id="postPath" placeholder="nuevo-post-slug">
+                                <div id="slugWarning" class="slug-warning">
+                                    <i class="fa-solid fa-triangle-exclamation"></i>
+                                    Este slug ya existe. Elige uno diferente.
+                                </div>
+                            </div>
+
+                            <div class="form-group"
+                                style="padding-bottom:20px;border-bottom:2px dashed rgba(0,0,0,0.06);margin-bottom:22px;">
+                                <label>Importar desde Telegraph <span
+                                        style="font-weight:400;color:var(--text-muted);">(Opcional)</span></label>
+                                <div style="display:flex;gap:10px;">
+                                    <input type="text" id="telegraph-url"
+                                        placeholder="https://telegra.ph/articulo-04-01" style="flex:1;">
+                                    <button id="btn-fetch" class="btn btn-secondary" style="flex-shrink:0;">
+                                        <i class="fa-solid fa-download"></i> Extraer
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Título del Post</label>
+                                <input type="text" id="postTitle" placeholder="Ingresa un título llamativo">
+                            </div>
+
+                            <div class="form-group">
+                                <label style="display:flex;justify-content:space-between;">
+                                    <span>Descripción Corta (SEO)</span>
+                                    <span id="descCharCount" style="font-weight:400;color:var(--text-muted);">0 /
+                                        150</span>
+                                </label>
+                                <input type="text" id="postDescription" placeholder="Breve resumen para SEO..."
+                                    maxlength="150">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Fecha de Publicación</label>
+                                <input type="date" id="postDate">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Miniatura (Thumbnail)</label>
+
+                                <div id="thumbnailPreviewBox" style="position:relative;">
+                                    <img id="thumbnailPreviewImg" src="" alt="Miniatura">
+                                    <div id="thumbnailPreviewPlaceholder">
+                                        <i class="fa-solid fa-image" style="font-size:1.8rem;color:#cbd5e1;"></i>
+                                        <span>Sin miniatura seleccionada</span>
+                                        <span style="font-size:0.78rem;">Selecciona desde los archivos de la
+                                            derecha</span>
+                                    </div>
+
+                                    <button type="button" id="thumbnailClearBtn" onclick="clearThumbnail()"
+                                        style="display:none;position:absolute;top:8px;right:8px;z-index:5;padding:5px 12px;font-size:0.78rem;border-radius:8px;background:rgba(239,68,68,0.9);color:white;border:none;cursor:pointer;font-family:inherit;font-weight:600;align-items:center;gap:5px;">
+                                        <i class="fa-solid fa-trash-can"></i> Quitar
+                                    </button>
+                                </div>
+
+                                <input type="hidden" id="postThumbnail">
+                            </div>
+
+                        </div>
+
+                        <div>
+
+                            <div class="glass-card" id="staged-files-card" style="margin-bottom:18px;">
+                                <h4
+                                    style="font-size:0.95rem;font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:8px;">
+                                    <i class="fa-solid fa-upload" style="color:var(--primary);"></i> Archivos Nuevos
+                                </h4>
+                                <div class="stage-drop-area" onclick="document.getElementById('fileUploader').click()">
+                                    <i class="fa-solid fa-plus-circle"
+                                        style="font-size:1.4rem;margin-bottom:6px;"></i><br>
+                                    Añadir archivos
+                                </div>
+                                <input type="file" id="fileUploader" multiple accept="image/*" style="display:none;">
+                                <div id="stagedFilesList" class="files-grid">
+                                    <div
+                                        style="grid-column:1/-1;color:var(--text-muted);font-style:italic;font-size:0.85rem;">
+                                        No hay archivos nuevos.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="glass-card" id="existing-files-card">
+                                <h4
+                                    style="font-size:0.95rem;font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:8px;">
+                                    <i class="fa-solid fa-folder-open" style="color:var(--primary);"></i> Archivos en
+                                    GitHub
+                                </h4>
+                                <div id="existingFilesList" class="files-grid">
+                                    <div
+                                        style="grid-column:1/-1;text-align:center;color:var(--text-muted);font-size:0.85rem;padding:15px;">
+                                        <i class="fa-solid fa-spinner fa-spin"></i> Cargando...
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="settings-view" class="view-panel" style="display:none;">
+                    <h2 class="section-title">
+                        <i class="fa-solid fa-gear" style="color:var(--primary);"></i> Configuración de GitHub
+                    </h2>
+                    <div class="glass-card">
+                        <p style="color:var(--text-muted);margin-bottom:22px;font-size:0.9rem;">
+                            Tus credenciales se guardan de forma segura en Firebase, vinculadas a tu cuenta.
+                        </p>
+                        <div class="form-group">
+                            <label>GitHub Personal Access Token (permiso <code>repo</code>)</label>
+                            <input type="password" id="github-token" placeholder="ghp_xxxxxxxxxxxxxxxxx">
+                        </div>
+                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;">
+                            <div class="form-group">
+                                <label>Owner</label>
+                                <input type="text" id="github-owner" placeholder="Roclahy">
+                            </div>
+                            <div class="form-group">
+                                <label>Repository</label>
+                                <input type="text" id="github-repo" placeholder="vpn">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Branch</label>
+                            <input type="text" id="github-branch" value="main">
+                        </div>
+                        <button id="btn-save-settings" class="btn">
+                            <i class="fa-solid fa-floppy-disk"></i> Guardar Configuración
+                        </button>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <script src="github-integration.js"></script>
+    <script src="telegraph-integration.js"></script>
+    <script type="module" src="firebase-integration.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
