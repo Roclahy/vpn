@@ -1,5 +1,12 @@
 [
     {
+        "title": "RoCla Plus",
+        "description": "This is a new post",
+        "date": "Abril 09, 2026",
+        "thumbnail": "https://vpn.roclahy.com/blog/RoCla-03-10-1/OIP-3930389020.jpg",
+        "url": "/blog/RoCla-03-10-1/"
+    },
+    {
         "title": "Limitar cuentas granularmente, bonificaciones por recargas grandes, sección Mis Planes y más",
         "description": "Descubre la nueva actualización de RoCla VPN con límites de tráfico por cuenta, bonos por recargas grandes, sección Mis Planes y más",
         "date": "2026-03-31",
