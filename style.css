@@ -940,7 +940,6 @@ section {
     background: var(--bg-primary);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
-    padding: 36px;
     max-width: 650px;
     width: 100%;
     max-height: 85vh;
@@ -981,11 +980,16 @@ section {
 
 .modal-header {
     display: flex;
-    align-items: start;
+    align-items: center;
     gap: 18px;
-    padding-bottom: 24px;
+    padding: 24px 36px;
     border-bottom: 1px solid var(--border-color);
     margin-bottom: 24px;
+    width: 100%;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    background-color: var(--bg-primary);
 }
 
 .modal-icon {
@@ -999,7 +1003,6 @@ section {
 
 .modal-header h2 {
     font-size: 30px;
-    margin-bottom: 6px;
     font-weight: 700;
     color: var(--text-primary);
 }
@@ -1009,6 +1012,81 @@ section {
     font-size: 22px;
     margin-bottom: 4px;
     font-weight: 600;
+}
+
+.modal-details {
+    margin: 36px;
+}
+
+.modal-details span {
+    padding: 6px 12px;
+    border: 1px solid;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-right: 6px;
+}
+
+.plan-gratis-modal {
+    color: #0155f3;
+}
+
+.plan-gratis-modal p,
+.plan-gratis-modal span {
+    background-color: rgba(1, 85, 243, 0.04);
+}
+
+.plan-mini-modal {
+    color: #f4a102;
+}
+
+.plan-mini-modal p,
+.plan-mini-modal span {
+    background-color: rgba(244, 161, 2, 0.04);
+}
+
+.plan-esencial-modal {
+    color: #008441;
+}
+
+.plan-esencial-modal p,
+.plan-esencial-modal span {
+    background-color: rgba(0, 132, 65, 0.04);
+}
+
+.plan-plus-modal {
+    color: #7902ff;
+}
+
+.plan-plus-modal p,
+.plan-plus-modal span {
+    background-color: rgba(121, 2, 255, 0.04);
+}
+
+.plan-pro-modal {
+    color: #d40320;
+}
+
+.plan-pro-modal p,
+.plan-pro-modal span {
+    background-color: rgba(212, 3, 32, 0.04);
+}
+
+.plan-premium-modal {
+    color: #0155f3;
+}
+
+.plan-premium-modal p,
+.plan-premium-modal span {
+    background-color: rgba(1, 85, 243, 0.04);
+}
+
+.modal-details p {
+    font-size: 15px;
+    line-height: 1.6;
+    padding: 12px 16px;
+    border-radius: 16px;
+    margin-top: 8px;
 }
 
 .modal-details h4 {
@@ -1038,6 +1116,42 @@ section {
     margin-top: 3px;
     flex-shrink: 0;
     font-size: 16px;
+}
+
+.modal-cta-button {
+    position: sticky;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 20px;
+}
+
+.modal-cta-button:hover {
+    transform: translate(-50%, -2px);
+
+}
+
+@media (max-width: 639px) {
+    .modal {
+        align-items: end;
+        padding: 24px 0 0;
+    }
+
+    .modal-content {
+        border-radius: 24px 24px 0 0;
+    }
+
+    .modal-header {
+        padding: 16px 24px;
+    }
+
+    .modal-header h2 {
+        font-size: 24px;
+    }
+
+    .modal-details {
+        margin: 24px;
+    }
 }
 
 .fade-in {
@@ -1093,10 +1207,6 @@ section {
     .plans-grid {
         max-width: 400px;
         margin: 0 auto;
-    }
-
-    .modal-content {
-        padding: 28px;
     }
 
     .hero-socials {
