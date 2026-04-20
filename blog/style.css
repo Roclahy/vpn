@@ -6,7 +6,6 @@
 
 body {
     padding-top: 80px;
-
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -16,9 +15,8 @@ body {
     max-width: 800px;
     margin: 40px auto;
     padding: 0 24px;
-    width: 100%;
     flex: 1;
-
+    width: 100%;
 }
 
 #title {
@@ -146,6 +144,7 @@ body {
     font-style: italic;
 }
 
+
 .footer {
     margin-top: auto;
 }
@@ -180,7 +179,7 @@ body {
 
 #blog-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 32px;
     margin-top: 2rem;
 }
@@ -191,6 +190,9 @@ body {
     border-radius: var(--radius-md);
     overflow: hidden;
     transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .blog-card:hover {
@@ -221,6 +223,7 @@ body {
     padding: 20px;
     display: flex;
     flex-direction: column;
+    flex: 1;
 }
 
 .blog-date {
@@ -257,12 +260,13 @@ body {
     font-size: 0.9rem;
     text-align: center;
     transition: background 0.2s;
-    align-self: flex-start;
+    margin-top: auto;
 }
 
 .blog-btn:hover {
     background: var(--primary-dark);
 }
+
 
 .share-icons-container {
     display: grid;
