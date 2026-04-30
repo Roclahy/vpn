@@ -30,6 +30,27 @@
         </div>
     </div>
 
+    <div id="system-editor-overlay" class="modal-overlay">
+        <div class="glass-card" style="max-width: 800px; width: 95%;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+                <h3 id="system-editor-title"
+                    style="font-size:1.1rem;font-weight:600;display:flex;align-items:center;gap:10px;">
+                    <i class="fa-solid fa-pen-to-square"></i> Editar Archivo
+                </h3>
+            </div>
+            <div class="form-group">
+                <textarea id="system-editor-textarea"
+                    style="height: 400px; font-family: monospace; font-size: 0.9rem;"></textarea>
+            </div>
+            <div style="display:flex;gap:12px;justify-content:flex-end;">
+                <button id="system-editor-cancel-btn" class="btn btn-secondary">Cancelar</button>
+                <button id="system-editor-save-btn" class="btn">
+                    <i class="fa-solid fa-floppy-disk"></i> Guardar Cambios
+                </button>
+            </div>
+        </div>
+    </div>
+
     <div id="auth-gate" class="auth-gate">
         <div class="glass-card login-card">
             <div style="font-size:2rem;color:var(--primary);margin-bottom:15px;"><i class="fa-solid fa-cloud-bolt"></i>
@@ -86,6 +107,9 @@
                         <i class="fa-regular fa-folder"></i> Borradores
                     </a>
                     <div class="menu-heading">Sistema</div>
+                    <a href="#" class="sidebar-link" data-target="system-files-view">
+                        <i class="fa-solid fa-file-shield"></i> Archivos Sistema
+                    </a>
                     <a href="#" class="sidebar-link" data-target="settings-view">
                         <i class="fa-solid fa-gear"></i> Ajustes GitHub
                     </a>
@@ -129,16 +153,13 @@
                 </div>
 
                 <div id="editor-view" class="view-panel" style="display:none;">
-
                     <div
                         style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;gap:10px;">
                         <button class="btn btn-secondary" onclick="closeEditorView()"
                             style="padding:9px 18px;flex-shrink:0;">
                             <i class="fa-solid fa-arrow-left"></i> Volver
                         </button>
-
                         <div style="display:flex;gap:10px;">
-
                             <button id="btnSaveAsNew" class="btn btn-warning" style="display:none;">
                                 <i class="fa-solid fa-folder-plus"></i> Guardar como Nuevo
                             </button>
@@ -199,7 +220,6 @@
 
                             <div class="form-group">
                                 <label>Miniatura (Thumbnail)</label>
-
                                 <div id="thumbnailPreviewBox" style="position:relative;">
                                     <img id="thumbnailPreviewImg" src="" alt="Miniatura">
                                     <div id="thumbnailPreviewPlaceholder">
@@ -208,20 +228,17 @@
                                         <span style="font-size:0.78rem;">Selecciona desde los archivos de la
                                             derecha</span>
                                     </div>
-
                                     <button type="button" id="thumbnailClearBtn" onclick="clearThumbnail()"
                                         style="display:none;position:absolute;top:8px;right:8px;z-index:5;padding:5px 12px;font-size:0.78rem;border-radius:8px;background:rgba(239,68,68,0.9);color:white;border:none;cursor:pointer;font-family:inherit;font-weight:600;align-items:center;gap:5px;">
                                         <i class="fa-solid fa-trash-can"></i> Quitar
                                     </button>
                                 </div>
-
                                 <input type="hidden" id="postThumbnail">
                             </div>
 
                         </div>
 
                         <div>
-
                             <div class="glass-card" id="staged-files-card" style="margin-bottom:18px;">
                                 <h4
                                     style="font-size:0.95rem;font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:8px;">
@@ -288,6 +305,14 @@
                         <button id="btn-save-settings" class="btn">
                             <i class="fa-solid fa-floppy-disk"></i> Guardar Configuración
                         </button>
+                    </div>
+                </div>
+
+                <div id="system-files-view" class="view-panel" style="display:none;">
+                    <h2 class="section-title">
+                        <i class="fa-solid fa-file-shield" style="color:var(--primary);"></i> Archivos de Sistema
+                    </h2>
+                    <div id="system-files-list" class="post-list-container">
                     </div>
                 </div>
 
