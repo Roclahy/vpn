@@ -14,6 +14,7 @@
     --radius-sm: 8px;
     --radius-md: 12px;
     --radius-lg: 16px;
+    --radius-xl: 30px;
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -64,6 +65,7 @@ a {
     color: inherit;
     transition: var(--transition);
 }
+
 
 .navbar {
     position: fixed;
@@ -136,7 +138,7 @@ a {
 #theme-toggle {
     width: 42px;
     height: 42px;
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-xl);
     border: 1px solid var(--border-color);
     background: var(--bg-secondary);
     color: var(--text-secondary);
@@ -153,6 +155,55 @@ a {
     color: var(--primary);
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
+}
+
+.proxy-nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    height: 42px;
+    padding-inline: 5px 12px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius-xl);
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.proxy-nav-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(2, 85, 244, 0.3);
+}
+
+.proxy-nav-btn img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+}
+
+.proxy-btn-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.1;
+}
+
+.proxy-btn-text .small-text {
+    font-size: 10px;
+    text-transform: uppercase;
+    font-weight: 500;
+    opacity: 0.85;
+}
+
+.proxy-btn-text .normal-text {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
 }
 
 .hero {
@@ -285,6 +336,7 @@ h1 {
     box-shadow: var(--shadow-lg);
 }
 
+
 .cta-button i {
     transition: var(--transition);
 }
@@ -313,6 +365,7 @@ h1 {
     z-index: 1;
     isolation: isolate;
 }
+
 
 .cta-button::before {
     content: '';
@@ -348,7 +401,6 @@ h1 {
 
 .cta-button:hover::before {
     opacity: 0.2;
-
 }
 
 .cta-button:hover::after {
@@ -378,6 +430,7 @@ section {
     color: var(--text-primary);
 }
 
+
 .plans-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -397,6 +450,7 @@ section {
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
 
 @media (min-width: 1024px) {
     .hero-wrapper {
@@ -717,6 +771,7 @@ section {
     box-shadow: var(--shadow-md);
 }
 
+
 .info-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -863,7 +918,6 @@ section {
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 50%;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1014,6 +1068,8 @@ section {
     font-weight: 600;
 }
 
+
+
 .modal-details {
     margin: 36px;
 }
@@ -1139,19 +1195,26 @@ section {
 
     .modal-content {
         border-radius: 24px 24px 0 0;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
     }
 
-    .modal-header {
-        padding: 16px 24px;
+    .modal-content::-webkit-scrollbar {
+        display: none;
     }
+}
 
-    .modal-header h2 {
-        font-size: 24px;
-    }
+.modal-header {
+    padding: 16px 24px;
+}
 
-    .modal-details {
-        margin: 24px;
-    }
+.modal-header h2 {
+    font-size: 24px;
+}
+
+.modal-details {
+    margin: 24px;
+}
 }
 
 .fade-in {
@@ -1328,13 +1391,11 @@ section {
 
 .comp-item.positive i {
     color: #10b981;
-
     font-size: 18px;
 }
 
 .comp-item.negative i {
     color: #ef4444;
-
     font-size: 18px;
 }
 
@@ -1379,18 +1440,14 @@ section {
     overflow-x: auto;
     gap: 20px;
     padding: 20px 5px;
-
     scroll-behavior: smooth;
     scrollbar-width: none;
-
     -ms-overflow-style: none;
-
     border-radius: var(--radius-lg);
 }
 
 .blog-carousel::-webkit-scrollbar {
     display: none;
-
 }
 
 .home-blog-card {
@@ -1494,7 +1551,6 @@ section {
 .home-blog-link:hover {
     text-decoration: underline;
     gap: 8px;
-
 }
 
 .scroll-btn {
@@ -1515,7 +1571,6 @@ section {
     align-items: center;
     justify-content: center;
     opacity: 0;
-
     transition: all 0.3s;
 }
 
@@ -1546,6 +1601,5 @@ section {
 
     .scroll-btn {
         display: none;
-
     }
 }
