@@ -66,7 +66,6 @@ a {
     transition: var(--transition);
 }
 
-
 .navbar {
     position: fixed;
     top: 0;
@@ -105,13 +104,13 @@ a {
 .logo-icon {
     color: var(--primary);
     transition: var(--transition);
-    height: 30px;
+    height: 40px;
     width: 30px;
 }
 
 .logo-icon img {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     object-fit: cover;
     border-radius: 50%;
     filter: brightness(0) saturate(100%) invert(21%) sepia(84%) saturate(5222%) hue-rotate(217deg) brightness(97%) contrast(103%);
@@ -336,7 +335,6 @@ h1 {
     box-shadow: var(--shadow-lg);
 }
 
-
 .cta-button i {
     transition: var(--transition);
 }
@@ -365,7 +363,6 @@ h1 {
     z-index: 1;
     isolation: isolate;
 }
-
 
 .cta-button::before {
     content: '';
@@ -430,7 +427,6 @@ section {
     color: var(--text-primary);
 }
 
-
 .plans-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -450,7 +446,6 @@ section {
         grid-template-columns: repeat(3, 1fr);
     }
 }
-
 
 @media (min-width: 1024px) {
     .hero-wrapper {
@@ -771,7 +766,6 @@ section {
     box-shadow: var(--shadow-md);
 }
 
-
 .info-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -1067,8 +1061,6 @@ section {
     margin-bottom: 4px;
     font-weight: 600;
 }
-
-
 
 .modal-details {
     margin: 36px;
@@ -1391,11 +1383,13 @@ section {
 
 .comp-item.positive i {
     color: #10b981;
+
     font-size: 18px;
 }
 
 .comp-item.negative i {
     color: #ef4444;
+
     font-size: 18px;
 }
 
@@ -1440,14 +1434,18 @@ section {
     overflow-x: auto;
     gap: 20px;
     padding: 20px 5px;
+
     scroll-behavior: smooth;
     scrollbar-width: none;
+
     -ms-overflow-style: none;
+
     border-radius: var(--radius-lg);
 }
 
 .blog-carousel::-webkit-scrollbar {
     display: none;
+
 }
 
 .home-blog-card {
