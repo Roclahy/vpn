@@ -96,9 +96,28 @@ async function initLatestBlogs(){
   const grid = document.getElementById('blog-carousel');
   if(!grid) return;
   try{
-    const res = await fetch('/blog/blogs.json', {cache:'no-store'});
-    if(!res.ok) throw new Error('No disponible');
-    const posts = (await res.json()).sort((a,b)=>parseDate(b.date)-parseDate(a.date)).slice(0,2);
+    const [legacyRes, focusRes] = await Promise.all([
+      fetch('/blog/blogs.json', {cache:'no-store'}),
+      fetch('https://roclahy.com/api/focus/articles?site=vpn&limit=6', {cache:'no-store', headers:{accept:'application/json'}})
+    ]);
+
+    const legacy = legacyRes.ok ? await legacyRes.json() : [];
+    let focus = [];
+    if(focusRes.ok){
+      const payload = await focusRes.json();
+      focus = (payload.articles || []).map(article=>({
+        title: article.title,
+        description: article.description || '',
+        date: article.publishedAt || article.updatedAt || '',
+        thumbnail: article.coverImage || '/roclavpn-logo-2.webp',
+        url: '/blog/?article=' + encodeURIComponent(article.slug)
+      }));
+    }
+
+    const posts = [...focus, ...legacy]
+      .sort((a,b)=>parseDate(b.date)-parseDate(a.date))
+      .slice(0,2);
+
     if(!posts.length) throw new Error('Sin publicaciones');
     grid.innerHTML = posts.map(post=>`
       <article class="home-blog-card">
