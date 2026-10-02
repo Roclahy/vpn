@@ -933,3 +933,134 @@ body{background:var(--bg)}
     padding-top:30px;
   }
 }
+
+
+/* Consolidated observations — 2026-10-02 */
+.hero{
+  background:var(--bg)!important;
+}
+.hero::before,
+.hero::after,
+.hero-visual::before,
+.hero-visual::after{
+  content:none!important;
+  display:none!important;
+}
+
+/* Brand mark visible in light mode */
+.logo-icon{
+  width:32px;
+  height:32px;
+  padding:6px;
+  border-radius:50%;
+  background:var(--primary);
+  border:0;
+  box-shadow:none;
+  object-fit:contain;
+}
+
+/* Circular top controls */
+.icon-button,
+.proxy-nav-btn{
+  width:40px;
+  height:40px;
+  min-width:40px;
+  padding:0;
+  border-radius:50%;
+}
+.proxy-nav-btn img{
+  width:24px;
+  height:24px;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+/* Featured badge no longer overlaps the plan icon */
+.recommended{
+  position:static;
+  align-self:flex-start;
+  margin-bottom:10px;
+  padding:5px 10px;
+  transform:none;
+}
+
+/* Linux fallback icon */
+.platforms span:last-child i{
+  display:none;
+}
+.platforms span:last-child::before{
+  content:"";
+  width:21px;
+  height:21px;
+  flex:0 0 21px;
+  border:2px solid var(--primary);
+  border-radius:7px;
+  background:
+    linear-gradient(var(--primary),var(--primary)) 5px 6px/5px 2px no-repeat,
+    linear-gradient(var(--primary),var(--primary)) 11px 11px/5px 2px no-repeat;
+  transform:rotate(-3deg);
+}
+
+/* Larger circular support FAB */
+.support-float{
+  width:58px;
+  height:58px;
+  min-width:58px;
+  border-radius:50%;
+  padding:5px;
+  display:grid;
+  place-items:center;
+}
+.support-float img{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  object-fit:contain;
+}
+
+/* Footer: brand + project + legal only */
+.footer-grid{
+  grid-template-columns:minmax(260px,1.5fr) 1fr 1fr;
+}
+.footer-grid > .footer-col:nth-of-type(2){
+  display:none;
+}
+.footer-grid > .footer-col:nth-of-type(3) > a:first-of-type{
+  display:none;
+}
+
+/* Protocol cards are fully visible on mobile */
+@media(max-width:620px){
+  .protocol-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    overflow:visible;
+    gap:12px;
+    padding:0;
+    margin:0;
+    scroll-snap-type:none;
+  }
+
+  .protocol-card{
+    width:100%;
+    max-width:none;
+    min-height:0;
+    flex:none;
+    scroll-snap-align:none;
+  }
+
+  .support-float{
+    width:58px;
+    height:58px;
+    right:14px;
+    bottom:92px;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .footer-brand{
+    grid-column:1/-1;
+  }
+}
