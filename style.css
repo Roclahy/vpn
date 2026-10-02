@@ -1407,3 +1407,137 @@ body{background:var(--bg)}
     grid-column:1/-1;
   }
 }
+
+
+/* Navigation/compatibility cleanup — 2026-10-02 */
+body{
+  padding-bottom:0!important;
+}
+
+.compatibility-strip{
+  background:transparent!important;
+  border:0!important;
+}
+
+.compatibility-inner{
+  min-height:auto!important;
+  padding:4px 0 34px!important;
+  justify-content:center!important;
+  gap:16px!important;
+}
+
+.compatibility-label{
+  color:var(--muted);
+  font-size:12px!important;
+  font-weight:650;
+}
+
+.compatibility-platforms{
+  justify-content:center!important;
+  gap:18px!important;
+}
+
+.compatibility-platforms span{
+  min-height:auto!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:var(--muted)!important;
+  font-size:12px!important;
+  font-weight:600!important;
+}
+
+.compatibility-platforms i,
+.linux-mark{
+  color:var(--muted)!important;
+}
+
+.linux-mark{
+  width:18px;
+  height:18px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.55;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  flex:0 0 18px;
+}
+
+.linux-mark circle{
+  fill:currentColor;
+  stroke:none;
+}
+
+.bottom-pill-nav{
+  display:none!important;
+}
+
+.support-float{
+  bottom:18px!important;
+}
+
+.footer{
+  padding-bottom:24px!important;
+}
+
+.footer-grid-simple{
+  grid-template-columns:1fr 1fr!important;
+  gap:28px 48px!important;
+}
+
+.footer-grid-simple>.footer-brand{
+  grid-column:1/-1!important;
+}
+
+.footer-grid-simple>.footer-col{
+  display:flex!important;
+}
+
+@media(max-width:620px){
+  .compatibility-inner{
+    padding:2px 0 28px!important;
+    gap:9px!important;
+  }
+
+  .compatibility-label{
+    font-size:10px!important;
+  }
+
+  .compatibility-platforms{
+    width:auto!important;
+    display:flex!important;
+    flex-wrap:wrap!important;
+    gap:10px 14px!important;
+  }
+
+  .compatibility-platforms span{
+    font-size:10px!important;
+  }
+
+  .compatibility-platforms i,
+  .linux-mark{
+    width:16px;
+    height:16px;
+    font-size:16px!important;
+    flex-basis:16px;
+  }
+
+  .plans-section{
+    padding-top:46px!important;
+  }
+
+  .support-float{
+    right:14px!important;
+    bottom:16px!important;
+  }
+
+  .footer{
+    padding-bottom:22px!important;
+  }
+
+  .footer-grid-simple{
+    grid-template-columns:1fr 1fr!important;
+    gap:22px 26px!important;
+  }
+}
