@@ -118,19 +118,6 @@ async function initLatestBlogs(){
 
 function escapeHtml(text=''){ return String(text).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#039;','"':'&quot;'}[c])); }
 
-function initBottomPillNav(){
-  const items = [...document.querySelectorAll('.bottom-pill-item')];
-  if(!items.length) return;
-  const sections = items.map(item=>document.querySelector(item.getAttribute('href'))).filter(Boolean);
-  const setActive = id => items.forEach(item=>item.classList.toggle('is-active', item.getAttribute('href') === '#' + id));
-  const observer = new IntersectionObserver(entries=>{
-    const visible = entries.filter(entry=>entry.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
-    if(visible) setActive(visible.target.id);
-  },{rootMargin:'-22% 0px -58% 0px',threshold:[0,.1,.25,.5]});
-  sections.forEach(section=>observer.observe(section));
-  items.forEach(item=>item.addEventListener('click',()=>setActive(item.getAttribute('href').slice(1))));
-}
-
 modal?.addEventListener('click',e=>{ if(e.target === modal) closeModal(); });
 document.addEventListener('keydown',e=>{ if(e.key === 'Escape') closeModal(); });
-document.addEventListener('DOMContentLoaded',()=>{ initTheme(); initReveal(); initLatestBlogs(); initBottomPillNav(); });
+document.addEventListener('DOMContentLoaded',()=>{ initTheme(); initReveal(); initLatestBlogs(); });
