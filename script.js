@@ -98,7 +98,7 @@ async function initLatestBlogs(){
   try{
     const res = await fetch('/blog/blogs.json', {cache:'no-store'});
     if(!res.ok) throw new Error('No disponible');
-    const posts = (await res.json()).sort((a,b)=>parseDate(b.date)-parseDate(a.date)).slice(0,3);
+    const posts = (await res.json()).sort((a,b)=>parseDate(b.date)-parseDate(a.date)).slice(0,2);
     if(!posts.length) throw new Error('Sin publicaciones');
     grid.innerHTML = posts.map(post=>`
       <article class="home-blog-card">
