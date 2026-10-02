@@ -1541,3 +1541,10 @@ body{
     gap:22px 26px!important;
   }
 }
+
+
+/* Remove obsolete Linux fallback — 2026-10-02 */
+.compatibility-platforms span:last-child::before{
+  content:none!important;
+  display:none!important;
+}
