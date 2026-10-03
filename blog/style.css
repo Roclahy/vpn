@@ -459,3 +459,128 @@ body {
         line-height: 1.72;
     }
 }
+
+
+/* Article chrome cleanup — 2026-10-02 */
+/* Articles should open directly into the reading surface, without the home-page
+   floating header. The legacy article loader still injects that markup, so keep
+   it out of the article layout instead of touching the obfuscated loader. */
+body{
+    padding-top:0 !important;
+}
+
+body > .navbar{
+    display:none !important;
+}
+
+#article-container{
+    margin-top:32px;
+}
+
+/* The legacy footer also injects a decorative background logo that no longer
+   belongs to the redesigned site and was creating a large blank block. */
+.footer-bg-logo{
+    display:none !important;
+}
+
+.footer .footer-content{
+    display:grid;
+    grid-template-columns:minmax(0,1.45fr) repeat(2,minmax(0,1fr));
+    gap:32px;
+    align-items:start;
+}
+
+.footer .footer-brand{
+    min-width:0;
+}
+
+.footer .footer-logo{
+    font-size:16px;
+    font-weight:700;
+    letter-spacing:-.02em;
+    color:var(--text);
+}
+
+.footer .footer-brand > p{
+    margin:10px 0 14px;
+    color:var(--muted);
+    font-size:13px;
+}
+
+.footer .footer-email{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    color:var(--muted);
+    font-size:12px;
+}
+
+.footer .footer-socials{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-top:10px;
+}
+
+.footer .footer-socials a{
+    color:var(--muted);
+    font-size:18px;
+}
+
+.footer .footer-nav{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:8px;
+}
+
+.footer .footer-nav h4{
+    margin:0 0 3px;
+    font-size:12px;
+    color:var(--text);
+}
+
+.footer .footer-nav a{
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.45;
+}
+
+.footer .footer-email:hover,
+.footer .footer-socials a:hover,
+.footer .footer-nav a:hover{
+    color:var(--primary);
+}
+
+.footer .footer-bottom{
+    margin-top:28px;
+    padding-top:18px;
+}
+
+.footer .copyright{
+    font-size:11px;
+    color:var(--muted);
+}
+
+@media(max-width:620px){
+    #article-container{
+        margin:20px auto 34px;
+    }
+
+    .footer{
+        padding-bottom:34px;
+    }
+
+    .footer .footer-content{
+        grid-template-columns:1fr 1fr;
+        gap:24px 20px;
+    }
+
+    .footer .footer-brand{
+        grid-column:1 / -1;
+    }
+
+    .footer .footer-bottom{
+        margin-top:22px;
+    }
+}
