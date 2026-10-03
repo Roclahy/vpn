@@ -42,7 +42,7 @@ async function openProxyModal(){
   if(!modal || !modalBody) return;
   modalBody.innerHTML = `
     <div class="modal-header">
-      <div class="modal-title-wrap"><div class="modal-icon"><img src="/assets/proxy.webp" alt=""></div><h2>Telegram Proxy</h2></div>
+      <div class="modal-title-wrap"><div class="modal-icon proxy-modal-icon"><img src="/assets/proxy.webp" alt=""></div><h2>Telegram Proxy</h2></div>
       <button class="close-modal" onclick="closeModal()" aria-label="Cerrar">×</button>
     </div>
     <p class="proxy-copy">Servicio proxy para Telegram con la infraestructura de RoCla VPN, pensado como alternativa durante bloqueos o problemas de acceso.</p>
