@@ -1822,3 +1822,55 @@ body{
     min-height:46px!important;
   }
 }
+
+
+/* Match theme and proxy control size — 2026-10-03 */
+:root{
+  --top-control-size:44px;
+}
+
+.icon-button,
+.proxy-nav-btn{
+  width:var(--top-control-size)!important;
+  height:var(--top-control-size)!important;
+  min-width:var(--top-control-size)!important;
+  flex:0 0 var(--top-control-size)!important;
+  box-sizing:border-box!important;
+  display:grid!important;
+  place-items:center!important;
+}
+
+.icon-button{
+  padding:0!important;
+  border-radius:50%!important;
+}
+
+.icon-button i{
+  font-size:22px!important;
+  line-height:1!important;
+}
+
+.proxy-nav-btn{
+  padding:0!important;
+  border-radius:50%!important;
+  overflow:hidden!important;
+}
+
+.proxy-nav-btn img{
+  width:var(--top-control-size)!important;
+  height:var(--top-control-size)!important;
+  min-width:var(--top-control-size)!important;
+  border-radius:50%!important;
+  object-fit:cover!important;
+  display:block!important;
+}
+
+@media(max-width:620px){
+  :root{
+    --top-control-size:42px;
+  }
+
+  .icon-button i{
+    font-size:20px!important;
+  }
+}
