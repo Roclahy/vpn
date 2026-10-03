@@ -1548,3 +1548,83 @@ body{
   content:none!important;
   display:none!important;
 }
+
+
+/* Brand-first controls — 2026-10-03 */
+.logo-icon{
+  width:44px!important;
+  height:44px!important;
+  padding:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+  object-fit:contain!important;
+}
+
+.proxy-nav-btn{
+  width:48px!important;
+  height:48px!important;
+  min-width:48px!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+.proxy-nav-btn:hover{
+  border-color:transparent!important;
+  background:transparent!important;
+}
+.proxy-nav-btn img{
+  width:42px!important;
+  height:42px!important;
+  border-radius:0!important;
+  object-fit:contain!important;
+}
+
+.support-float{
+  width:64px!important;
+  height:64px!important;
+  min-width:64px!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+.support-float img{
+  width:64px!important;
+  height:64px!important;
+  border-radius:0!important;
+  object-fit:contain!important;
+}
+
+@media(max-width:620px){
+  .logo-icon{
+    width:42px!important;
+    height:42px!important;
+  }
+
+  .proxy-nav-btn{
+    width:46px!important;
+    height:46px!important;
+    min-width:46px!important;
+  }
+  .proxy-nav-btn img{
+    width:40px!important;
+    height:40px!important;
+  }
+
+  .support-float{
+    width:64px!important;
+    height:64px!important;
+    min-width:64px!important;
+    right:12px!important;
+    bottom:14px!important;
+  }
+  .support-float img{
+    width:64px!important;
+    height:64px!important;
+  }
+}
