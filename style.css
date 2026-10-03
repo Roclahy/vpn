@@ -1628,3 +1628,98 @@ body{
     height:64px!important;
   }
 }
+
+
+/* Final brand controls — 2026-10-03 */
+.logo-icon{
+  width:48px!important;
+  height:48px!important;
+  min-width:48px!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:50%!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  object-fit:cover!important;
+  opacity:1!important;
+  filter:none!important;
+}
+
+.proxy-nav-btn{
+  width:48px!important;
+  height:48px!important;
+  min-width:48px!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:50%!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  overflow:hidden!important;
+}
+.proxy-nav-btn:hover{
+  background:transparent!important;
+  border-color:transparent!important;
+  box-shadow:none!important;
+}
+.proxy-nav-btn img{
+  width:44px!important;
+  height:44px!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:50%!important;
+  object-fit:cover!important;
+  display:block!important;
+}
+
+.support-float{
+  width:80px!important;
+  height:80px!important;
+  min-width:80px!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  display:grid!important;
+  place-items:center!important;
+  overflow:visible!important;
+}
+.support-float img{
+  width:80px!important;
+  height:80px!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:50%!important;
+  object-fit:contain!important;
+  display:block!important;
+}
+
+@media(max-width:620px){
+  .logo-icon{
+    width:46px!important;
+    height:46px!important;
+    min-width:46px!important;
+  }
+
+  .proxy-nav-btn{
+    width:46px!important;
+    height:46px!important;
+    min-width:46px!important;
+  }
+  .proxy-nav-btn img{
+    width:42px!important;
+    height:42px!important;
+  }
+
+  .support-float{
+    width:86px!important;
+    height:86px!important;
+    min-width:86px!important;
+    right:8px!important;
+    bottom:10px!important;
+  }
+  .support-float img{
+    width:86px!important;
+    height:86px!important;
+  }
+}
