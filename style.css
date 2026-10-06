@@ -1876,94 +1876,127 @@ body{
 }
 
 
-/* Service status — 2026-10-06 */
+/* Service status — compact 2026-10-06 */
 .service-status-section{
-  padding-top:54px;
-  padding-bottom:34px;
+  padding:18px 0 12px;
 }
-.service-status-section .section-heading{
-  margin-bottom:24px;
-}
-.service-status-grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:14px;
-}
-.service-status-card{
-  min-height:92px;
-  padding:18px 20px;
-  border:1px solid var(--line);
-  border-radius:22px;
-  background:var(--surface);
+.service-status-bar{
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:18px;
-  box-shadow:0 10px 34px rgba(0,0,0,.035);
+  padding:12px 14px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:var(--surface);
+  box-shadow:0 8px 28px rgba(0,0,0,.035);
 }
-.service-status-copy{
-  min-width:0;
+.service-status-heading{
+  min-width:150px;
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+}
+.service-status-heading strong{
+  font-size:13px;
+  letter-spacing:-.01em;
+}
+.service-status-heading span{
+  color:var(--muted);
+  font-size:11px;
+}
+.service-status-grid{
   display:flex;
   align-items:center;
-  gap:13px;
+  justify-content:flex-end;
+  gap:8px;
+  flex:1;
+}
+.service-status-card{
+  min-width:0;
+  padding:8px 10px;
+  border-radius:13px;
+  background:var(--surface-2);
+  display:flex;
+  align-items:center;
+  gap:8px;
 }
 .service-status-icon{
-  width:42px;
-  height:42px;
-  flex:0 0 42px;
-  border-radius:14px;
-  background:var(--surface-2);
+  width:28px;
+  height:28px;
+  flex:0 0 28px;
+  border-radius:9px;
+  background:var(--surface);
   display:grid;
   place-items:center;
   color:var(--primary);
-  font-size:20px;
-}
-.service-status-copy strong{
-  display:block;
   font-size:15px;
-  letter-spacing:-.015em;
 }
-.service-status-copy small{
-  display:block;
-  margin-top:3px;
-  color:var(--muted);
+.service-status-name{
   font-size:12px;
+  font-weight:700;
+  white-space:nowrap;
 }
 .service-status-value{
   display:inline-flex;
   align-items:center;
-  gap:8px;
+  gap:6px;
   white-space:nowrap;
-  font-size:13px;
+  font-size:11px;
   font-weight:700;
 }
 .service-status-dot{
-  width:9px;
-  height:9px;
+  width:7px;
+  height:7px;
   border-radius:50%;
   background:#8e8e93;
-  box-shadow:0 0 0 4px rgba(142,142,147,.12);
+  box-shadow:0 0 0 3px rgba(142,142,147,.12);
 }
 .service-status-card.is-operational .service-status-dot{
   background:#30d158;
-  box-shadow:0 0 0 4px rgba(48,209,88,.13);
+  box-shadow:0 0 0 3px rgba(48,209,88,.13);
 }
 .service-status-card.is-down .service-status-dot{
   background:#ff453a;
-  box-shadow:0 0 0 4px rgba(255,69,58,.13);
+  box-shadow:0 0 0 3px rgba(255,69,58,.13);
 }
 .service-status-card.is-down .service-status-text{
   color:#ff453a;
 }
-.service-status-meta{
-  margin-top:12px;
-  color:var(--muted);
-  font-size:12px;
-  text-align:right;
+@media(max-width:760px){
+  .service-status-section{padding:12px 0 8px}
+  .service-status-bar{
+    align-items:flex-start;
+    flex-direction:column;
+    gap:10px;
+    padding:12px;
+  }
+  .service-status-heading{
+    width:100%;
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+  }
+  .service-status-grid{
+    width:100%;
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:8px;
+  }
+  .service-status-card{
+    padding:8px;
+  }
+  .service-status-icon{
+    display:none;
+  }
+  .service-status-name{
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
 }
-@media(max-width:700px){
-  .service-status-section{padding-top:40px;padding-bottom:24px}
-  .service-status-grid{grid-template-columns:1fr}
-  .service-status-card{min-height:84px;padding:16px}
-  .service-status-meta{text-align:left}
+@media(max-width:460px){
+  .service-status-grid{
+    grid-template-columns:1fr;
+  }
 }
