@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://use.hugeicons.com/font/icons.css">
-  <link rel="stylesheet" href="style.css?v=20261006-status-compact">
+  <link rel="stylesheet" href="style.css?v=20261006-status-inline">
 </head>
 <body>
   <nav class="navbar" aria-label="Navegación principal">
@@ -92,23 +92,18 @@
 
     <section id="estado" class="service-status-section">
       <div class="container">
-        <div class="service-status-bar reveal">
-          <div class="service-status-heading">
-            <strong>Estado de los servicios</strong>
-            <span id="service-status-updated">Comprobando estado…</span>
-          </div>
-          <div class="service-status-grid">
-            <article class="service-status-card" id="service-status-vpn">
-              <span class="service-status-icon"><i class="hgi hgi-stroke hgi-shield-01" aria-hidden="true"></i></span>
-              <span class="service-status-name">RoCla VPN</span>
-              <span class="service-status-value"><span class="service-status-dot"></span><span class="service-status-text">Comprobando…</span></span>
-            </article>
-            <article class="service-status-card" id="service-status-mtproto">
-              <span class="service-status-icon"><i class="hgi hgi-stroke hgi-telegram" aria-hidden="true"></i></span>
-              <span class="service-status-name">Proxy MTProto</span>
-              <span class="service-status-value"><span class="service-status-dot"></span><span class="service-status-text">Comprobando…</span></span>
-            </article>
-          </div>
+        <div class="service-status-line reveal">
+          <strong class="service-status-title">Estado</strong>
+          <span class="service-status-item" id="service-status-vpn">
+            <span class="service-status-name">RoCla VPN</span>
+            <span class="service-status-value"><span class="service-status-dot"></span><span class="service-status-text">Comprobando…</span></span>
+          </span>
+          <span class="service-status-separator" aria-hidden="true"></span>
+          <span class="service-status-item" id="service-status-mtproto">
+            <span class="service-status-name">MTProto</span>
+            <span class="service-status-value"><span class="service-status-dot"></span><span class="service-status-text">Comprobando…</span></span>
+          </span>
+          <span class="service-status-updated" id="service-status-updated">Comprobando…</span>
         </div>
       </div>
     </section>
