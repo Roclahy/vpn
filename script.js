@@ -139,4 +139,46 @@ function escapeHtml(text=''){ return String(text).replace(/[&<>'"]/g,c=>({'&':'&
 
 modal?.addEventListener('click',e=>{ if(e.target === modal) closeModal(); });
 document.addEventListener('keydown',e=>{ if(e.key === 'Escape') closeModal(); });
-document.addEventListener('DOMContentLoaded',()=>{ initTheme(); initReveal(); initLatestBlogs(); });
+
+function setServiceStatus(id, operational){
+  const card = document.getElementById(id);
+  if(!card) return;
+  card.classList.remove('is-operational','is-down');
+  card.classList.add(operational ? 'is-operational' : 'is-down');
+  const text = card.querySelector('.service-status-text');
+  if(text) text.textContent = operational ? 'Operativo' : 'No disponible';
+}
+
+async function refreshServiceStatus(){
+  const meta = document.getElementById('service-status-updated');
+  try{
+    const res = await fetch('https://proxy.roclahy.me/status.json?ts=' + Date.now(), {cache:'no-store'});
+    if(!res.ok) throw new Error('Estado HTTP ' + res.status);
+    const data = await res.json();
+    setServiceStatus('service-status-vpn', !!data?.services?.vpn?.operational);
+    setServiceStatus('service-status-mtproto', !!data?.services?.mtproto?.operational);
+    const when = data.updated_at ? new Date(data.updated_at) : null;
+    if(meta){
+      meta.textContent = when && !Number.isNaN(when.getTime())
+        ? 'Actualizado ' + when.toLocaleTimeString('es', {hour:'2-digit', minute:'2-digit'})
+        : 'Actualizado ahora';
+    }
+  }catch(error){
+    ['service-status-vpn','service-status-mtproto'].forEach(id=>{
+      const card = document.getElementById(id);
+      if(!card) return;
+      card.classList.remove('is-operational','is-down');
+      const text = card.querySelector('.service-status-text');
+      if(text) text.textContent = 'Estado no disponible';
+    });
+    if(meta) meta.textContent = 'No se pudo consultar el estado';
+    console.error('No se pudo consultar el estado de los servicios.', error);
+  }
+}
+
+function initServiceStatus(){
+  refreshServiceStatus();
+  window.setInterval(refreshServiceStatus, 30000);
+}
+
+document.addEventListener('DOMContentLoaded',()=>{ initTheme(); initReveal(); initLatestBlogs(); initServiceStatus(); });
