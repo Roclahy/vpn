@@ -152,7 +152,7 @@ function setServiceStatus(id, operational){
 async function refreshServiceStatus(){
   const meta = document.getElementById('service-status-updated');
   try{
-    const res = await fetch('https://proxy.roclahy.me/status.json?ts=' + Date.now(), {cache:'no-store'});
+    const res = await fetch('https://proxy.roclahy.me/status-vpn.json?ts=' + Date.now(), {cache:'no-store'});
     if(!res.ok) throw new Error('Estado HTTP ' + res.status);
     const data = await res.json();
     setServiceStatus('service-status-vpn', !!data?.services?.vpn?.operational);
