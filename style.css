@@ -1936,9 +1936,12 @@ body{
   background:var(--line);
 }
 .service-status-updated{
-  margin-left:auto;
+  margin-top:5px;
+  padding-right:4px;
   color:var(--muted);
   font-size:11px;
+  line-height:1.2;
+  text-align:right;
   white-space:nowrap;
 }
 @media(max-width:640px){
@@ -1952,5 +1955,5 @@ body{
   }
   .service-status-line::-webkit-scrollbar{display:none}
   .service-status-title{display:none}
-  .service-status-updated{margin-left:4px}
+  .service-status-updated{margin-top:4px;padding-right:2px}
 }

@@ -160,7 +160,7 @@ async function refreshServiceStatus(){
     const when = data.updated_at ? new Date(data.updated_at) : null;
     if(meta){
       meta.textContent = when && !Number.isNaN(when.getTime())
-        ? 'Actualizado ' + when.toLocaleTimeString('es', {hour:'2-digit', minute:'2-digit'})
+        ? 'Actualizado ' + when.toLocaleTimeString('en-US', {hour:'numeric', minute:'2-digit', hour12:true})
         : 'Actualizado ahora';
     }
   }catch(error){
