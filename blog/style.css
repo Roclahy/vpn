@@ -1,4 +1,4 @@
-@import url('/style.css');
+@import url('/style.css?v=20261007-1');
 
 * {
     scroll-padding-top: 100px;
@@ -9,6 +9,8 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
 }
 
 #article-container {
@@ -23,7 +25,7 @@ body {
     font-size: clamp(2rem, 5vw, 3.5rem);
     margin-bottom: 1rem;
     line-height: 1.1;
-    color: var(--text-primary);
+    color: var(--text);
     text-wrap: balance;
 }
 
@@ -33,14 +35,14 @@ body {
     gap: 15px;
     margin-bottom: 2.5rem;
     font-size: 0.95rem;
-    color: var(--text-secondary);
-    border-bottom: 1px solid var(--border-color);
+    color: var(--muted);
+    border-bottom: 1px solid var(--line);
     padding-bottom: 1.5rem;
 }
 
 #meta .author {
     font-weight: 600;
-    color: var(--text-primary);
+    color: var(--text);
     display: flex;
     align-items: center;
     gap: 8px;
@@ -59,7 +61,7 @@ body {
 #content {
     font-size: 1.1rem;
     line-height: 1.8;
-    color: var(--text-secondary);
+    color: var(--muted);
 }
 
 #content img {
@@ -73,7 +75,7 @@ body {
 #content figcaption {
     text-align: center;
     font-size: 0.9rem;
-    color: var(--text-secondary);
+    color: var(--muted);
     margin-top: -1.5rem;
     margin-bottom: 2rem;
     font-style: italic;
@@ -84,7 +86,7 @@ body {
 }
 
 #content h3 {
-    color: var(--text-primary);
+    color: var(--text);
     font-size: 1.8rem;
     margin-top: 3rem;
     margin-bottom: 1rem;
@@ -92,7 +94,7 @@ body {
 }
 
 #content h4 {
-    color: var(--text-primary);
+    color: var(--text);
     font-size: 1.4rem;
     margin-top: 2rem;
     margin-bottom: 0.8rem;
@@ -104,8 +106,8 @@ body {
     padding-left: 1.5rem;
     font-style: italic;
     margin: 2rem 0;
-    color: var(--text-primary);
-    background: var(--bg-secondary);
+    color: var(--text);
+    background: var(--surface);
     padding: 1.5rem;
     border-radius: 0 var(--radius-md) var(--radius-md) 0;
 }
@@ -129,14 +131,14 @@ body {
 #content hr {
     border: 0;
     height: 1px;
-    background: var(--border-color);
+    background: var(--line);
     margin: 3rem 0;
 }
 
 #content strong,
 #content b {
     font-weight: 600;
-    color: var(--text-primary);
+    color: var(--text);
 }
 
 #content em,
@@ -152,14 +154,14 @@ body {
 .breadcrumb {
     margin-bottom: 1rem;
     font-size: 0.9rem;
-    color: var(--text-secondary);
+    color: var(--muted);
     display: flex;
     gap: 8px;
     align-items: center;
 }
 
 .breadcrumb a {
-    color: var(--text-secondary);
+    color: var(--muted);
     text-decoration: none;
     transition: color 0.2s;
 }
@@ -185,8 +187,8 @@ body {
 }
 
 .blog-card {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
+    background: var(--surface);
+    border: 1px solid var(--line);
     border-radius: var(--radius-md);
     overflow: hidden;
     transition: transform 0.2s, box-shadow 0.2s;
@@ -228,7 +230,7 @@ body {
 
 .blog-date {
     font-size: 0.85rem;
-    color: var(--text-secondary);
+    color: var(--muted);
     margin-bottom: 10px;
     display: block;
 }
@@ -237,13 +239,13 @@ body {
     font-size: 1.25rem;
     font-family: 'Josefin Sans', sans-serif;
     margin: 0 0 10px 0;
-    color: var(--text-primary);
+    color: var(--text);
     line-height: 1.3;
 }
 
 .blog-desc {
     font-size: 0.95rem;
-    color: var(--text-secondary);
+    color: var(--muted);
     margin: 0 0 20px 0;
     line-height: 1.5;
     flex-grow: 1;
@@ -264,7 +266,7 @@ body {
 }
 
 .blog-btn:hover {
-    background: var(--primary-dark);
+    background: var(--primary-hover);
 }
 
 
@@ -297,6 +299,17 @@ body {
     --bg-secondary: var(--surface);
     --primary-dark: var(--primary-hover);
     --radius-md: 18px;
+}
+
+[data-theme="dark"] {
+    /* Explicit legacy-token values keep injected article UI readable even if
+       a browser has an older copy of the global stylesheet cached. */
+    --text-primary: #f5f5f7;
+    --text-secondary: #a1a1a6;
+    --border-color: rgba(235, 235, 245, .16);
+    --bg-primary: #000;
+    --bg-secondary: #1c1c1e;
+    --primary-dark: #004ee0;
 }
 
 /* blog/script.js still injects the legacy article header markup.
