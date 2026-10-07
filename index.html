@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://use.hugeicons.com/font/icons.css">
-  <link rel="stylesheet" href="style.css?v=20261007-header-exact-2">
+  <link rel="stylesheet" href="style.css?v=20261007-hero-spacing">
   <style>
     /* Critical service header: exact visual match with proxy.roclavpn.com */
     .navbar{
@@ -156,9 +156,17 @@
       font-size:18px!important;
       line-height:1!important;
     }
+
+    /* Keep the hero below the fixed 54px service header, matching RoCla Proxy's 24px breathing room */
+    main .hero{
+      padding-top:88px!important;
+    }
     @media(max-width:720px){
       .navbar .container.nav-shell{
         width:min(1060px,calc(100% - 20px))!important;
+      }
+      main .hero{
+        padding-top:78px!important;
       }
     }
   </style>
