@@ -1956,3 +1956,41 @@ body{
   .service-status-title{display:none}
   .service-status-updated{margin-top:4px}
 }
+
+
+/* Header cross-link — 2026-10-07 */
+.proxy-pill-btn{
+  min-height:44px;
+  padding:0 16px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:var(--surface);
+  color:var(--text);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  white-space:nowrap;
+  font-size:13px;
+  font-weight:750;
+  letter-spacing:-.01em;
+  text-decoration:none;
+  transition:.18s ease;
+}
+.proxy-pill-btn:hover{
+  transform:translateY(-1px);
+  background:var(--soft);
+  border-color:rgba(10,92,255,.28);
+}
+.proxy-pill-btn:active{
+  transform:scale(.97);
+}
+[data-theme="dark"] .proxy-pill-btn{
+  background:rgba(44,44,46,.72);
+}
+@media(max-width:620px){
+  .proxy-pill-btn{
+    min-height:42px;
+    padding:0 14px;
+    font-size:12.5px;
+  }
+}
