@@ -2151,8 +2151,7 @@ body{
   }
 }
 
-/* Plan navigation: reliable horizontal swipe with visible controls on mobile */
-.plans-carousel-nav{display:none}
+/* Mobile plans: native horizontal swipe without navigation buttons. */
 @media(max-width:620px){
   .plans-spotlight{
     overflow-x:auto;
@@ -2162,32 +2161,6 @@ body{
     overscroll-behavior-x:contain;
     scroll-behavior:smooth;
   }
-  .plans-carousel-nav{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:12px;
-    margin:8px 0 0;
-  }
-  .plans-carousel-hint{
-    font-size:12px;
-    color:var(--muted);
-  }
-  .plans-carousel-buttons{display:flex;gap:8px}
-  .plans-carousel-arrow{
-    display:grid;
-    place-items:center;
-    width:36px;
-    height:36px;
-    border-radius:50%;
-    border:1px solid var(--line);
-    background:var(--bg);
-    color:var(--text);
-    cursor:pointer;
-    font-size:17px;
-    -webkit-tap-highlight-color:transparent;
-  }
-  .plans-carousel-arrow:disabled{opacity:.32;cursor:default}
 }
 @media(prefers-reduced-motion:reduce){
   .plans-spotlight{scroll-behavior:auto}
