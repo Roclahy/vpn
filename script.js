@@ -176,9 +176,36 @@ async function refreshServiceStatus(){
   }
 }
 
+
+function initPlansCarousel(){
+  const track = document.getElementById('plans-carousel');
+  const nav = document.querySelector('.plans-carousel-nav');
+  if(!track || !nav) return;
+  const buttons = [...nav.querySelectorAll('button[data-direction]')];
+  function refreshButtons(){
+    const maxScroll = Math.max(0,track.scrollWidth - track.clientWidth);
+    buttons.forEach(button=>{
+      const direction = Number(button.dataset.direction);
+      button.disabled = direction < 0 ? track.scrollLeft <= 4 : track.scrollLeft >= maxScroll - 4;
+    });
+  }
+  nav.addEventListener('click',event=>{
+    const button = event.target.closest('button[data-direction]');
+    if(!button || button.disabled) return;
+    const card = track.querySelector('.plan-card');
+    const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+    const step = (card?.getBoundingClientRect().width || track.clientWidth) + gap;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    track.scrollBy({left:Number(button.dataset.direction)*step,behavior:reducedMotion?'auto':'smooth'});
+  });
+  track.addEventListener('scroll',refreshButtons,{passive:true});
+  window.addEventListener('resize',refreshButtons);
+  refreshButtons();
+}
+
 function initServiceStatus(){
   refreshServiceStatus();
   window.setInterval(refreshServiceStatus, 30000);
 }
 
-document.addEventListener('DOMContentLoaded',()=>{ initTheme(); initReveal(); initLatestBlogs(); initServiceStatus(); });
+document.addEventListener('DOMContentLoaded',()=>{ initTheme(); initReveal(); initPlansCarousel(); initLatestBlogs(); initServiceStatus(); });
