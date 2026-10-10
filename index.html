@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://use.hugeicons.com/font/icons.css">
-  <link rel="stylesheet" href="style.css?v=20261007-hero-spacing">
+  <link rel="stylesheet" href="style.css?v=20261010-planes-scroll">
   <style>
     /* Critical service header: exact visual match with proxy.roclavpn.com */
     .navbar{
@@ -256,7 +256,7 @@
           <h2>Elige cuánto necesitas.</h2>
           <p>Empieza gratis o escala según tu consumo. Todos los planes duran 30 días.</p>
         </div>
-        <div class="plans-spotlight">
+        <div class="plans-spotlight" id="plans-carousel" role="region" aria-label="Planes disponibles">
           <article class="plan-card reveal">
             <div class="plan-top"><span class="plan-name">Gratis</span><img src="/assets/plan-icons/gratis.webp" alt=""></div>
             <div class="plan-data">100 MB</div><div class="plan-price">0 CUP</div>
@@ -278,6 +278,13 @@
             <div class="plan-data">100 GB</div><div class="plan-price">1000 CUP</div>
             <div class="plan-actions"><button class="text-button" onclick="openModal('premium')">Detalles</button><a href="https://t.me/roclavpnbot?start=buy_pkg_1771696915" class="button button-card">Obtener</a></div>
           </article>
+        </div>
+        <div class="plans-carousel-nav" aria-label="Navegación entre planes">
+          <span class="plans-carousel-hint">Desliza para ver más planes</span>
+          <div class="plans-carousel-buttons">
+            <button type="button" class="plans-carousel-arrow" data-direction="-1" aria-label="Plan anterior" aria-controls="plans-carousel" disabled><i class="hgi hgi-stroke hgi-arrow-left-02" aria-hidden="true"></i></button>
+            <button type="button" class="plans-carousel-arrow" data-direction="1" aria-label="Plan siguiente" aria-controls="plans-carousel"><i class="hgi hgi-stroke hgi-arrow-right-02" aria-hidden="true"></i></button>
+          </div>
         </div>
         <details class="more-plans reveal">
           <summary>Ver también Mini y Esencial <i class="hgi hgi-stroke hgi-arrow-down-01" aria-hidden="true"></i></summary>
@@ -413,6 +420,6 @@
   </div>
 
   <a href="https://t.me/roclak" target="_blank" class="support-float" aria-label="Soporte técnico"><img src="/assets/soporte.png" alt=""></a>
-  <script src="script.js?v=20261006-status-time2"></script>
+  <script src="script.js?v=20261010-planes-scroll"></script>
 </body>
 </html>
