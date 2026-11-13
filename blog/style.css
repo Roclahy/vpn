@@ -22,7 +22,7 @@ body {
 }
 
 #title {
-    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-size: clamp(1.9rem, 4vw, 2.6rem);
     margin-bottom: 1rem;
     line-height: 1.1;
     color: var(--text);
@@ -458,7 +458,8 @@ body {
     }
 
     #title {
-        font-size: clamp(2rem, 10vw, 3rem);
+        font-size: clamp(1.55rem, 7.2vw, 2rem);
+        line-height: 1.15;
     }
 
     #meta {
