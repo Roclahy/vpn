@@ -597,3 +597,145 @@ body > .navbar{
         margin-top:22px;
     }
 }
+
+
+/* Article footer restore — 2026-11-13
+   blog/script.js (legacy loader) injects the share buttons and the
+   "Más Artículos" carousel with the classes below, but the 2026-10-02
+   site redesign dropped every rule for them from both stylesheets.
+   Without them #related-carousel is a plain block (cards stack
+   vertically full-width), .scroll-btn and .social-btn fall back to
+   the browser's default button look (white box), and the
+   "Ver todas las publicaciones" link renders unstyled. */
+
+.share-icons-container {
+    align-items: center;
+}
+
+.share-section .social-btn {
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    background: var(--surface);
+    color: var(--text);
+    font-size: 18px;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.share-section .social-btn:hover {
+    color: var(--primary);
+    border-color: rgba(10, 92, 255, .35);
+    transform: translateY(-1px);
+}
+
+#latest-blogs {
+    margin-top: 10px;
+}
+
+#latest-blogs .section-title {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    line-height: 1.15;
+    color: var(--text);
+    margin: 0 0 20px;
+    text-align: left;
+}
+
+.blog-carousel-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.blog-carousel {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding: 4px 2px 10px;
+}
+
+.blog-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.blog-carousel .home-blog-card {
+    flex: 0 0 min(340px, 85%);
+    scroll-snap-align: start;
+}
+
+.blog-carousel .blog-loading,
+.blog-carousel > p {
+    width: 100%;
+}
+
+.scroll-btn {
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    background: var(--surface);
+    color: var(--text);
+    font-size: 15px;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.scroll-btn:hover {
+    color: var(--primary);
+    border-color: rgba(10, 92, 255, .35);
+    transform: translateY(-1px);
+}
+
+#article-footer .plan-btn.btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--text);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+#article-footer .plan-btn.btn-outline:hover {
+    color: var(--primary);
+    border-color: rgba(10, 92, 255, .35);
+}
+
+@media (max-width: 620px) {
+    /* Native swipe on mobile, same call as the home plan carousel:
+       no arrow buttons squeezing the row. */
+    .scroll-btn {
+        display: none;
+    }
+
+    .blog-carousel {
+        gap: 12px;
+        padding-bottom: 6px;
+    }
+
+    .blog-carousel .home-blog-card {
+        flex-basis: 88%;
+    }
+}
