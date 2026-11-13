@@ -155,7 +155,7 @@ async function refreshServiceStatus(){
     if(!res.ok) throw new Error('Estado HTTP ' + res.status);
     const data = await res.json();
     setServiceStatus('service-status-vpn', !!data?.services?.vpn?.operational);
-    setServiceStatus('service-status-mtproto', !!data?.services?.mtproto?.operational);
+    setServiceStatus('service-status-mtproto', !!data?.services?.mtproto?.operational && !!data?.services?.proxy_web?.operational);
     const when = data.updated_at ? new Date(data.updated_at) : null;
     if(meta){
       meta.textContent = when && !Number.isNaN(when.getTime())
