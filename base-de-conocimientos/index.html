@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <title>Base de conocimientos — RoCla VPN</title>
+  <meta name="description" content="Base de conocimientos de RoCla VPN: cómo funciona el servicio, planes, protocolos, aplicaciones recomendadas, pagos, RoCla Proxy, soporte y soluciones a los problemas más frecuentes.">
+  <meta name="author" content="RoCla VPN">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#f5f5f7">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://vpn.roclahy.com/base-de-conocimientos/">
+  <meta property="og:title" content="Base de conocimientos — RoCla VPN">
+  <meta property="og:description" content="Cómo funciona RoCla VPN, qué incluye cada plan, cómo resolver los inconvenientes más comunes y cómo contactar con nuestro soporte.">
+  <meta property="og:image" content="https://vpn.roclahy.com/roclavpn-logo-2.webp">
+  <link rel="icon" type="image/webp" href="/roclavpn-logo.webp?v=20261002-official">
+  <link rel="shortcut icon" type="image/webp" href="/roclavpn-logo.webp?v=20261002-official">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.hugeicons.com/font/icons.css">
+  <link rel="stylesheet" href="/style.css?v=20261010-planes-swipe">
+  <style>
+    /* Critical service header: exact visual match with proxy.roclavpn.com */
+    .navbar{
+      position:fixed!important;
+      top:0!important;
+      left:0!important;
+      right:0!important;
+      z-index:100!important;
+      background:color-mix(in srgb,var(--bg) 82%,transparent)!important;
+      backdrop-filter:saturate(180%) blur(18px)!important;
+      -webkit-backdrop-filter:saturate(180%) blur(18px)!important;
+      border:0!important;
+      border-bottom:1px solid var(--line)!important;
+      border-radius:0!important;
+      box-shadow:none!important;
+    }
+    .navbar .container.nav-shell{
+      width:min(1060px,calc(100% - 28px))!important;
+      height:54px!important;
+      min-height:54px!important;
+      max-height:54px!important;
+      margin:0 auto!important;
+      padding:0!important;
+      border:0!important;
+      border-radius:0!important;
+      background:transparent!important;
+      box-shadow:none!important;
+      display:flex!important;
+      align-items:center!important;
+      justify-content:space-between!important;
+      gap:0!important;
+    }
+    .navbar .nav-links{display:none!important}
+    .navbar .logo{
+      display:flex!important;
+      align-items:center!important;
+      gap:9px!important;
+      margin:0!important;
+      padding:0!important;
+      font-size:16px!important;
+      font-weight:760!important;
+      line-height:1!important;
+      letter-spacing:-.03em!important;
+      white-space:nowrap!important;
+    }
+    .navbar .logo strong{
+      color:inherit!important;
+      font-weight:760!important;
+    }
+    .navbar .logo .logo-icon{
+      display:block!important;
+      width:28px!important;
+      height:28px!important;
+      min-width:28px!important;
+      min-height:28px!important;
+      max-width:28px!important;
+      max-height:28px!important;
+      padding:0!important;
+      margin:0!important;
+      border:0!important;
+      border-radius:50%!important;
+      background:transparent!important;
+      box-shadow:none!important;
+      object-fit:cover!important;
+      transform:none!important;
+    }
+    .navbar .nav-actions{
+      margin-left:auto!important;
+      display:flex!important;
+      align-items:center!important;
+      gap:8px!important;
+    }
+    .navbar .proxy-pill-btn{
+      box-sizing:border-box!important;
+      width:auto!important;
+      height:36px!important;
+      min-width:0!important;
+      min-height:36px!important;
+      max-height:36px!important;
+      padding:0 13px!important;
+      margin:0!important;
+      border:0!important;
+      border-radius:999px!important;
+      display:flex!important;
+      align-items:center!important;
+      justify-content:center!important;
+      background:var(--surface)!important;
+      color:var(--text)!important;
+      box-shadow:inset 0 0 0 1px var(--line)!important;
+      font-size:12px!important;
+      font-weight:800!important;
+      line-height:1!important;
+      letter-spacing:0!important;
+      white-space:nowrap!important;
+      flex:0 0 auto!important;
+      outline:0!important;
+    }
+    .navbar #theme-toggle.icon-button,
+    .navbar #theme-toggle.icon-button:hover,
+    .navbar #theme-toggle.icon-button:active,
+    .navbar #theme-toggle.icon-button:focus,
+    .navbar #theme-toggle.icon-button:focus-visible{
+      box-sizing:border-box!important;
+      appearance:none!important;
+      -webkit-appearance:none!important;
+      width:36px!important;
+      height:36px!important;
+      min-width:36px!important;
+      min-height:36px!important;
+      max-width:36px!important;
+      max-height:36px!important;
+      flex:0 0 36px!important;
+      padding:0!important;
+      margin:0!important;
+      border:0!important;
+      border-radius:50%!important;
+      display:grid!important;
+      place-items:center!important;
+      background:var(--surface)!important;
+      color:var(--text)!important;
+      box-shadow:inset 0 0 0 1px var(--line)!important;
+      outline:0!important;
+      outline-offset:0!important;
+      transform:none!important;
+      -webkit-tap-highlight-color:transparent!important;
+    }
+    .navbar #theme-toggle.icon-button i{
+      font-size:18px!important;
+      line-height:1!important;
+    }
+
+    /* Keep the hero below the fixed 54px service header, matching RoCla Proxy's 24px breathing room */
+    main .hero{
+      padding-top:88px!important;
+    }
+    @media(max-width:720px){
+      .navbar .container.nav-shell{
+        width:min(1060px,calc(100% - 20px))!important;
+      }
+      /* With the login pill added, tighten the mobile header so brand + both pills + theme fit at 360-390px */
+      .navbar .logo{gap:7px!important;font-size:15px!important}
+      .navbar .nav-actions{gap:6px!important}
+      .navbar .proxy-pill-btn{padding:0 10px!important;font-size:11.5px!important}
+      main .hero{
+        padding-top:78px!important;
+      }
+    }
+    /* Base de conocimientos */
+    .kb-wrap{width:min(880px,calc(100% - 40px));margin:0 auto;padding:118px 0 72px}
+    .kb-kicker{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#0254F5}
+    .kb-wrap h1{font-size:clamp(34px,6vw,52px);line-height:1.08;letter-spacing:-.02em;margin:12px 0 10px}
+    .kb-slogan{font-family:'Josefin Sans',Inter,sans-serif;font-size:19px;font-weight:600;color:var(--text)}
+    .kb-lead{color:var(--muted);font-size:16px;margin-top:10px;max-width:62ch}
+    .kb-toc{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-sm);padding:20px 22px;margin:30px 0 8px}
+    .kb-toc strong{font-family:'Josefin Sans',Inter,sans-serif;font-size:15px;display:block;margin-bottom:12px}
+    .kb-toc ol{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:6px 22px;counter-reset:kbtoc}
+    .kb-toc li{counter-increment:kbtoc}
+    .kb-toc a{font-size:13.5px;color:var(--muted);display:flex;gap:9px;align-items:baseline;padding:4px 0}
+    .kb-toc a::before{content:counter(kbtoc,decimal-leading-zero);font-size:11px;font-weight:700;color:#0254F5}
+    .kb-toc a:hover{color:#0254F5}
+    .kb-section{padding:34px 0 6px;border-bottom:1px solid var(--line)}
+    .kb-section:last-of-type{border-bottom:0}
+    .kb-section h2{font-size:26px;letter-spacing:-.01em;margin-bottom:14px}
+    .kb-section h3{font-size:18px;margin:22px 0 10px}
+    .kb-section p{margin:0 0 12px;color:var(--text)}
+    .kb-section ul,.kb-section ol{margin:0 0 14px;padding-left:22px}
+    .kb-section li{margin-bottom:7px}
+    .kb-section a{color:#0254F5;font-weight:500}
+    .kb-table-wrap{overflow-x:auto;margin:6px 0 18px;border:1px solid var(--line);border-radius:var(--radius-sm)}
+    table.kb-table{width:100%;border-collapse:collapse;font-size:14px;min-width:520px}
+    .kb-table th{font-family:'Josefin Sans',Inter,sans-serif;text-align:left;font-size:13px;letter-spacing:.02em;background:var(--surface-2);padding:11px 14px;border-bottom:1px solid var(--line)}
+    .kb-table td{padding:11px 14px;border-bottom:1px solid var(--line)}
+    .kb-table tr:last-child td{border-bottom:0}
+    .kb-item{margin-bottom:18px}
+    .kb-item strong{display:block;margin-bottom:4px}
+    .kb-item p{margin:0}
+    .kb-note{background:var(--surface-2);border:1px solid var(--line);border-radius:var(--radius-sm);padding:14px 16px;font-size:14px;margin:0 0 14px}
+    .kb-sign{margin-top:26px}
+    .kb-sign p{margin:0}
+    @media(max-width:620px){.kb-wrap{width:calc(100% - 28px);padding-top:104px}.kb-toc ol{grid-template-columns:1fr}.kb-section h2{font-size:23px}}
+  </style>
+</head>
+<body>
+  <nav class="navbar" aria-label="Navegación principal">
+    <div class="container nav-shell">
+      <a class="logo" href="/" aria-label="RoCla VPN, inicio">
+        <img src="/roclavpn-logo-2.webp" alt="" class="logo-icon">
+        <span>RoCla <strong>VPN</strong></span>
+      </a>
+      <div class="nav-links" aria-label="Secciones">
+        <a href="/#planes">Planes</a>
+        <a href="/#protocolos">Protocolos</a>
+        <a href="/#clientes">Clientes</a>
+        <a href="/#novedades">Novedades</a>
+      </div>
+      <div class="nav-actions">
+        <a class="proxy-pill-btn" href="https://proxy.roclahy.com" aria-label="Abrir proxy gratis para Telegram">Proxy gratis</a>
+        <a class="proxy-pill-btn login-pill" href="https://panel.roclahy.com/login" aria-label="Iniciar sesión en RoCla VPN">Iniciar sesión</a>
+        <button id="theme-toggle" class="icon-button" aria-label="Cambiar tema" title="Cambiar tema">
+          <i class="hgi hgi-stroke hgi-moon-02" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="kb-wrap">
+    <span class="kb-kicker">Ayuda</span>
+    <h1>Base de conocimientos</h1>
+    <p class="kb-slogan">Conecta donde otros no pueden</p>
+    <p class="kb-lead">Bienvenido a la base de conocimientos de RoCla VPN. Aquí encontrará, en un solo lugar, cómo funciona nuestro servicio, qué incluye cada plan, cómo resolver los inconvenientes más comunes y cómo contactar con nuestro soporte.</p>
+
+    <nav class="kb-toc" aria-label="Contenido de la base de conocimientos">
+      <strong>Contenido</strong>
+      <ol>
+        <li><a href="#que-es">Qué es RoCla VPN</a></li>
+        <li><a href="#primeros-pasos">Primeros pasos</a></li>
+        <li><a href="#planes">Planes y bolsa de datos</a></li>
+        <li><a href="#protocolos">Protocolos disponibles</a></li>
+        <li><a href="#aplicaciones">Aplicaciones recomendadas</a></li>
+        <li><a href="#roclaplus">RoCla+</a></li>
+        <li><a href="#ghost">Modo Ghost y Ghost Nyx</a></li>
+        <li><a href="#pagos">Pagos y recargas</a></li>
+        <li><a href="#proxy">RoCla Proxy (proxys para Telegram)</a></li>
+        <li><a href="#portal">Portal web y aplicación instalable</a></li>
+        <li><a href="#escudo">Escudo de protección</a></li>
+        <li><a href="#soporte">Soporte</a></li>
+        <li><a href="#problemas">Problemas frecuentes y soluciones</a></li>
+        <li><a href="#faq">Preguntas frecuentes</a></li>
+        <li><a href="#cierre">Para terminar</a></li>
+      </ol>
+    </nav>
+
+    <section class="kb-section" id="que-es">
+      <h2>1. Qué es RoCla VPN</h2>
+      <p>RoCla VPN es nuestro servicio de conexión segura: cifra su tráfico, protege su privacidad y le permite acceder a páginas y servicios que en su región aparecen bloqueados.</p>
+      <p>Tenga presente lo esencial:</p>
+      <ul>
+        <li><strong>La VPN no le da internet gratis.</strong> Necesita su propia conexión activa (datos móviles o WiFi). La VPN no sustituye su plan de internet: lo protege y le abre el acceso a servicios bloqueados.</li>
+        <li><strong>Su tráfico es una bolsa con tope.</strong> Cada plan incluye una cantidad de GB por ciclo de 30 días; no es tráfico ilimitado.</li>
+        <li><strong>Los GB cuentan subida + bajada.</strong> Todo lo que su dispositivo envía y recibe a través de la VPN suma en la misma bolsa.</li>
+        <li><strong>No podemos ver lo que usted hace.</strong> La conexión viaja cifrada desde su dispositivo; solo podemos medir que está conectado y cuánto tráfico consume, nunca qué páginas visita ni qué contenido consume.</li>
+      </ul>
+    </section>
+
+    <section class="kb-section" id="primeros-pasos">
+      <h2>2. Primeros pasos</h2>
+      <ol>
+        <li><strong>Cree su cuenta.</strong> Puede hacerlo en nuestro bot de Telegram (<a href="https://t.me/RoClaVPNbot">@RoClaVPNbot</a>) o en el portal web <a href="https://panel.roclahy.com">panel.roclahy.com</a> con su RoCla ID (usuario y contraseña), sin necesidad de Telegram. Si ya tiene cuenta en uno de los dos, puede vincularlos entre sí.</li>
+        <li><strong>Active un plan</strong> (el Gratis también sirve para empezar) y <strong>cree su llave</strong> eligiendo el protocolo que prefiera.</li>
+        <li><strong>Instale la aplicación recomendada</strong> para ese protocolo (sección 5) e importe su llave: pegando el enlace, escaneando el código QR o importando el archivo de configuración, según el caso.</li>
+        <li><strong>Pulse Conectar.</strong> Ya está navegando con RoCla VPN.</li>
+      </ol>
+      <p>Su saldo, sus llaves y su consumo se consultan en todo momento en el bot y en el portal, en la sección «Mis cuentas».</p>
+    </section>
+
+    <section class="kb-section" id="planes">
+      <h2>3. Planes y bolsa de datos</h2>
+      <p>Todos los planes duran <strong>30 días</strong> y comparten las mismas reglas: una <strong>única bolsa de datos</strong> para todas sus llaves y <strong>dispositivos ilimitados</strong> compartiendo esa bolsa.</p>
+      <div class="kb-table-wrap">
+        <table class="kb-table">
+          <thead>
+            <tr><th>Plan</th><th>Datos por 30 días</th><th>Precio</th><th>Soporte incluido al mes</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Gratis</td><td>100 MB</td><td>0 CUP</td><td>Sin soporte (comunidad)</td></tr>
+            <tr><td>Esencial</td><td>6 GB</td><td>250 CUP</td><td>30 min</td></tr>
+            <tr><td>Plus</td><td>10 GB</td><td>300 CUP</td><td>60 min</td></tr>
+            <tr><td>Pro</td><td>40 GB</td><td>500 CUP</td><td>120 min</td></tr>
+            <tr><td>Premium</td><td>100 GB</td><td>900 CUP</td><td>300 min</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul>
+        <li><strong>Todos los planes incluyen RoCla+ y el Modo Ghost</strong>, también el Gratis.</li>
+        <li><strong>Renovar o ampliar es comprar de nuevo:</strong> los GB del plan comprado <strong>se suman a su bolsa al momento</strong>, sin esperar a que termine su ciclo. Si su bolsa crece, su vencimiento se extiende según el plan adquirido.</li>
+        <li><strong>Plan Gratis:</strong> 100 MB por ciclo, disponible <strong>una vez al mes</strong> y requiere estar suscrito a nuestro canal de Telegram (<a href="https://t.me/roclavpn">@roclavpn</a>). Es una prueba real del servicio, con las mismas funciones; no incluye soporte personal y la ayuda se brinda en nuestro grupo de la comunidad.</li>
+      </ul>
+    </section>
+
+    <section class="kb-section" id="protocolos">
+      <h2>4. Protocolos disponibles</h2>
+      <p>Puede crear llaves de cuatro protocolos, según la aplicación que prefiera usar:</p>
+      <ul>
+        <li><strong>VLESS</strong> — moderno y difícil de bloquear; es el protocolo del Modo Ghost.</li>
+        <li><strong>Hysteria2</strong> — pensado para velocidad, muy bueno en conexiones inestables.</li>
+        <li><strong>Shadowsocks</strong> — ligero y eficiente, ideal para ahorrar datos.</li>
+        <li><strong>WireGuard</strong> — rápido, sencillo y con su aplicación oficial propia.</li>
+      </ul>
+    </section>
+
+    <section class="kb-section" id="aplicaciones">
+      <h2>5. Aplicaciones recomendadas</h2>
+      <p>Trabajamos con aplicaciones de código abierto. Estas son las que recomendamos, según su protocolo:</p>
+      <div class="kb-table-wrap">
+        <table class="kb-table">
+          <thead>
+            <tr><th>Su llave es de…</th><th>Aplicación recomendada</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>VLESS</td><td><strong>Hiddify</strong></td></tr>
+            <tr><td>Hysteria2</td><td><strong>Hiddify</strong></td></tr>
+            <tr><td>Shadowsocks</td><td><strong>Outline</strong> (o Hiddify, si prefiere una sola app para todo)</td></tr>
+            <tr><td>WireGuard</td><td><strong>WireGuard</strong> (aplicación oficial)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>En la página de <a href="/clientes-recomendados/">clientes recomendados</a> de nuestro sitio encontrará los enlaces oficiales de descarga para Android, iPhone, Windows, macOS y Linux. Descargue siempre desde esos enlaces: son las fuentes oficiales de cada aplicación.</p>
+    </section>
+
+    <section class="kb-section" id="roclaplus">
+      <h2>6. RoCla+</h2>
+      <p>RoCla+ es nuestro complemento de conexión natural y está <strong>incluido en todos los planes</strong>, sin costo adicional y sin comprarlo por separado.</p>
+      <p>Algunos servicios especialmente exigentes (por ejemplo, Gemini o Disney+) pueden no responder bien con una conexión VPN común. Para esos casos le recomendamos usar una <strong>llave VLESS con RoCla+ activado</strong>: es la combinación que mejor resultado ofrece con esos servicios.</p>
+    </section>
+
+    <section class="kb-section" id="ghost">
+      <h2>7. Modo Ghost y Ghost Nyx</h2>
+      <p>El <strong>Modo Ghost</strong> es una variante de conexión de las llaves <strong>VLESS</strong> pensada para pasar más desapercibida ante bloqueos y filtros de red. <strong>Ghost Nyx</strong> es su variante reforzada. Ambas se activan desde la propia llave, con un interruptor: no necesita crear una llave nueva ni se borra nada al desactivarlo.</p>
+      <ul>
+        <li>Solo está disponible en llaves <strong>VLESS</strong>.</li>
+        <li>La aplicación recomendada para usarlo es <strong>Hiddify</strong>: copie la conexión Ghost e impórtela en Hiddify.</li>
+        <li>Está incluido en todos los planes.</li>
+      </ul>
+    </section>
+
+    <section class="kb-section" id="pagos">
+      <h2>8. Pagos y recargas</h2>
+      <ul>
+        <li><strong>Transfermóvil</strong>, con tarjetas <strong>BPA</strong> y <strong>BANMET</strong>.</li>
+        <li><strong>Criptomonedas</strong>: USDT (TRON y BNB Smart Chain), TRX, BTC y USDC (Solana). El importe se calcula al cambio del momento y el pago se verifica en la cadena antes de acreditarse.</li>
+        <li>Las recargas en CUP van de <strong>250 a 10.000 CUP</strong>; en criptomonedas, el equivalente aproximado es de 5 a 25 USD.</li>
+        <li><strong>No aceptamos Bolsa MiTransfer ni tarjetas BANDEC.</strong></li>
+        <li>Para acreditar su pago necesitamos el <strong>número de operación</strong>: consérvelo siempre. Una misma operación sirve para una sola compra.</li>
+        <li>Puede recargar y comprar desde el bot o desde el portal, como prefiera.</li>
+      </ul>
+    </section>
+
+    <section class="kb-section" id="proxy">
+      <h2>9. RoCla Proxy (proxys para Telegram)</h2>
+      <p>RoCla Proxy es nuestro servicio hermano: un proxy personal <strong>solo para Telegram</strong>, para conectarse donde la aplicación está bloqueada o limitada.</p>
+      <ul>
+        <li>Dos tipos: <strong>MTProto</strong> (el clásico de Telegram) y <strong>Web</strong> (se parece al tráfico de una web normal y es más difícil de detectar).</li>
+        <li>Se vende en <strong>bolsas de 10 GB por ciclo de 30 días</strong>.</li>
+        <li>Precios por bolsa: <strong>MTProto, 90 CUP</strong> (promoción Black Friday, hasta el 31 de diciembre de 2026) y <strong>Web, 100 CUP</strong>.</li>
+        <li><strong>MTProto gratis:</strong> 1 GB por ciclo de 30 días, con publicidad de nuestro canal. La renovación es <strong>manual</strong> en el bot: si no lo renueva, el proxy gratis se apaga al cumplirse el ciclo. Requiere estar suscrito a nuestro canal.</li>
+        <li><strong>El proxy Web no tiene plan gratis.</strong></li>
+        <li>Puede comprarlo en el bot <a href="https://t.me/roclaproxybot">@roclaproxybot</a> o en el portal (sección Proxy de «Mis cuentas»). Desde el portal, cada proxy tiene el botón <strong>«Activar»</strong>, que abre su enlace directamente en Telegram sin tener que copiarlo.</li>
+        <li>Los proxys de pago incluyen <strong>60 minutos de soporte al mes</strong>.</li>
+      </ul>
+    </section>
+
+    <section class="kb-section" id="portal">
+      <h2>10. Portal web y aplicación instalable</h2>
+      <p>En <a href="https://panel.roclahy.com"><strong>panel.roclahy.com</strong></a> gestiona su cuenta completa sin depender de Telegram:</p>
+      <ul>
+        <li>Acceso con su <strong>RoCla ID</strong> (usuario y contraseña). Si su cuenta nació en Telegram, puede vincularla; si nació en la web, puede vincular su Telegram después.</li>
+        <li>El portal <strong>se puede instalar como aplicación</strong> desde el navegador: quedará en su pantalla de inicio como «RoCla VPN» y funcionará igual que en el navegador.</li>
+        <li>Desde el portal puede: comprar y renovar planes, recargar saldo, crear y eliminar llaves, comprar y gestionar sus proxys, <strong>transferir saldo a otro usuario</strong> indicando su nombre de usuario RoCla, y configurar su <strong>perfil público</strong>.</li>
+        <li>Su perfil público (panel.roclahy.com/p/su-usuario) solo muestra los datos que usted decida compartir con los interruptores de privacidad de «Mi perfil». Encontrará la política de uso de los perfiles enlazada en esa misma sección.</li>
+      </ul>
+    </section>
+
+    <section class="kb-section" id="escudo">
+      <h2>11. Escudo de protección</h2>
+      <p>Mientras navega con RoCla VPN, nuestro escudo trabaja en segundo plano, en todos los planes (también en el Gratis):</p>
+      <ul>
+        <li>Bloquea <strong>publicidad invasiva</strong> en webs y aplicaciones.</li>
+        <li>Detiene <strong>rastreadores y telemetría</strong> que recopilan sus datos sin permiso.</li>
+        <li>Bloquea sitios de <strong>phishing y estafas</strong>, <strong>malware</strong> y descargas maliciosas.</li>
+        <li>Evita la <strong>criptominería oculta</strong> que usa su dispositivo sin permiso.</li>
+      </ul>
+      <p>Además de protegerle, el escudo le ahorra datos: todo lo que bloquea es tráfico que no consume de su bolsa.</p>
+    </section>
+
+    <section class="kb-section" id="soporte">
+      <h2>12. Soporte</h2>
+      <p><strong>Horario de atención: todos los días, de 7:00 a 19:00 (hora de Cuba).</strong></p>
+      <p>El tiempo de soporte mensual depende de su plan: Gratis no incluye soporte personal (le atendemos en el grupo de la comunidad), Esencial 30 minutos, Plus 60, Pro 120 y Premium 300. Los proxys de pago añaden 60 minutos al mes. Fuera del horario puede dejar su mensaje y lo atenderemos al abrir.</p>
+      <h3>Centro de soporte del panel</h3>
+      <p>En el propio panel encontrará nuestro <strong>centro de soporte</strong>, atendido por <strong>RoCla VPN Soporte</strong>. También puede escribirnos por Telegram a nuestra cuenta de soporte, <a href="https://t.me/roclak"><strong>@roclak</strong></a>.</p>
+      <ul>
+        <li>El centro de soporte atiende <strong>dudas y problemas de pago, de configuración y del servicio</strong> en general.</li>
+        <li>Puede enviarnos <strong>mensajes de texto y fotos</strong> (por ejemplo, la captura de un error o de un pago).</li>
+        <li>El chat admite solo texto y fotos, con un máximo de <strong>5 MB de imágenes por chat</strong>.</li>
+        <li><strong>Las fotos que nos envíe se eliminan de nuestro lado a las 72 horas.</strong></li>
+        <li>También aceptamos <strong>sugerencias y reportes de errores</strong>: los leemos todos y nos ayudan a mejorar.</li>
+        <li>Nuestro soporte le guiará únicamente con las <strong>funciones reales del servicio</strong>: si algo no es posible, se lo diremos con claridad en lugar de prometerle una solución que no existe.</li>
+      </ul>
+      <p class="kb-note">Por motivos de seguridad, podemos conservar copias de esta conversación y de las imágenes que compartas. En este panel, las imágenes se eliminan a las 72 horas.</p>
+      <h3>Comunidad</h3>
+      <p>Si su plan es el Gratis, o si prefiere preguntar entre usuarios, nuestro grupo de la comunidad es <a href="https://t.me/rocIavpn"><strong>t.me/rocIavpn</strong></a>. Nuestro canal de avisos y novedades es <a href="https://t.me/roclavpn"><strong>@roclavpn</strong></a>.</p>
+    </section>
+
+    <section class="kb-section" id="problemas">
+      <h2>13. Problemas frecuentes y soluciones</h2>
+      <div class="kb-item">
+        <strong>La VPN no conecta.</strong>
+        <p>Compruebe tres cosas, en este orden: (1) que su dispositivo tenga internet (datos móviles o WiFi activos); (2) que su bolsa tenga datos disponibles y su plan no haya vencido — puede verlo en el bot o en el portal, en «Mis cuentas»; (3) que la llave que intenta usar no haya sido eliminada. Si todo está correcto y sigue sin conectar, revise nuestro canal @roclavpn por si hubiera un aviso de interrupción, y si no lo hay, escríbanos por soporte.</p>
+      </div>
+      <div class="kb-item">
+        <strong>Outline se cierra solo o «se marea».</strong>
+        <p>Es un comportamiento de la propia aplicación (Outline es desarrollada por Jigsaw, no por nosotros), no de nuestros servidores. Ciérrela por completo (forzar detención) y vuelva a abrirla para reconectar. Para evitarlo: exclúyala del ahorro de batería, permita su inicio automático y bloquéela en segundo plano desde los ajustes de su dispositivo. Si el problema persiste, importe su llave de Shadowsocks en <strong>Hiddify</strong>, nuestra alternativa recomendada.</p>
+      </div>
+      <div class="kb-item">
+        <strong>Un servicio concreto no abre (Gemini, Disney+ y otros exigentes).</strong>
+        <p>Use una llave <strong>VLESS con RoCla+ activado</strong> (sección 6): es la combinación recomendada para esos servicios.</p>
+      </div>
+      <div class="kb-item">
+        <strong>TikTok no funciona.</strong>
+        <p>La restricción de TikTok no depende solo de la dirección IP — que es lo que cambia una VPN — sino también de la detección de la SIM. Por eso puede seguir fallando incluso con la VPN activa. No recomendamos instalar versiones modificadas de la aplicación: ponen en riesgo su cuenta y su dispositivo.</p>
+      </div>
+      <div class="kb-item">
+        <strong>El Modo Ghost no se importa o no conecta.</strong>
+        <p>Ghost solo funciona en llaves <strong>VLESS</strong> y con la aplicación <strong>Hiddify</strong> (sección 7). Compruebe que está copiando la conexión Ghost (no la normal) y que su plan tiene datos disponibles.</p>
+      </div>
+      <div class="kb-item">
+        <strong>Mi proxy gratis dejó de funcionar.</strong>
+        <p>El ciclo del MTProto gratis es de 30 días y la <strong>renovación es manual</strong>: renuévelo en el bot @roclaproxybot. Si agotó su 1 GB antes de fin de ciclo, el proxy se detiene hasta el ciclo siguiente o hasta que adquiera una bolsa de pago.</p>
+      </div>
+      <div class="kb-item">
+        <strong>Compré o recargué y no se refleja.</strong>
+        <p>Los pagos se acreditan al verificar la operación. Conserve su <strong>número de operación</strong> y escríbanos por soporte indicando ese número: lo comprobamos en nuestro registro y le respondemos.</p>
+      </div>
+      <div class="kb-item">
+        <strong>Quiero reportar un error.</strong>
+        <p>Escríbanos por el centro de soporte del panel o por @roclak con una descripción de lo que ocurre y, si puede, una <strong>foto del error</strong>. Los reportes de errores se aceptan siempre y nos ayudan a corregir el servicio (recuerde que las fotos se eliminan de nuestro lado a las 72 horas).</p>
+      </div>
+    </section>
+
+    <section class="kb-section" id="faq">
+      <h2>14. Preguntas frecuentes</h2>
+      <div class="kb-item">
+        <strong>¿La VPN me da internet gratis?</strong>
+        <p>No. Necesita su propia conexión (datos móviles o WiFi). La VPN protege esa conexión y le da acceso a servicios bloqueados; no sustituye su plan de internet.</p>
+      </div>
+      <div class="kb-item">
+        <strong>¿Qué significan los GB de los planes?</strong>
+        <p>Son su bolsa total del ciclo: la suma de todo el tráfico de subida y bajada que pase por la VPN, repartida libremente entre todos sus dispositivos.</p>
+      </div>
+      <div class="kb-item">
+        <strong>¿Puedo usar mi cuenta en varios dispositivos?</strong>
+        <p>Sí. Los dispositivos son ilimitados y todos comparten la misma bolsa de datos.</p>
+      </div>
+      <div class="kb-item">
+        <strong>¿Puedo mejorar mi plan en cualquier momento?</strong>
+        <p>Sí: compre otro plan cuando quiera y sus GB <strong>se suman a su bolsa al momento</strong>, sin esperar a que termine su ciclo.</p>
+      </div>
+      <div class="kb-item">
+        <strong>¿Qué ocurre cuando se acaba mi bolsa?</strong>
+        <p>La conexión se detiene hasta que renueve o compre otro plan. Puede consultar su consumo en todo momento en el bot y en el portal.</p>
+      </div>
+      <div class="kb-item">
+        <strong>¿Puedo pasar saldo a otra persona?</strong>
+        <p>Sí: puede transferir saldo a otro usuario indicando su nombre de usuario RoCla, desde el portal o desde el bot.</p>
+      </div>
+      <div class="kb-item">
+        <strong>¿En qué se diferencia RoCla VPN de una VPN gratuita?</strong>
+        <p>Usamos aplicaciones de código abierto, nuestros planes incluyen el escudo de protección, RoCla+ y el Modo Ghost también en el plan Gratis, nuestros servidores están en Estados Unidos y nuestro soporte atiende en español, todos los días. Y nuestros planes de pago se ajustan a la realidad de Cuba: se pagan en CUP por Transfermóvil o en criptomonedas.</p>
+      </div>
+    </section>
+
+    <section class="kb-section" id="cierre">
+      <h2>15. Para terminar</h2>
+      <p>Si algo no quedó claro, o su caso no aparece aquí, escríbanos: estamos para ayudarle en horario de 7:00 a 19:00 (hora de Cuba) por el centro de soporte del panel y en @roclak.</p>
+      <div class="kb-sign">
+        <p><strong>RoCla VPN</strong></p>
+        <p><em>Conecta donde otros no pueden</em></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid footer-grid-simple">
+      <div class="footer-brand">
+        <a class="logo" href="/"><img src="/roclavpn-logo-2.webp" alt="" class="logo-icon"><span>RoCla <strong>VPN</strong></span></a>
+        <p>Conecta donde otros no pueden.</p>
+        <div class="footer-contact">
+          <a href="mailto:hola@roclahy.com"><i class="hgi hgi-stroke hgi-mail-01"></i> hola@roclahy.com</a>
+          <a href="https://t.me/roclavpn"><i class="hgi hgi-stroke hgi-telegram"></i> Telegram</a>
+        </div>
+      </div>
+      <div class="footer-col"><strong>Legal</strong><a href="https://vpn.roclahy.com/privacidad">Privacidad</a><a href="/términos-de-uso/">Términos de uso</a><a href="https://vpn.roclahy.com/descargo">Descargo</a></div>
+      <div class="footer-col"><strong>Proyecto</strong><a href="/nuestra-hoja-de-ruta/">Hoja de ruta</a><a href="/base-de-conocimientos/">Base de conocimientos</a><a href="https://t.me/roclavpn">Canal oficial</a></div>
+    </div>
+    <div class="container footer-bottom">© <span id="copyright-year"></span> RoCla VPN. Todos los derechos reservados.</div>
+  </footer>
+
+  <a href="https://t.me/roclak" target="_blank" class="support-float" aria-label="Soporte técnico"><img src="/assets/soporte.png" alt=""></a>
+  <script>document.getElementById('copyright-year').textContent = new Date().getFullYear();</script>
+  <script src="/script.js?v=20261113-proxy"></script>
+</body>
+</html>
