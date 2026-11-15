@@ -437,7 +437,15 @@
                 if (n.tagName === 'P' && /conecta donde otros no pueden/i.test(n.textContent)) slogan = n;
             });
             var lastFig = figures.length ? figures[figures.length - 1] : null;
-            if (lastFig || slogan) {
+            /* En el artículo real el eslogan NO es un párrafo: es el
+               figcaption de la última figura. Se rescata su texto antes de
+               retirar la figura. */
+            var figCaption = null;
+            if (lastFig) {
+                var fc = lastFig.querySelector('figcaption');
+                if (fc && fc.textContent.trim()) figCaption = fc.textContent.trim();
+            }
+            if (lastFig || slogan || figCaption) {
                 var closing = el('div', 'hr-closing');
                 /* La figura de cierre es el logotipo en un PNG 1200x300 casi
                    todo transparente: como imagen la franja se ve vacía. Se
@@ -447,6 +455,7 @@
                 closeIcon.classList.add('hr-close-icon');
                 closing.appendChild(closeIcon);
                 if (slogan) { closing.appendChild(slogan); others.splice(others.indexOf(slogan), 1); }
+                else if (figCaption) { closing.appendChild(el('p', '', figCaption)); }
                 frag.appendChild(closing);
             }
             var rest = others.filter(function (n) { return n.parentNode === content; });
