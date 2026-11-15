@@ -201,8 +201,7 @@
         text-align: center;
     }
     #content .hr-closing p { font-family: 'Josefin Sans', Inter, sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--text); margin: 10px 0 2px; }
-    #content .hr-closing figure { margin: 0; }
-    #content .hr-closing img { max-width: 420px; width: 100%; margin: 0 auto; display: block; }
+    #content .hr-closing .hr-close-icon { font-size: 46px; color: var(--primary); font-style: normal; line-height: 1; }
     #content details.hr-about {
         border: 1px solid var(--line);
         border-radius: 16px;
@@ -440,7 +439,13 @@
             var lastFig = figures.length ? figures[figures.length - 1] : null;
             if (lastFig || slogan) {
                 var closing = el('div', 'hr-closing');
-                if (lastFig) { closing.appendChild(lastFig); others.splice(others.indexOf(lastFig), 1); }
+                /* La figura de cierre es el logotipo en un PNG 1200x300 casi
+                   todo transparente: como imagen la franja se ve vacía. Se
+                   sustituye por el icono Hugeicons equivalente y se retira. */
+                if (lastFig) { lastFig.remove(); others.splice(others.indexOf(lastFig), 1); }
+                var closeIcon = icon('hgi-shield-check');
+                closeIcon.classList.add('hr-close-icon');
+                closing.appendChild(closeIcon);
                 if (slogan) { closing.appendChild(slogan); others.splice(others.indexOf(slogan), 1); }
                 frag.appendChild(closing);
             }
