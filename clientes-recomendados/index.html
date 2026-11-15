@@ -273,7 +273,7 @@
         <div id="content" data-url="Clientes-recomendados-11-15-4" data-date="Diciembre 01, 2025"></div>
     </div>
 
-    <script src="/blog/script.js?v=20261115-1"></script>
+    <script src="/blog/script.js?v=20261115-2"></script>
     <script>
     /* Guía compacta de esta página: franja de 3 pasos, selector de
        aplicaciones con un solo panel visible, descarga inmediata del
@@ -560,7 +560,7 @@
             var about = makeDetails('cr-acc', 'Acerca de esta guía', 'hgi-information-circle');
             var aboutHas = false;
             introPs.forEach(function (p) { about.body.appendChild(p); aboutHas = true; });
-            if (heroFig) { about.body.appendChild(heroFig); aboutHas = true; }
+            if (heroFig) heroFig.remove();
             if (closeFig) { about.body.appendChild(closeFig); aboutHas = true; }
             if (aboutHas) {
                 var after = content.querySelector('details.cr-acc');
