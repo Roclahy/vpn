@@ -6,21 +6,475 @@
     <title>Nuestra hoja de ruta - RoCla VPN</title>
     <meta name="theme-color" content="#0255F4">
     <link rel="icon" type="image/webp" href="/roclavpn-logo.webp">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Josefin+Sans:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
-    
-    <link rel="stylesheet" href="/blog/style.css?v=20261007-1">
+    <link rel="stylesheet" href="https://use.hugeicons.com/font/icons.css">
+
+    <link rel="stylesheet" href="/blog/style.css?v=20261113-2">
+    <style>
+    /* Nuestra hoja de ruta — panel de progreso RoCla VPN (2026-11-15):
+       la página se presenta como un panel de evolución del producto, no
+       como un artículo: anillo de progreso global calculado de los datos
+       reales del artículo, tarjeta de «Lo próximo» siempre visible y los
+       objetivos realizados de cada área en desplegables compactos.
+       Diseño con ayuda de ChatGPT. Iconos Hugeicons Stroke Rounded, sin
+       emojis. Solo vive en esta carcasa; no toca el CSS compartido. */
+    :root {
+        --hr-brand: #0254F5;
+        --hr-green: #34C759;
+        --hr-amber: #FF9500;
+    }
+    [data-theme="dark"] {
+        --hr-green: #30D158;
+        --hr-amber: #FF9F0A;
+    }
+    #article-container { max-width: 880px; }
+    #title { font-family: 'Josefin Sans', Inter, sans-serif; letter-spacing: -.01em; }
+    #hr-subtitle { color: var(--muted); font-size: 1.05rem; line-height: 1.55; margin: 2px 0 8px; }
+    #title::before {
+        content: "RoCla VPN · Evolución del producto";
+        display: block;
+        font-family: Inter, sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: .14em;
+        text-transform: uppercase;
+        color: var(--primary);
+        margin-bottom: 12px;
+    }
+    #title::after {
+        content: "";
+        display: block;
+        width: 56px;
+        height: 4px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, var(--primary), #7aa8ff);
+        margin-top: 16px;
+    }
+    #content h3 { font-family: 'Josefin Sans', Inter, sans-serif; }
+    #content figure img { border-radius: 20px; }
+    /* Sin encabezado tipo artículo: fuera la línea de autor y fecha. */
+    #meta { display: none; }
+    /* Los iconos Hugeicons nunca en cursiva (el lector usa <i>). */
+    #article-container .hgi { font-style: normal; }
+
+    /* Panel principal de progreso */
+    #content .hr-hero {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 26px;
+        padding: 24px;
+        margin: 18px 0 16px;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, .05);
+        display: flex;
+        align-items: center;
+        gap: 26px;
+    }
+    #content .hr-ring-wrap { position: relative; width: 124px; height: 124px; flex: 0 0 124px; margin: 0 auto; }
+    #content .hr-ring { width: 124px; height: 124px; transform: rotate(-90deg); display: block; }
+    #content .hr-ring .hr-track { fill: none; stroke: var(--line); stroke-width: 10; }
+    #content .hr-ring .hr-prog {
+        fill: none;
+        stroke: var(--hr-brand);
+        stroke-width: 10;
+        stroke-linecap: round;
+        transition: stroke-dashoffset .45s ease;
+    }
+    #content .hr-ring-center {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    #content .hr-ring-pct { font-family: 'Josefin Sans', Inter, sans-serif; font-size: 1.75rem; font-weight: 700; color: var(--text); line-height: 1; }
+    #content .hr-ring-label { font-size: .72rem; font-weight: 600; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; margin-top: 4px; }
+    #content .hr-hero-info { flex: 1; min-width: 0; }
+    #content .hr-hero-count { font-family: 'Josefin Sans', Inter, sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--text); margin: 0 0 4px; }
+    #content .hr-hero-note { color: var(--muted); font-size: .95rem; line-height: 1.5; margin: 0 0 16px; }
+    #content .hr-mini { margin-top: 10px; }
+    #content .hr-mini-head { display: flex; justify-content: space-between; align-items: baseline; font-size: .88rem; margin-bottom: 5px; }
+    #content .hr-mini-name { font-weight: 600; color: var(--text); }
+    #content .hr-mini-count { color: var(--muted); font-weight: 600; }
+    #content .hr-bar { height: 6px; border-radius: 999px; background: var(--line); overflow: hidden; }
+    #content .hr-bar-fill { height: 100%; border-radius: 999px; background: var(--hr-brand); }
+    #content .hr-bar-fill.hr-full { background: var(--hr-green); }
+
+    /* Tarjeta «Lo próximo» */
+    #content .hr-next {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-left: 4px solid var(--hr-amber);
+        border-radius: 22px;
+        padding: 18px 20px 12px;
+        margin: 0 0 16px;
+    }
+    #content .hr-next-head { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+    #content .hr-next-head i { font-size: 21px; color: var(--hr-amber); }
+    #content .hr-eyebrow { font-size: .75rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--hr-amber); }
+    #content .hr-chip {
+        margin-left: auto;
+        font-size: .75rem;
+        font-weight: 700;
+        color: var(--muted);
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 4px 11px;
+        background: var(--bg);
+        white-space: nowrap;
+    }
+    #content .hr-next-item { font-size: 1.08rem; font-weight: 700; color: var(--text); padding: 5px 0; }
+    #content .hr-next-note { color: var(--muted); font-size: .92rem; margin: 2px 0 8px; }
+
+    /* Tarjetas por área */
+    #content .hr-area {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        padding: 20px 20px 10px;
+        margin: 0 0 16px;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, .05);
+    }
+    #content .hr-area-head { display: flex; align-items: center; gap: 13px; }
+    #content .hr-area-icon {
+        width: 46px;
+        height: 46px;
+        flex: 0 0 46px;
+        border-radius: 14px;
+        background: rgba(2, 84, 245, .08);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #content .hr-area-icon i { font-size: 22px; color: var(--hr-brand); }
+    #content .hr-area-head h3 { margin: 0; font-size: 1.35rem; }
+    #content .hr-area-count { color: var(--muted); font-size: .9rem; font-weight: 600; margin-top: 2px; }
+    #content .hr-area .hr-bar { margin: 14px 0 6px; }
+
+    /* Desplegable de realizados y filas */
+    #content details.hr-details {
+        border-top: 1px solid var(--line);
+        margin-top: 10px;
+    }
+    #content details.hr-details summary {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        min-height: 48px;
+        padding: 10px 2px;
+        font-weight: 700;
+        font-size: .95rem;
+        color: var(--text);
+        cursor: pointer;
+        list-style: none;
+    }
+    #content details summary::-webkit-details-marker { display: none; }
+    #content details.hr-details summary > i:first-child { color: var(--hr-green); font-size: 18px; }
+    #content details.hr-details summary .hr-chev { margin-left: auto; font-size: 17px; color: var(--muted); transition: transform .18s; }
+    #content details[open ] summary .hr-chev { transform: rotate(180deg); }
+    #content .hr-rows { padding: 0 2px 8px; }
+    #content .hr-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 9px;
+        padding: 7px 0;
+        font-size: .95rem;
+        line-height: 1.45;
+        color: var(--text);
+        border-bottom: 1px solid var(--line);
+    }
+    #content .hr-row:last-child { border-bottom: none; }
+    #content .hr-row i { font-size: 18px; flex: 0 0 18px; margin-top: 1px; color: var(--hr-green); }
+    #content .hr-row a { color: var(--primary); font-weight: 600; }
+
+    /* Cierre y «acerca de» */
+    #content .hr-closing {
+        background: linear-gradient(135deg, rgba(2, 84, 245, .10), rgba(2, 84, 245, .03));
+        border: 1px solid rgba(2, 84, 245, .30);
+        border-radius: 24px;
+        padding: 22px;
+        margin: 22px 0 10px;
+        text-align: center;
+    }
+    #content .hr-closing p { font-family: 'Josefin Sans', Inter, sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--text); margin: 10px 0 2px; }
+    #content .hr-closing figure { margin: 0; }
+    #content .hr-closing img { max-width: 420px; width: 100%; margin: 0 auto; display: block; }
+    #content details.hr-about {
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: var(--surface);
+        margin: 0 0 16px;
+        overflow: hidden;
+    }
+    #content details.hr-about summary {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        min-height: 48px;
+        padding: 10px 16px;
+        font-weight: 700;
+        font-size: .98rem;
+        color: var(--text);
+        cursor: pointer;
+        list-style: none;
+    }
+    #content details.hr-about summary .hr-chev { margin-left: auto; font-size: 17px; color: var(--muted); transition: transform .18s; }
+    #content details.hr-about .hr-body { padding: 2px 18px 12px; }
+
+    @media (max-width: 620px) {
+        #content .hr-hero { flex-direction: column; gap: 16px; padding: 22px 18px; text-align: center; }
+        #content .hr-hero-info { width: 100%; }
+        #content .hr-mini-head { text-align: left; }
+        #content .hr-area { padding: 16px 16px 6px; border-radius: 20px; }
+        #content .hr-area-head h3 { font-size: 1.22rem; }
+        #content .hr-row { font-size: .92rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        #content .hr-ring .hr-prog { transition: none; }
+    }
+    </style>
 </head>
 <body>
 
     <div id="article-container">
         <h1 id="title">Nuestra hoja de ruta</h1>
+        <p id="hr-subtitle">El avance real del proyecto, de un vistazo.</p>
         <div id="content" data-url="Nuestra-hoja-de-ruta-11-14" data-date="Noviembre 14, 2026"></div>
     </div>
 
-    <script src="/blog/script.js"></script>
+    <script src="/blog/script.js?v=20261115-1"></script>
+    <script>
+    /* Panel de progreso de esta página: lee las listas reales que sirve
+       el lector (áreas, realizados y pendientes), calcula los totales y
+       los presenta como interfaz — anillo global, tarjeta de «Lo próximo»
+       y realizados por área en desplegables. Reutiliza los nodos
+       originales: no cambia textos ni enlaces. Iconos Hugeicons en
+       lugar de los emojis ✅/⏳ de los encabezados. */
+    (function () {
+        var AREA_ICONS = {
+            'rocla vpn': 'hgi-server-stack-01',
+            'rocla website': 'hgi-globe'
+        };
+        function icon(name) {
+            var i = document.createElement('i');
+            i.className = 'hgi hgi-stroke ' + name;
+            i.setAttribute('aria-hidden', 'true');
+            return i;
+        }
+        function cleanTitle(t) {
+            return t.replace(/[✅⏳✔️]/g, '').replace(/\s+/g, ' ').trim();
+        }
+        function el(tag, cls, text) {
+            var e = document.createElement(tag);
+            if (cls) e.className = cls;
+            if (text != null) e.textContent = text;
+            return e;
+        }
+        var timer = null;
+
+        function enhance() {
+            var content = document.getElementById('content');
+            if (!content || content.dataset.hrDone) return;
+            var h3s = content.querySelectorAll('h3');
+            if (h3s.length < 2) return;
+
+            // --- Leer la estructura real: áreas > (Pendientes|Realizado) > listas
+            var areas = [], current = null, mode = null, others = [];
+            Array.prototype.slice.call(content.children).forEach(function (node) {
+                if (node.tagName === 'H3') {
+                    var t = cleanTitle(node.textContent);
+                    var low = t.toLowerCase();
+                    if (low.indexOf('pendientes') === 0) { mode = 'pending'; }
+                    else if (low.indexOf('realizado') === 0) { mode = 'done'; }
+                    else {
+                        current = { name: t, done: [], pending: [] };
+                        areas.push(current);
+                        mode = null;
+                    }
+                    node.remove();
+                } else if ((node.tagName === 'UL' || node.tagName === 'OL') && current && mode) {
+                    Array.prototype.slice.call(node.children).forEach(function (li) {
+                        if (li.tagName === 'LI') current[mode].push(li);
+                    });
+                    node.remove();
+                } else {
+                    others.push(node);
+                }
+            });
+            if (!areas.length) return;
+            content.dataset.hrDone = '1';
+
+            var totalDone = 0, totalPending = 0;
+            areas.forEach(function (a) {
+                totalDone += a.done.length;
+                totalPending += a.pending.length;
+            });
+            var total = totalDone + totalPending;
+            var pct = total ? Math.round(totalDone / total * 100) : 0;
+
+            var frag = document.createDocumentFragment();
+
+            // --- Panel principal: anillo + resumen por área
+            var hero = el('section', 'hr-hero');
+            var ringWrap = el('div', 'hr-ring-wrap');
+            var C = 2 * Math.PI * 52;
+            var svgNS = 'http://www.w3.org/2000/svg';
+            var svg = document.createElementNS(svgNS, 'svg');
+            svg.setAttribute('class', 'hr-ring');
+            svg.setAttribute('viewBox', '0 0 124 124');
+            var track = document.createElementNS(svgNS, 'circle');
+            track.setAttribute('class', 'hr-track');
+            track.setAttribute('cx', '62'); track.setAttribute('cy', '62'); track.setAttribute('r', '52');
+            var prog = document.createElementNS(svgNS, 'circle');
+            prog.setAttribute('class', 'hr-prog');
+            prog.setAttribute('cx', '62'); prog.setAttribute('cy', '62'); prog.setAttribute('r', '52');
+            prog.setAttribute('stroke-dasharray', C.toFixed(1));
+            prog.setAttribute('stroke-dashoffset', (C * (1 - (total ? totalDone / total : 0))).toFixed(1));
+            svg.appendChild(track); svg.appendChild(prog);
+            ringWrap.appendChild(svg);
+            var center = el('div', 'hr-ring-center');
+            center.appendChild(el('span', 'hr-ring-pct', pct + '%'));
+            center.appendChild(el('span', 'hr-ring-label', 'realizado'));
+            ringWrap.appendChild(center);
+            hero.appendChild(ringWrap);
+
+            var info = el('div', 'hr-hero-info');
+            info.appendChild(el('p', 'hr-hero-count', totalDone + ' de ' + total + ' objetivos realizados'));
+            info.appendChild(el('p', 'hr-hero-note', totalPending === 1
+                ? 'Solo queda un objetivo por completar.'
+                : 'El avance de cada área, a continuación.'));
+            areas.forEach(function (a) {
+                var at = a.done.length + a.pending.length;
+                var apct = at ? Math.round(a.done.length / at * 100) : 0;
+                var mini = el('div', 'hr-mini');
+                var head = el('div', 'hr-mini-head');
+                head.appendChild(el('span', 'hr-mini-name', a.name));
+                head.appendChild(el('span', 'hr-mini-count', a.done.length + ' / ' + at));
+                mini.appendChild(head);
+                var bar = el('div', 'hr-bar');
+                var fill = el('div', 'hr-bar-fill' + (apct === 100 ? ' hr-full' : ''));
+                fill.style.width = apct + '%';
+                bar.appendChild(fill);
+                mini.appendChild(bar);
+                info.appendChild(mini);
+            });
+            hero.appendChild(info);
+            frag.appendChild(hero);
+
+            // --- «Lo próximo»: todos los pendientes, siempre visibles
+            var pendingAll = [];
+            areas.forEach(function (a) { pendingAll = pendingAll.concat(a.pending); });
+            if (pendingAll.length) {
+                var next = el('section', 'hr-next');
+                var nhead = el('div', 'hr-next-head');
+                nhead.appendChild(icon('hgi-rocket-01'));
+                nhead.appendChild(el('span', 'hr-eyebrow', 'Lo próximo'));
+                nhead.appendChild(el('span', 'hr-chip', pendingAll.length + (pendingAll.length === 1 ? ' pendiente' : ' pendientes')));
+                next.appendChild(nhead);
+                pendingAll.forEach(function (li) {
+                    var item = el('div', 'hr-next-item');
+                    while (li.firstChild) item.appendChild(li.firstChild);
+                    next.appendChild(item);
+                });
+                if (pendingAll.length === 1) {
+                    next.appendChild(el('p', 'hr-next-note', 'El único objetivo pendiente del proyecto.'));
+                }
+                frag.appendChild(next);
+            }
+
+            // --- Una tarjeta por área con sus realizados en desplegable
+            areas.forEach(function (a) {
+                var at = a.done.length + a.pending.length;
+                var apct = at ? Math.round(a.done.length / at * 100) : 0;
+                var card = el('section', 'hr-area');
+                var head = el('div', 'hr-area-head');
+                var tile = el('div', 'hr-area-icon');
+                tile.appendChild(icon(AREA_ICONS[a.name.toLowerCase()] || 'hgi-route-01'));
+                head.appendChild(tile);
+                var main = el('div', '');
+                var h = el('h3', '', a.name);
+                main.appendChild(h);
+                main.appendChild(el('div', 'hr-area-count', a.done.length + ' de ' + at + ' realizados'));
+                head.appendChild(main);
+                card.appendChild(head);
+                var bar = el('div', 'hr-bar');
+                var fill = el('div', 'hr-bar-fill' + (apct === 100 ? ' hr-full' : ''));
+                fill.style.width = apct + '%';
+                bar.appendChild(fill);
+                card.appendChild(bar);
+
+                if (a.done.length) {
+                    var det = el('details', 'hr-details');
+                    var sum = el('summary', '');
+                    sum.appendChild(icon('hgi-checkmark-circle-02'));
+                    sum.appendChild(el('span', '', 'Ver ' + a.done.length + ' objetivos realizados'));
+                    var chev = icon('hgi-arrow-down-01');
+                    chev.classList.add('hr-chev');
+                    sum.appendChild(chev);
+                    det.appendChild(sum);
+                    var rows = el('div', 'hr-rows');
+                    a.done.forEach(function (li) {
+                        var row = el('div', 'hr-row');
+                        row.appendChild(icon('hgi-checkmark-circle-02'));
+                        var sp = el('span', '');
+                        while (li.firstChild) sp.appendChild(li.firstChild);
+                        row.appendChild(sp);
+                        rows.appendChild(row);
+                    });
+                    det.appendChild(rows);
+                    card.appendChild(det);
+                }
+                frag.appendChild(card);
+            });
+
+            // --- Cierre: última imagen + eslogan; el resto, a «Acerca de»
+            var figures = others.filter(function (n) { return n.tagName === 'FIGURE'; });
+            var slogan = null;
+            others.forEach(function (n) {
+                if (n.tagName === 'P' && /conecta donde otros no pueden/i.test(n.textContent)) slogan = n;
+            });
+            var lastFig = figures.length ? figures[figures.length - 1] : null;
+            if (lastFig || slogan) {
+                var closing = el('div', 'hr-closing');
+                if (lastFig) { closing.appendChild(lastFig); others.splice(others.indexOf(lastFig), 1); }
+                if (slogan) { closing.appendChild(slogan); others.splice(others.indexOf(slogan), 1); }
+                frag.appendChild(closing);
+            }
+            var rest = others.filter(function (n) { return n.parentNode === content; });
+            if (rest.length) {
+                var about = el('details', 'hr-about');
+                var asum = el('summary', '');
+                asum.appendChild(icon('hgi-information-circle'));
+                asum.appendChild(el('span', '', 'Acerca de esta hoja de ruta'));
+                var achev = icon('hgi-arrow-down-01');
+                achev.classList.add('hr-chev');
+                asum.appendChild(achev);
+                about.appendChild(asum);
+                var abody = el('div', 'hr-body');
+                rest.forEach(function (n) { abody.appendChild(n); });
+                about.appendChild(abody);
+                frag.appendChild(about);
+            }
+
+            content.appendChild(frag);
+        }
+
+        function schedule() {
+            if (timer) clearTimeout(timer);
+            timer = setTimeout(enhance, 350);
+        }
+
+        var contentEl = document.getElementById('content');
+        if (contentEl) {
+            new MutationObserver(schedule).observe(contentEl, { childList: true, subtree: true });
+        }
+        document.addEventListener('DOMContentLoaded', schedule);
+        schedule();
+    })();
+    </script>
 </body>
 </html>
