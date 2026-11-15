@@ -103,6 +103,23 @@
         font-size: 1rem;
         line-height: 1.5;
     }
+    #content .cr-head { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
+    #content .cr-logo {
+        width: 60px;
+        height: 60px;
+        flex: 0 0 60px;
+        border-radius: 16px;
+        background: #fff;
+        border: 1px solid var(--line);
+        padding: 7px;
+        box-sizing: border-box;
+        object-fit: contain;
+        margin: 0;
+        display: block;
+    }
+    #content .cr-card.cr-featured .cr-logo { width: 68px; height: 68px; flex-basis: 68px; border-radius: 18px; }
+    #content .cr-head-main h3 { margin: 0; }
+    #content .cr-head-main .cr-badge { margin-top: 6px; }
     #content .cr-steps li::marker { color: var(--primary); font-weight: 700; }
     #content .cr-cta-title a { color: var(--primary); }
 
@@ -110,6 +127,9 @@
         #content .cr-card { padding: 20px 16px 4px; border-radius: 20px; }
         #content .cr-card h3 { font-size: 1.45rem; }
         #content .cr-row { font-size: .95rem; }
+        #content .cr-head { gap: 12px; }
+        #content .cr-logo { width: 50px; height: 50px; flex-basis: 50px; border-radius: 13px; }
+        #content .cr-card.cr-featured .cr-logo { width: 56px; height: 56px; flex-basis: 56px; border-radius: 15px; }
     }
     </style>
 </head>
@@ -127,6 +147,11 @@
        en píldoras y los pros/contras en filas. No cambia textos ni enlaces. */
     (function () {
         var CLIENTS = { hiddify: 1, outline: 1, wireguard: 1 };
+        var LOGOS = {
+            hiddify: '/assets/clientes/hiddify.svg',
+            outline: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Outline_VPN_icon.png/256px-Outline_VPN_icon.png',
+            wireguard: '/assets/clientes/wireguard.svg'
+        };
         var timer = null;
 
         function enhance() {
@@ -161,11 +186,27 @@
                     card.appendChild(node);
                     node = next;
                 }
+                // Cabecera de la tarjeta: foto/logo del programa + nombre
+                var head = document.createElement('div');
+                head.className = 'cr-head';
+                var logo = document.createElement('img');
+                logo.className = 'cr-logo';
+                logo.src = LOGOS[key];
+                logo.alt = 'Logo de ' + h.textContent.trim();
+                logo.loading = 'lazy';
+                logo.width = 60;
+                logo.height = 60;
+                var headMain = document.createElement('div');
+                headMain.className = 'cr-head-main';
+                card.insertBefore(head, card.firstChild);
+                head.appendChild(logo);
+                head.appendChild(headMain);
+                headMain.appendChild(h);
                 if (key === 'hiddify') {
                     var badge = document.createElement('span');
                     badge.className = 'cr-badge';
                     badge.textContent = 'Recomendación principal';
-                    h.insertAdjacentElement('afterend', badge);
+                    headMain.appendChild(badge);
                 }
                 // Descargas en píldoras: el párrafo con 3+ enlaces de la tarjeta
                 card.querySelectorAll('p').forEach(function (p) {
