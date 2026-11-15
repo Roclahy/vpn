@@ -49,6 +49,36 @@
     /* Sin encabezado tipo artículo: fuera la línea de autor y fecha que
        inyecta el lector del blog; queda solo el titular de la guía. */
     #meta { display: none; }
+    /* Sin destello de la interfaz vieja (2026-11-15): el lector del blog
+       primero descarga el artículo de Telegraph y lo pinta tal cual
+       (interfaz vieja), y esta guía lo transforma después. Mientras la
+       transformación no haya terminado, el contenido no se muestra:
+       en su lugar va el aviso de carga, y la guía aparece ya hecha.
+       Si la transformación fallara, el script marca data-cr-fallback
+       y se muestra el artículo tal cual antes que una página en blanco. */
+    #content:not([data-cr-done="1"]):not([data-cr-fallback="1"]) { display: none; }
+    #cr-loading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        color: var(--muted);
+        font-size: .98rem;
+        font-weight: 600;
+        padding: 34px 0 44px;
+    }
+    #cr-loading .cr-spinner {
+        width: 20px;
+        height: 20px;
+        flex: 0 0 20px;
+        border-radius: 50%;
+        border: 3px solid var(--line);
+        border-top-color: var(--primary);
+        animation: cr-spin .8s linear infinite;
+    }
+    @keyframes cr-spin { to { transform: rotate(360deg); } }
+    #content[data-cr-done="1"] ~ #cr-loading,
+    #content[data-cr-fallback="1"] ~ #cr-loading { display: none; }
     /* Los iconos Hugeicons nunca en cursiva (el lector usa <i>). */
     #article-container .hgi { font-style: normal; }
 
@@ -271,6 +301,7 @@
         <h1 id="title">Clientes recomendados</h1>
         <p id="cr-subtitle">Elija una aplicación compatible con su llave de RoCla VPN.</p>
         <div id="content" data-url="Clientes-recomendados-11-15-4" data-date="Diciembre 01, 2025"></div>
+        <div id="cr-loading" role="status"><span class="cr-spinner" aria-hidden="true"></span><span>Cargando la guía…</span></div>
     </div>
 
     <script src="/blog/script.js?v=20261115-2"></script>
@@ -588,11 +619,14 @@
                 var tp = document.querySelector('.cr-tabs');
                 if (tp) tp.scrollIntoView();
             }
+            // La guía ya está hecha y visible (data-cr-done): fuera el aviso.
+            var ld = document.getElementById('cr-loading');
+            if (ld) ld.remove();
         }
 
         function schedule() {
             if (timer) clearTimeout(timer);
-            timer = setTimeout(enhance, 350);
+            timer = setTimeout(enhance, 60);
         }
 
         var contentEl = document.getElementById('content');
@@ -601,6 +635,23 @@
         }
         document.addEventListener('DOMContentLoaded', schedule);
         schedule();
+
+        // Red de seguridad: si el artículo no llega, llega con error o no
+        // se puede transformar, se muestra el contenido tal cual y se
+        // retira el aviso de carga. Nunca una página en blanco.
+        function crFallback() {
+            var c = document.getElementById('content');
+            if (c && !c.dataset.crDone) c.dataset.crFallback = '1';
+            var l = document.getElementById('cr-loading');
+            if (l) l.remove();
+        }
+        var crFbTimer = setInterval(function () {
+            var c = document.getElementById('content');
+            if (!c || c.dataset.crDone || c.dataset.crFallback) { clearInterval(crFbTimer); return; }
+            // El lector muestra un botón (Reintentar) solo cuando falla.
+            if (c.querySelector('button')) { crFallback(); clearInterval(crFbTimer); }
+        }, 500);
+        setTimeout(function () { clearInterval(crFbTimer); crFallback(); }, 10000);
     })();
     </script>
 </body>
