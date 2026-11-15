@@ -6,18 +6,21 @@
     <title>Clientes recomendados - RoCla VPN</title>
     <meta name="theme-color" content="#0255F4">
     <link rel="icon" type="image/webp" href="/roclavpn-logo.webp">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Josefin+Sans:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
-    
+    <link rel="stylesheet" href="https://use.hugeicons.com/font/icons.css">
+
     <link rel="stylesheet" href="/blog/style.css?v=20261113-2">
     <style>
-    /* Clientes recomendados — diseño RoCla VPN (2026-11-15):
-       tarjetas por cliente, Hiddify como recomendación principal,
-       descargas en píldoras y pros/contras en filas suaves.
-       Solo vive en esta carcasa; no toca el CSS compartido del blog. */
+    /* Clientes recomendados — guía compacta RoCla VPN (2026-11-15):
+       la página se presenta como una guía de conexión, no como un artículo:
+       franja de 3 pasos, selector de aplicaciones con un solo panel,
+       descarga inmediata del sistema detectado y detalles desplegables.
+       Iconos Hugeicons Stroke Rounded, sin emojis. Solo vive en esta
+       carcasa; no toca el CSS compartido del blog. */
     #article-container { max-width: 880px; }
     #title { font-family: 'Josefin Sans', Inter, sans-serif; letter-spacing: -.01em; }
     #cr-subtitle { color: var(--muted); font-size: 1.05rem; line-height: 1.55; margin: 2px 0 8px; }
@@ -44,15 +47,57 @@
     #content h3 { font-family: 'Josefin Sans', Inter, sans-serif; }
     #content figure img { border-radius: 20px; }
 
+    /* Franja de 3 pasos */
+    #content .cr-steps-strip {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        margin: 18px 0 4px;
+    }
+    #content .cr-step {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 14px 6px 12px;
+        text-align: center;
+    }
+    #content .cr-step i { font-size: 22px; color: var(--primary); display: block; margin-bottom: 6px; }
+    #content .cr-step span { font-size: .85rem; font-weight: 700; color: var(--text); }
+    #content .cr-steps-note { text-align: center; color: var(--muted); font-size: .95rem; margin: 8px 0 4px; }
+
+    /* Selector de aplicaciones */
+    #content .cr-tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin: 16px 0 0; }
+    #content .cr-tab {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 48px;
+        padding: 8px 6px;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: var(--surface);
+        color: var(--text);
+        font-family: Inter, sans-serif;
+        font-size: .95rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: border-color .18s, background .18s;
+    }
+    #content .cr-tab img { width: 24px; height: 24px; border-radius: 6px; background: #fff; padding: 2px; box-sizing: border-box; object-fit: contain; margin: 0; }
+    #content .cr-tab[aria-selected="true"] { border-color: var(--primary); background: rgba(2, 84, 245, .07); color: var(--primary); }
+
+    /* Panel del cliente */
     #content .cr-card {
         background: var(--surface);
         border: 1px solid var(--line);
         border-radius: 24px;
-        padding: 26px 26px 10px;
-        margin: 24px 0;
+        padding: 24px 24px 12px;
+        margin: 12px 0 24px;
         box-shadow: 0 12px 32px rgba(0, 0, 0, .05);
     }
-    #content .cr-card h3 { margin-top: 0; font-size: 1.7rem; }
+    #content .cr-card[hidden] { display: none; }
+    #content .cr-card h3 { margin-top: 0; font-size: 1.6rem; }
     #content .cr-card.cr-featured { border-color: rgba(2, 84, 245, .45); position: relative; overflow: hidden; }
     #content .cr-card.cr-featured::before {
         content: "";
@@ -73,7 +118,72 @@
         letter-spacing: .02em;
         margin: 2px 0 6px;
     }
-    #content .cr-downloads { display: flex; flex-wrap: wrap; gap: 9px; margin: 4px 0 18px; }
+    #content .cr-head { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; }
+    #content .cr-logo {
+        width: 56px;
+        height: 56px;
+        flex: 0 0 56px;
+        border-radius: 15px;
+        background: #fff;
+        border: 1px solid var(--line);
+        padding: 6px;
+        box-sizing: border-box;
+        object-fit: contain;
+        margin: 0;
+        display: block;
+    }
+    #content .cr-card.cr-featured .cr-logo { width: 64px; height: 64px; flex-basis: 64px; border-radius: 17px; }
+    #content .cr-head-main h3 { margin: 0; }
+    #content .cr-head-main .cr-badge { margin-top: 6px; }
+    #content .cr-protos { display: flex; flex-wrap: wrap; gap: 7px; margin: 0 0 14px; }
+    #content .cr-protos span {
+        font-size: .8rem;
+        font-weight: 600;
+        color: var(--muted);
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 4px 11px;
+        background: var(--bg);
+    }
+    #content .cr-card.cr-featured .cr-protos span { color: var(--primary); border-color: rgba(2, 84, 245, .35); }
+
+    /* Descargas: botón principal + resto desplegable */
+    #content a.cr-main-dl {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        min-height: 48px;
+        border-radius: 999px;
+        background: var(--primary);
+        color: #fff;
+        font-size: 1rem;
+        font-weight: 700;
+        text-decoration: none;
+        margin: 6px 0 4px;
+        transition: filter .18s;
+    }
+    #content a.cr-main-dl:hover { filter: brightness(1.08); }
+    #content a.cr-main-dl i { font-size: 19px; }
+    #content .cr-more-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        width: 100%;
+        min-height: 44px;
+        background: none;
+        border: none;
+        color: var(--primary);
+        font-family: Inter, sans-serif;
+        font-size: .92rem;
+        font-weight: 600;
+        cursor: pointer;
+    }
+    #content .cr-more-btn i { font-size: 16px; transition: transform .18s; }
+    #content .cr-more-btn[aria-expanded="true"] i { transform: rotate(180deg); }
+    #content .cr-downloads { display: flex; flex-wrap: wrap; gap: 9px; margin: 4px 0 14px; }
+    #content .cr-downloads.cr-hidden { display: none; }
     #content .cr-downloads a.cr-pill {
         display: inline-flex;
         align-items: center;
@@ -90,66 +200,70 @@
         transition: background .2s, color .2s, border-color .2s;
     }
     #content .cr-downloads a.cr-pill:hover { background: var(--primary); border-color: var(--primary); color: #fff; }
-    #content .cr-card h4 {
-        font-size: .95rem;
-        letter-spacing: .08em;
-        text-transform: uppercase;
-        color: var(--muted);
-        margin-top: 20px;
-    }
-    #content .cr-row {
-        background: var(--bg);
+    #content .cr-downloads a.cr-pill.cr-detected { background: var(--primary); border-color: var(--primary); color: #fff; order: -1; }
+
+    /* Desplegables (ventajas, instrucciones, acerca de) */
+    #content details.cr-details, #content details.cr-acc {
         border: 1px solid var(--line);
-        border-radius: 14px;
-        padding: 10px 14px;
-        margin: 0 0 8px;
-        font-size: 1rem;
-        line-height: 1.5;
-    }
-    #content .cr-head { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
-    #content .cr-logo {
-        width: 64px;
-        height: 64px;
-        flex: 0 0 64px;
         border-radius: 16px;
-        background: #fff;
-        border: 1px solid var(--line);
-        padding: 7px;
-        box-sizing: border-box;
-        object-fit: contain;
-        margin: 0;
-        display: block;
-    }
-    #content .cr-card.cr-featured .cr-logo { width: 72px; height: 72px; flex-basis: 72px; border-radius: 18px; }
-    #content .cr-head-main h3 { margin: 0; }
-    #content .cr-protos { display: flex; flex-wrap: wrap; gap: 7px; margin: 0 0 14px; }
-    #content .cr-protos span {
-        font-size: .8rem;
-        font-weight: 600;
-        color: var(--muted);
-        border: 1px solid var(--line);
-        border-radius: 999px;
-        padding: 4px 11px;
         background: var(--bg);
+        margin: 10px 0 14px;
+        overflow: hidden;
     }
-    #content .cr-card.cr-featured .cr-protos span { color: var(--primary); border-color: rgba(2, 84, 245, .35); }
-    #content .cr-downloads a.cr-pill.cr-detected {
-        background: var(--primary);
-        border-color: var(--primary);
-        color: #fff;
-        order: -1;
+    #content details.cr-acc { background: var(--surface); margin: 0 0 16px; }
+    #content details.cr-details summary, #content details.cr-acc summary {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        min-height: 48px;
+        padding: 10px 16px;
+        font-weight: 700;
+        font-size: .98rem;
+        color: var(--text);
+        cursor: pointer;
+        list-style: none;
     }
-    #content .cr-head-main .cr-badge { margin-top: 6px; }
+    #content details summary::-webkit-details-marker { display: none; }
+    #content details summary .cr-chev { margin-left: auto; font-size: 17px; color: var(--muted); transition: transform .18s; }
+    #content details[open] summary .cr-chev { transform: rotate(180deg); }
+    #content details.cr-details .cr-body { padding: 2px 16px 10px; }
+    #content details.cr-acc .cr-body { padding: 2px 18px 12px; }
+    #content .cr-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 9px;
+        padding: 5px 0;
+        margin: 0;
+        font-size: .95rem;
+        line-height: 1.45;
+        background: none;
+        border: none;
+    }
+    #content .cr-row i { font-size: 18px; flex: 0 0 18px; margin-top: 1px; }
+    #content .cr-row i.cr-ok { color: #1f9d63; }
+    #content .cr-row i.cr-no { color: #cf5b56; }
     #content .cr-steps li::marker { color: var(--primary); font-weight: 700; }
-    #content .cr-cta-title a { color: var(--primary); }
+
+    /* Cierre */
+    #content .cr-cta-banner {
+        background: linear-gradient(135deg, rgba(2, 84, 245, .10), rgba(2, 84, 245, .03));
+        border: 1px solid rgba(2, 84, 245, .30);
+        border-radius: 24px;
+        padding: 22px 22px 8px;
+        margin: 26px 0 10px;
+    }
+    #content .cr-cta-banner h3 { margin-top: 0; }
+    #content .cr-cta-banner a { color: var(--primary); font-weight: 700; }
 
     @media (max-width: 620px) {
-        #content .cr-card { padding: 20px 16px 4px; border-radius: 20px; }
-        #content .cr-card h3 { font-size: 1.45rem; }
-        #content .cr-row { font-size: .95rem; }
-        #content .cr-head { gap: 12px; }
-        #content .cr-logo { width: 54px; height: 54px; flex-basis: 54px; border-radius: 13px; }
-        #content .cr-card.cr-featured .cr-logo { width: 58px; height: 58px; flex-basis: 58px; border-radius: 15px; }
+        #content .cr-card { padding: 18px 16px 6px; border-radius: 20px; }
+        #content .cr-card h3 { font-size: 1.4rem; }
+        #content .cr-head { gap: 11px; }
+        #content .cr-logo { width: 48px; height: 48px; flex-basis: 48px; border-radius: 12px; }
+        #content .cr-card.cr-featured .cr-logo { width: 54px; height: 54px; flex-basis: 54px; border-radius: 14px; }
+        #content .cr-tab { font-size: .86rem; min-height: 46px; }
+        #content .cr-tab img { width: 21px; height: 21px; }
+        #content .cr-row { font-size: .92rem; }
     }
     </style>
 </head>
@@ -163,14 +277,17 @@
 
     <script src="/blog/script.js?v=20261002-2315"></script>
     <script>
-    /* Mejora visual de esta página: envuelve cada cliente en una tarjeta,
-       marca Hiddify como recomendación principal, convierte las descargas
-       en píldoras y los pros/contras en filas. No cambia textos ni enlaces. */
+    /* Guía compacta de esta página: franja de 3 pasos, selector de
+       aplicaciones con un solo panel visible, descarga inmediata del
+       sistema detectado y detalles en desplegables. Reutiliza los nodos
+       originales de Telegraph: no cambia enlaces ni pierde información.
+       Iconos Hugeicons en lugar de emojis. */
     (function () {
         var CLIENTS = { hiddify: 1, outline: 1, wireguard: 1 };
+        var NAMES = { hiddify: 'Hiddify', outline: 'Outline', wireguard: 'WireGuard' };
         var LOGOS = {
             hiddify: '/assets/clientes/hiddify.svg',
-            outline: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Outline_VPN_icon.png/256px-Outline_VPN_icon.png',
+            outline: 'https://i.postimg.cc/rFtcVnr3/outline-256.webp',
             wireguard: '/assets/clientes/wireguard.svg'
         };
         var PROTOS = {
@@ -187,6 +304,29 @@
             if (/linux/i.test(ua)) return 'Linux';
             return '';
         }
+        function icon(name) {
+            var i = document.createElement('i');
+            i.className = 'hgi hgi-stroke ' + name;
+            i.setAttribute('aria-hidden', 'true');
+            return i;
+        }
+        function makeDetails(cls, label, iconName) {
+            var d = document.createElement('details');
+            d.className = cls;
+            var s = document.createElement('summary');
+            if (iconName) s.appendChild(icon(iconName));
+            var t = document.createElement('span');
+            t.textContent = label;
+            s.appendChild(t);
+            var chev = icon('hgi-arrow-down-01');
+            chev.classList.add('cr-chev');
+            s.appendChild(chev);
+            var body = document.createElement('div');
+            body.className = 'cr-body';
+            d.appendChild(s);
+            d.appendChild(body);
+            return { details: d, body: body };
+        }
         var timer = null;
 
         function enhance() {
@@ -196,24 +336,50 @@
             if (!h3s.length) return;
             content.dataset.crDone = '1';
 
-            // Pasos de la introducción
+            var stepsH3 = null, progH3 = null, closeH3 = null;
             h3s.forEach(function (h) {
-                if (h.textContent.trim().toLowerCase().indexOf('usar su cuenta') === 0) {
-                    var ol = h.nextElementSibling;
-                    while (ol && ol.tagName !== 'OL' && ol.tagName !== 'H3') ol = ol.nextElementSibling;
-                    if (ol && ol.tagName === 'OL') ol.classList.add('cr-steps');
-                }
-                if (h.textContent.trim().toLowerCase().indexOf('comience a utilizar') === 0) {
-                    h.classList.add('cr-cta-title');
-                }
+                var t = h.textContent.trim().toLowerCase();
+                if (t.indexOf('usar su cuenta') === 0) stepsH3 = h;
+                if (t === 'programas recomendados') progH3 = h;
+                if (t.indexOf('comience a utilizar') === 0) closeH3 = h;
             });
 
+            // Nodos por zona (antes de mover nada)
+            var heroFig = content.querySelector('figure');
+            var introPs = [], stepsNodes = [], closeP = null, closeFig = null;
+            if (stepsH3) {
+                var n = stepsH3.previousElementSibling;
+                while (n) {
+                    if (n.tagName === 'P') introPs.unshift(n);
+                    n = n.previousElementSibling;
+                }
+                n = stepsH3;
+                while (n && n !== progH3) { stepsNodes.push(n); n = n.nextElementSibling; }
+                var ol = stepsH3.parentNode.querySelector('ol');
+                if (ol) ol.classList.add('cr-steps');
+                stepsNodes.forEach(function (el) {
+                    if (el.tagName === 'P' && el.textContent.indexOf('👻') >= 0) {
+                        el.textContent = el.textContent.replace(/[👻✨]/g, '').replace(/\s+/g, ' ').trim();
+                    }
+                });
+            }
+            if (closeH3) {
+                var m = closeH3.nextElementSibling;
+                while (m) {
+                    if (m.tagName === 'P' && !closeP) closeP = m;
+                    if (m.tagName === 'FIGURE') closeFig = m;
+                    m = m.nextElementSibling;
+                }
+            }
+
             // Tarjetas por cliente
+            var cards = {};
             h3s.forEach(function (h) {
                 var key = h.textContent.trim().toLowerCase();
                 if (!CLIENTS[key]) return;
                 var card = document.createElement('section');
                 card.className = 'cr-card' + (key === 'hiddify' ? ' cr-featured' : '');
+                card.dataset.panel = key;
                 h.parentNode.insertBefore(card, h);
                 var node = h;
                 while (node && !(node !== h && node.tagName === 'H3')) {
@@ -221,16 +387,18 @@
                     card.appendChild(node);
                     node = next;
                 }
-                // Cabecera de la tarjeta: foto/logo del programa + nombre
+                cards[key] = card;
+
+                // Cabecera: logo + nombre (+ insignia en Hiddify)
                 var head = document.createElement('div');
                 head.className = 'cr-head';
                 var logo = document.createElement('img');
                 logo.className = 'cr-logo';
                 logo.src = LOGOS[key];
-                logo.alt = 'Logo de ' + h.textContent.trim();
-                logo.loading = 'lazy';
-                logo.width = 60;
-                logo.height = 60;
+                logo.alt = 'Logo de ' + NAMES[key];
+
+                logo.width = 56;
+                logo.height = 56;
                 var headMain = document.createElement('div');
                 headMain.className = 'cr-head-main';
                 card.insertBefore(head, card.firstChild);
@@ -243,7 +411,8 @@
                     badge.textContent = 'Recomendación principal';
                     headMain.appendChild(badge);
                 }
-                // Protocolos compatibles en chips, bajo la descripción
+
+                // Protocolos en chips bajo la descripción
                 var desc = head.nextElementSibling;
                 if (desc && desc.tagName === 'P' && PROTOS[key]) {
                     var pr = document.createElement('div');
@@ -255,7 +424,8 @@
                     });
                     desc.insertAdjacentElement('afterend', pr);
                 }
-                // Descargas en píldoras: el párrafo con 3+ enlaces de la tarjeta
+
+                // Descargas: píldoras + botón principal del sistema detectado
                 var osName = detectedOS();
                 card.querySelectorAll('p').forEach(function (p) {
                     var links = p.querySelectorAll('a');
@@ -264,24 +434,161 @@
                         var anchors = Array.prototype.slice.call(links);
                         p.textContent = '';
                         p.classList.add('cr-downloads');
+                        var detected = null;
                         anchors.forEach(function (a) {
                             a.classList.add('cr-pill');
-                            if (osName && a.textContent.trim() === osName) a.classList.add('cr-detected');
+                            if (osName && a.textContent.trim() === osName) {
+                                a.classList.add('cr-detected');
+                                detected = a;
+                            }
                             p.appendChild(a);
                         });
+                        if (detected) {
+                            var main = document.createElement('a');
+                            main.className = 'cr-main-dl';
+                            main.href = detected.href;
+                            main.appendChild(icon('hgi-download-01'));
+                            var mt = document.createElement('span');
+                            mt.textContent = 'Descargar para ' + osName;
+                            main.appendChild(mt);
+                            p.parentNode.insertBefore(main, p);
+                            var more = document.createElement('button');
+                            more.type = 'button';
+                            more.className = 'cr-more-btn';
+                            more.setAttribute('aria-expanded', 'false');
+                            var mot = document.createElement('span');
+                            mot.textContent = 'Otras plataformas';
+                            more.appendChild(mot);
+                            more.appendChild(icon('hgi-arrow-down-01'));
+                            p.parentNode.insertBefore(more, p);
+                            p.classList.add('cr-hidden');
+                            more.addEventListener('click', function () {
+                                var hidden = p.classList.toggle('cr-hidden');
+                                more.setAttribute('aria-expanded', hidden ? 'false' : 'true');
+                                mot.textContent = hidden ? 'Otras plataformas' : 'Ocultar plataformas';
+                            });
+                        }
                     }
                 });
-                // Pros y contras en filas
-                card.querySelectorAll('p').forEach(function (p) {
-                    var t = p.textContent.trim();
-                    if (t.indexOf('✅') === 0 || t.indexOf('❌') === 0) p.classList.add('cr-row');
-                });
+
+                // Ventajas y desventajas en un desplegable con iconos
+                var h4 = card.querySelector('h4');
+                if (h4) {
+                    var det = makeDetails('cr-details', h4.textContent.replace(/:\s*$/, ''), 'hgi-information-circle');
+                    var row = h4.nextElementSibling;
+                    var rows = [];
+                    while (row && row.tagName === 'P' && (row.textContent.trim().indexOf('✅') === 0 || row.textContent.trim().indexOf('❌') === 0)) {
+                        rows.push(row);
+                        row = row.nextElementSibling;
+                    }
+                    rows.forEach(function (p) {
+                        var t = p.textContent.trim();
+                        var ok = t.indexOf('✅') === 0;
+                        var txt = t.replace(/^[✅❌]\s*/, '');
+                        p.textContent = '';
+                        p.classList.add('cr-row');
+                        var ic = icon(ok ? 'hgi-checkmark-circle-02' : 'hgi-cancel-circle');
+                        ic.classList.add(ok ? 'cr-ok' : 'cr-no');
+                        p.appendChild(ic);
+                        var sp = document.createElement('span');
+                        sp.textContent = txt;
+                        p.appendChild(sp);
+                        det.body.appendChild(p);
+                    });
+                    h4.parentNode.insertBefore(det.details, h4);
+                    h4.remove();
+                }
             });
 
-            // Respeta el ancla de llegada (#Hiddify, #Outline, #WireGuard)
+            // Selector de aplicaciones: pestañas + un solo panel visible
+            var tabs = document.createElement('div');
+            tabs.className = 'cr-tabs';
+            tabs.setAttribute('role', 'tablist');
+            var order = ['hiddify', 'outline', 'wireguard'];
+            function activate(key, scroll) {
+                order.forEach(function (k) {
+                    if (cards[k]) cards[k].hidden = (k !== key);
+                    var b = tabs.querySelector('[data-tab="' + k + '"]');
+                    if (b) b.setAttribute('aria-selected', k === key ? 'true' : 'false');
+                });
+                if (scroll && cards[key]) cards[key].scrollIntoView({ block: 'start' });
+            }
+            order.forEach(function (k) {
+                if (!cards[k]) return;
+                var b = document.createElement('button');
+                b.type = 'button';
+                b.className = 'cr-tab';
+                b.dataset.tab = k;
+                b.setAttribute('role', 'tab');
+                b.setAttribute('aria-selected', 'false');
+                var im = document.createElement('img');
+                im.src = LOGOS[k];
+                im.alt = '';
+
+                b.appendChild(im);
+                var bt = document.createElement('span');
+                bt.textContent = NAMES[k];
+                b.appendChild(bt);
+                b.addEventListener('click', function () { activate(k, false); });
+                tabs.appendChild(b);
+            });
+            if (progH3 && cards.hiddify) progH3.insertAdjacentElement('afterend', tabs);
+
+            // Franja de 3 pasos, arriba del todo
+            var strip = document.createElement('div');
+            strip.className = 'cr-steps-strip';
+            [['hgi-smartphone', 'Elija'], ['hgi-download-01', 'Instale'], ['hgi-link-01', 'Conecte']].forEach(function (it) {
+                var d = document.createElement('div');
+                d.className = 'cr-step';
+                d.appendChild(icon(it[0]));
+                var s = document.createElement('span');
+                s.textContent = it[1];
+                d.appendChild(s);
+                strip.appendChild(d);
+            });
+            content.insertBefore(strip, content.firstChild);
+            var note = document.createElement('p');
+            note.className = 'cr-steps-note';
+            note.textContent = 'Elija una aplicación compatible, instálela y añada su cuenta.';
+            strip.insertAdjacentElement('afterend', note);
+
+            // Acordeones al final: instrucciones detalladas y acerca de la guía
+            var anchor = cards.wireguard || cards.outline || cards.hiddify;
+            if (stepsNodes.length) {
+                var d1 = makeDetails('cr-acc', 'Instrucciones detalladas', 'hgi-link-01');
+                stepsNodes.forEach(function (el) { d1.body.appendChild(el); });
+                if (anchor) anchor.insertAdjacentElement('afterend', d1.details);
+            }
+            var about = makeDetails('cr-acc', 'Acerca de esta guía', 'hgi-information-circle');
+            var aboutHas = false;
+            introPs.forEach(function (p) { about.body.appendChild(p); aboutHas = true; });
+            if (heroFig) { about.body.appendChild(heroFig); aboutHas = true; }
+            if (closeFig) { about.body.appendChild(closeFig); aboutHas = true; }
+            if (aboutHas) {
+                var after = content.querySelector('details.cr-acc');
+                if (after) after.insertAdjacentElement('afterend', about.details);
+                else if (anchor) anchor.insertAdjacentElement('afterend', about.details);
+            }
+
+            // Cierre como franja
+            if (closeH3) {
+                var banner = document.createElement('div');
+                banner.className = 'cr-cta-banner';
+                closeH3.parentNode.insertBefore(banner, closeH3);
+                banner.appendChild(closeH3);
+                if (closeP) banner.appendChild(closeP);
+            }
+
+            // Panel inicial: el del ancla si llega (#Hiddify, #Outline, #WireGuard)
+            var initial = 'hiddify';
             if (location.hash) {
-                var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
-                if (target) target.scrollIntoView();
+                var hk = decodeURIComponent(location.hash.slice(1)).toLowerCase();
+                if (CLIENTS[hk]) initial = hk;
+            }
+            activate(initial, false);
+            if (location.hash && CLIENTS[initial]) {
+                var tp = document.querySelector('.cr-tabs');
+                if (tp) tp.scrollIntoView();
             }
         }
 
