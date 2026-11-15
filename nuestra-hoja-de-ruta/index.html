@@ -430,14 +430,15 @@
                 frag.appendChild(card);
             });
 
-            // --- Cierre: sin tarjeta final. La figura de cierre (un logotipo
-            // casi todo transparente) y el eslogan suelto se retiran; el resto
-            // de nodos va a «Acerca de esta hoja de ruta».
-            var figures = others.filter(function (n) { return n.tagName === 'FIGURE'; });
-            var lastFig = figures.length ? figures[figures.length - 1] : null;
-            if (lastFig) { lastFig.remove(); others.splice(others.indexOf(lastFig), 1); }
+            // --- Cierre: sin tarjeta final ni imágenes sueltas. Las figuras
+            // del artículo (la de portada y el logotipo de cierre), el eslogan
+            // suelto y los párrafos vacíos se retiran; el resto de nodos va a
+            // «Acerca de esta hoja de ruta» (si no queda nada, no se muestra).
             others.slice().forEach(function (n) {
-                if (n.tagName === 'P' && /conecta donde otros no pueden/i.test(n.textContent)) {
+                if (n.tagName === 'FIGURE') { n.remove(); others.splice(others.indexOf(n), 1); }
+            });
+            others.slice().forEach(function (n) {
+                if (n.tagName === 'P' && (!n.textContent.trim() || /conecta donde otros no pueden/i.test(n.textContent))) {
                     n.remove(); others.splice(others.indexOf(n), 1);
                 }
             });
