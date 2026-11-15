@@ -58,6 +58,34 @@
     #content figure img { border-radius: 20px; }
     /* Sin encabezado tipo artículo: fuera la línea de autor y fecha. */
     #meta { display: none; }
+    /* Sin destello del artículo crudo (2026-11-15, web nativa): el
+       contenido ya viene en el HTML y el panel lo transforma al cargar;
+       mientras no esté transformado no se muestra, y en su lugar va el
+       aviso de carga. Si la transformación fallara, el script marca
+       data-hr-fallback y se muestra el contenido tal cual. */
+    #content:not([data-hr-done="1"]):not([data-hr-fallback="1"]) { display: none; }
+    #hr-loading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        color: var(--muted);
+        font-size: .98rem;
+        font-weight: 600;
+        padding: 34px 0 44px;
+    }
+    #hr-loading .hr-spinner {
+        width: 20px;
+        height: 20px;
+        flex: 0 0 20px;
+        border-radius: 50%;
+        border: 3px solid var(--line);
+        border-top-color: var(--primary);
+        animation: hr-spin .8s linear infinite;
+    }
+    @keyframes hr-spin { to { transform: rotate(360deg); } }
+    #content[data-hr-done="1"] ~ #hr-loading,
+    #content[data-hr-fallback="1"] ~ #hr-loading { display: none; }
     /* Los iconos Hugeicons nunca en cursiva (el lector usa <i>). */
     #article-container .hgi { font-style: normal; }
 
@@ -241,10 +269,11 @@
     <div id="article-container">
         <h1 id="title">Nuestra hoja de ruta</h1>
         <p id="hr-subtitle">El avance real del proyecto, de un vistazo.</p>
-        <div id="content" data-url="Nuestra-hoja-de-ruta-11-15-5" data-date="Noviembre 14, 2026"></div>
+        <div id="content" data-date="Noviembre 14, 2026"><figure><img src="https://i.postimg.cc/nLgzN9vg/hojaderuta.png"><figcaption></figcaption></figure><h3 id="RoCla-VPN">RoCla VPN</h3><h3 id="⏳-Pendientes">⏳ Pendientes</h3><ul><li>Sistema de referidos</li></ul><h3 id="✅-Realizado">✅ Realizado</h3><ul><li>Escudo de protección inteligente con tecnología de vanguardia.</li><li><a href="https://vpn.roclahy.com/clientes-recomendados/" target="_blank">Clientes recomendados.</a></li><li>Admitir más protocolos: X-Ray mejorado y Hysteria2.</li><li>Múltiples mejoras internas.</li><li>Migración a un <a href="https://t.me/roclavpnbot" target="_blank">nuevo bot</a> para el servicio.</li><li>Migración de servidores.</li><li>Autoverificación de ancho de banda consumido y fecha de vencimiento del plan.</li><li>Notificaciones del plan consumido/95% consumido/expiración 3 días antes.</li><li>Creación de cuentas automáticamente.</li><li><a href="https://vpn.roclahy.com/" target="_blank">Sitio web</a>.</li><li><a href="https://vpn.roclahy.com/blog/" target="_blank">Blog del servicio</a>.</li><li>Cuentas para streaming (RoCla+)</li><li>Transferencia de saldo entre usuarios</li><li>Pagos con criptomonedas.</li><li>Idioma inglés en el servicio.</li></ul><h3 id="RoCla-Proxy">RoCla Proxy</h3><h3 id="✅-Realizado">✅ Realizado</h3><ul><li>Lanzamiento de RoCla Proxy con servidores MTProto y Web.</li><li><a href="https://t.me/roclaproxy" target="_blank">Lanzamiento de nuestro Proxy gratuito optimizado para Telegram.</a></li><li>Gestión de los proxys desde el panel de RoCla VPN.</li></ul><h3 id="RoCla-Website">RoCla Website</h3><h3 id="✅-Realizado">✅ Realizado</h3><ul><li>Sitio web</li><li>Blog de noticias de RoCla VPN</li><li>Panel de gestión</li><li>Recarga de saldo directamente en el sitio web.</li><li>Compra de planes directamente en el sitio web.</li></ul><p><br></p><figure><img src="https://i.postimg.cc/W3rtL9r5/Ro-Cla-VPN.png"><figcaption>Conecta donde otros no pueden</figcaption></figure><p><br></p><p><br></p><p><br></p></div>
+        <div id="hr-loading" role="status"><span class="hr-spinner" aria-hidden="true"></span><span>Cargando la hoja de ruta…</span></div>
     </div>
 
-    <script src="/blog/script.js?v=20261115-2"></script>
+    <script src="/blog/script.js?v=20261115-3"></script>
     <script>
     /* Panel de progreso de esta página: lee las listas reales que sirve
        el lector (áreas, realizados y pendientes), calcula los totales y
@@ -460,11 +489,15 @@
             }
 
             content.appendChild(frag);
+
+            // El panel ya está hecho y visible (data-hr-done): fuera el aviso.
+            var ld = document.getElementById('hr-loading');
+            if (ld) ld.remove();
         }
 
         function schedule() {
             if (timer) clearTimeout(timer);
-            timer = setTimeout(enhance, 350);
+            timer = setTimeout(enhance, 60);
         }
 
         var contentEl = document.getElementById('content');
@@ -473,6 +506,15 @@
         }
         document.addEventListener('DOMContentLoaded', schedule);
         schedule();
+
+        // Red de seguridad: si el panel no se pudiera construir, a los
+        // 10 s se muestra el contenido tal cual. Nunca página en blanco.
+        setTimeout(function () {
+            var c = document.getElementById('content');
+            if (c && !c.dataset.hrDone) c.dataset.hrFallback = '1';
+            var l = document.getElementById('hr-loading');
+            if (l) l.remove();
+        }, 10000);
     })();
     </script>
 </body>
