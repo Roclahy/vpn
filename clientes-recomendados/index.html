@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes recomendados - RoCla VPN</title>
+    <meta name="theme-color" content="#0255F4">
+    <link rel="icon" type="image/webp" href="/roclavpn-logo.webp">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Josefin+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="/blog/style.css?v=20261113-2">
+    <style>
+    /* Clientes recomendados — diseño RoCla VPN (2026-11-15):
+       tarjetas por cliente, Hiddify como recomendación principal,
+       descargas en píldoras y pros/contras en filas suaves.
+       Solo vive en esta carcasa; no toca el CSS compartido del blog. */
+    #article-container { max-width: 880px; }
+    #title { font-family: 'Josefin Sans', Inter, sans-serif; letter-spacing: -.01em; }
+    #title::before {
+        content: "RoCla VPN · Recomendaciones";
+        display: block;
+        font-family: Inter, sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: .14em;
+        text-transform: uppercase;
+        color: var(--primary);
+        margin-bottom: 12px;
+    }
+    #title::after {
+        content: "";
+        display: block;
+        width: 56px;
+        height: 4px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, var(--primary), #7aa8ff);
+        margin-top: 16px;
+    }
+    #content h3 { font-family: 'Josefin Sans', Inter, sans-serif; }
+    #content figure img { border-radius: 20px; }
+
+    #content .cr-card {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        padding: 26px 26px 10px;
+        margin: 24px 0;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, .05);
+    }
+    #content .cr-card h3 { margin-top: 0; font-size: 1.7rem; }
+    #content .cr-card.cr-featured { border-color: rgba(2, 84, 245, .45); position: relative; overflow: hidden; }
+    #content .cr-card.cr-featured::before {
+        content: "";
+        position: absolute;
+        inset: 0 0 auto 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), #7aa8ff);
+    }
+    #content .cr-badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 6px 13px;
+        border-radius: 999px;
+        background: var(--primary);
+        color: #fff;
+        font-size: .78rem;
+        font-weight: 700;
+        letter-spacing: .02em;
+        margin: 2px 0 6px;
+    }
+    #content .cr-downloads { display: flex; flex-wrap: wrap; gap: 9px; margin: 4px 0 18px; }
+    #content .cr-downloads a.cr-pill {
+        display: inline-flex;
+        align-items: center;
+        padding: 9px 16px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: var(--bg);
+        color: var(--text);
+        font-size: .92rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background .2s, color .2s, border-color .2s;
+    }
+    #content .cr-downloads a.cr-pill:hover { background: var(--primary); border-color: var(--primary); color: #fff; }
+    #content .cr-card h4 {
+        font-size: .95rem;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-top: 20px;
+    }
+    #content .cr-row {
+        background: var(--bg);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 10px 14px;
+        margin: 0 0 8px;
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+    #content .cr-steps li::marker { color: var(--primary); font-weight: 700; }
+    #content .cr-cta-title a { color: var(--primary); }
+
+    @media (max-width: 620px) {
+        #content .cr-card { padding: 20px 16px 4px; border-radius: 20px; }
+        #content .cr-card h3 { font-size: 1.45rem; }
+        #content .cr-row { font-size: .95rem; }
+    }
+    </style>
+</head>
+<body>
+
+    <div id="article-container">
+        <h1 id="title">Clientes recomendados</h1>
+        <div id="content" data-url="Clientes-recomendados-11-15" data-date="Diciembre 01, 2025"></div>
+    </div>
+
+    <script src="/blog/script.js?v=20261002-2315"></script>
+    <script>
+    /* Mejora visual de esta página: envuelve cada cliente en una tarjeta,
+       marca Hiddify como recomendación principal, convierte las descargas
+       en píldoras y los pros/contras en filas. No cambia textos ni enlaces. */
+    (function () {
+        var CLIENTS = { hiddify: 1, outline: 1, wireguard: 1 };
+        var timer = null;
+
+        function enhance() {
+            var content = document.getElementById('content');
+            if (!content || content.dataset.crDone) return;
+            var h3s = content.querySelectorAll('h3');
+            if (!h3s.length) return;
+            content.dataset.crDone = '1';
+
+            // Pasos de la introducción
+            h3s.forEach(function (h) {
+                if (h.textContent.trim().toLowerCase().indexOf('usar tu cuenta') === 0) {
+                    var ol = h.nextElementSibling;
+                    while (ol && ol.tagName !== 'OL' && ol.tagName !== 'H3') ol = ol.nextElementSibling;
+                    if (ol && ol.tagName === 'OL') ol.classList.add('cr-steps');
+                }
+                if (h.textContent.trim().toLowerCase().indexOf('compra un plan') === 0) {
+                    h.classList.add('cr-cta-title');
+                }
+            });
+
+            // Tarjetas por cliente
+            h3s.forEach(function (h) {
+                var key = h.textContent.trim().toLowerCase();
+                if (!CLIENTS[key]) return;
+                var card = document.createElement('section');
+                card.className = 'cr-card' + (key === 'hiddify' ? ' cr-featured' : '');
+                h.parentNode.insertBefore(card, h);
+                var node = h;
+                while (node && !(node !== h && node.tagName === 'H3')) {
+                    var next = node.nextSibling;
+                    card.appendChild(node);
+                    node = next;
+                }
+                if (key === 'hiddify') {
+                    var badge = document.createElement('span');
+                    badge.className = 'cr-badge';
+                    badge.textContent = 'Recomendación principal';
+                    h.insertAdjacentElement('afterend', badge);
+                }
+                // Descargas en píldoras: el párrafo con 3+ enlaces de la tarjeta
+                card.querySelectorAll('p').forEach(function (p) {
+                    var links = p.querySelectorAll('a');
+                    if (links.length >= 3 && !p.dataset.crDl) {
+                        p.dataset.crDl = '1';
+                        var anchors = Array.prototype.slice.call(links);
+                        p.textContent = '';
+                        p.classList.add('cr-downloads');
+                        anchors.forEach(function (a) {
+                            a.classList.add('cr-pill');
+                            p.appendChild(a);
+                        });
+                    }
+                });
+                // Pros y contras en filas
+                card.querySelectorAll('p').forEach(function (p) {
+                    var t = p.textContent.trim();
+                    if (t.indexOf('✅') === 0 || t.indexOf('❌') === 0) p.classList.add('cr-row');
+                });
+            });
+
+            // Respeta el ancla de llegada (#Hiddify, #Outline, #WireGuard)
+            if (location.hash) {
+                var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+                if (target) target.scrollIntoView();
+            }
+        }
+
+        function schedule() {
+            if (timer) clearTimeout(timer);
+            timer = setTimeout(enhance, 350);
+        }
+
+        var contentEl = document.getElementById('content');
+        if (contentEl) {
+            new MutationObserver(schedule).observe(contentEl, { childList: true, subtree: true });
+        }
+        document.addEventListener('DOMContentLoaded', schedule);
+        schedule();
+    })();
+    </script>
+</body>
+</html>
