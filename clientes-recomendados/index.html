@@ -46,6 +46,11 @@
     }
     #content h3 { font-family: 'Josefin Sans', Inter, sans-serif; }
     #content figure img { border-radius: 20px; }
+    /* Sin encabezado tipo artículo: fuera la línea de autor y fecha que
+       inyecta el lector del blog; queda solo el titular de la guía. */
+    #meta { display: none; }
+    /* Los iconos Hugeicons nunca en cursiva (el lector usa <i>). */
+    #article-container .hgi { font-style: normal; }
 
     /* Franja de 3 pasos */
     #content .cr-steps-strip {
@@ -98,14 +103,7 @@
     }
     #content .cr-card[hidden] { display: none; }
     #content .cr-card h3 { margin-top: 0; font-size: 1.6rem; }
-    #content .cr-card.cr-featured { border-color: rgba(2, 84, 245, .45); position: relative; overflow: hidden; }
-    #content .cr-card.cr-featured::before {
-        content: "";
-        position: absolute;
-        inset: 0 0 auto 0;
-        height: 4px;
-        background: linear-gradient(90deg, var(--primary), #7aa8ff);
-    }
+    #content .cr-card.cr-featured { border-color: rgba(2, 84, 245, .45); }
     #content .cr-badge {
         display: inline-flex;
         align-items: center;
@@ -272,7 +270,7 @@
     <div id="article-container">
         <h1 id="title">Clientes recomendados</h1>
         <p id="cr-subtitle">Elija una aplicación compatible con su llave de RoCla VPN.</p>
-        <div id="content" data-url="Clientes-recomendados-11-15-2" data-date="Diciembre 01, 2025"></div>
+        <div id="content" data-url="Clientes-recomendados-11-15-3" data-date="Diciembre 01, 2025"></div>
     </div>
 
     <script src="/blog/script.js?v=20261002-2315"></script>
