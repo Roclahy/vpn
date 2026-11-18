@@ -103,7 +103,8 @@
     #content .cr-steps-note { text-align: center; color: var(--muted); font-size: .95rem; margin: 8px 0 4px; }
 
     /* Selector de aplicaciones */
-    #content .cr-tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin: 16px 0 0; }
+    #content .cr-tabs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin: 16px 0 0; }
+    @media (max-width: 560px) { #content .cr-tabs { grid-template-columns: repeat(2, 1fr); } }
     #content .cr-tab {
         display: flex;
         align-items: center;
@@ -316,16 +317,18 @@
        Iconos Hugeicons en lugar de emojis. */
     (function () {
         var CLIENTS = { hiddify: 1, outline: 1, wireguard: 1 };
-        var NAMES = { hiddify: 'Hiddify', outline: 'Outline', wireguard: 'WireGuard' };
+        var NAMES = { hiddify: 'Hiddify', outline: 'Outline', wireguard: 'WireGuard', rocla: 'RoCla VPN' };
         var LOGOS = {
             hiddify: '/assets/clientes/hiddify.svg',
             outline: 'https://i.postimg.cc/rFtcVnr3/outline-256.webp',
-            wireguard: '/assets/clientes/wireguard.svg'
+            wireguard: '/assets/clientes/wireguard.svg',
+            rocla: '/roclavpn-logo.webp'
         };
         var PROTOS = {
             hiddify: ['VLESS', 'WireGuard', 'Shadowsocks', 'Hysteria2'],
             outline: ['Shadowsocks'],
-            wireguard: ['WireGuard']
+            wireguard: ['WireGuard'],
+            rocla: ['VLESS', 'Hysteria2', 'WireGuard', 'Shadowsocks']
         };
         function detectedOS() {
             var ua = navigator.userAgent || '';
@@ -410,7 +413,7 @@
                 var key = h.textContent.trim().toLowerCase();
                 if (!CLIENTS[key]) return;
                 var card = document.createElement('section');
-                card.className = 'cr-card' + (key === 'hiddify' ? ' cr-featured' : '');
+                card.className = 'cr-card';
                 card.dataset.panel = key;
                 h.parentNode.insertBefore(card, h);
                 var node = h;
@@ -437,7 +440,7 @@
                 head.appendChild(logo);
                 head.appendChild(headMain);
                 headMain.appendChild(h);
-                if (key === 'hiddify') {
+                if (key === 'rocla') {
                     var badge = document.createElement('span');
                     badge.className = 'cr-badge';
                     badge.textContent = 'Recomendación principal';
@@ -532,11 +535,118 @@
                 }
             });
 
+            // Tarjeta propia: la app oficial de RoCla VPN (Android), la primera
+            var roclaCard = document.createElement('section');
+            roclaCard.className = 'cr-card cr-featured';
+            roclaCard.dataset.panel = 'rocla';
+            var rHead = document.createElement('div');
+            rHead.className = 'cr-head';
+            var rLogo = document.createElement('img');
+            rLogo.className = 'cr-logo';
+            rLogo.src = LOGOS.rocla;
+            rLogo.alt = 'Logo de RoCla VPN';
+            rLogo.width = 56;
+            rLogo.height = 56;
+            var rMain = document.createElement('div');
+            rMain.className = 'cr-head-main';
+            var rH3 = document.createElement('h3');
+            rH3.textContent = 'RoCla VPN';
+            var rBadge = document.createElement('span');
+            rBadge.className = 'cr-badge';
+            rBadge.textContent = 'Recomendación principal';
+            rMain.appendChild(rH3);
+            rMain.appendChild(rBadge);
+            rHead.appendChild(rLogo);
+            rHead.appendChild(rMain);
+            roclaCard.appendChild(rHead);
+            var rDesc = document.createElement('p');
+            rDesc.textContent = 'Nuestra aplicación oficial para Android: entre con su cuenta y conéctese. Sus llaves, su saldo y sus planes ya están dentro; no hay que copiar enlaces ni importar configuraciones.';
+            roclaCard.appendChild(rDesc);
+            var rPr = document.createElement('div');
+            rPr.className = 'cr-protos';
+            PROTOS.rocla.forEach(function (t) {
+                var sp = document.createElement('span');
+                sp.textContent = t;
+                rPr.appendChild(sp);
+            });
+            roclaCard.appendChild(rPr);
+            var ROC_APK = {
+                arm64: 'https://panel.roclahy.com/descargar/app/rocla-vpn-0.10-arm64.apk',
+                armv7: 'https://panel.roclahy.com/descargar/app/rocla-vpn-0.10-armv7.apk',
+                x86_64: 'https://panel.roclahy.com/descargar/app/rocla-vpn-0.10-x86_64.apk'
+            };
+            function rocApkUrl() {
+                var ua = (navigator.userAgent || '').toLowerCase();
+                if (ua.indexOf('x86_64') !== -1) return ROC_APK.x86_64;
+                if (ua.indexOf('armv7') !== -1) return ROC_APK.armv7;
+                return ROC_APK.arm64;
+            }
+            var rMainDl = document.createElement('a');
+            rMainDl.className = 'cr-main-dl';
+            rMainDl.href = rocApkUrl();
+            rMainDl.appendChild(icon('hgi-download-01'));
+            var rMt = document.createElement('span');
+            rMt.textContent = 'Descargar para Android';
+            rMainDl.appendChild(rMt);
+            roclaCard.appendChild(rMainDl);
+            if (navigator.userAgentData && navigator.userAgentData.getHighEntropyValues) {
+                navigator.userAgentData.getHighEntropyValues(['architecture', 'bitness']).then(function (v) {
+                    var a = (v.architecture || '').toLowerCase();
+                    if (a.indexOf('x86') !== -1) rMainDl.href = ROC_APK.x86_64;
+                    else if (a.indexOf('arm') !== -1 && v.bitness === '32') rMainDl.href = ROC_APK.armv7;
+                }).catch(function () {});
+            }
+            var rMore = document.createElement('button');
+            rMore.type = 'button';
+            rMore.className = 'cr-more-btn';
+            rMore.setAttribute('aria-expanded', 'false');
+            var rMot = document.createElement('span');
+            rMot.textContent = 'Otras arquitecturas';
+            rMore.appendChild(rMot);
+            rMore.appendChild(icon('hgi-arrow-down-01'));
+            roclaCard.appendChild(rMore);
+            var rDl = document.createElement('p');
+            rDl.className = 'cr-downloads cr-hidden';
+            [['Android · arm64', ROC_APK.arm64], ['Android · armv7', ROC_APK.armv7], ['Android · x86_64', ROC_APK.x86_64]].forEach(function (pair) {
+                var a = document.createElement('a');
+                a.className = 'cr-pill';
+                a.href = pair[1];
+                a.textContent = pair[0];
+                rDl.appendChild(a);
+            });
+            roclaCard.appendChild(rDl);
+            rMore.addEventListener('click', function () {
+                var hidden = rDl.classList.toggle('cr-hidden');
+                rMore.setAttribute('aria-expanded', hidden ? 'false' : 'true');
+                rMot.textContent = hidden ? 'Otras arquitecturas' : 'Ocultar arquitecturas';
+            });
+            var rDet = makeDetails('cr-details', 'Ventajas y desventajas', 'hgi-information-circle');
+            [['\u2705', 'Hecha por nosotros para RoCla VPN: sus llaves se crean y se conectan solas, sin copiar nada.'],
+             ['\u2705', 'Todos los protocolos incluidos: VLESS, Hysteria2, WireGuard y Shadowsocks.'],
+             ['\u2705', 'Escudo, RoCla+ y Modo Ghost integrados, según su plan.'],
+             ['\u2705', 'Evasión automática: si una ruta deja de responder, la app busca otra salida.'],
+             ['\u274c', 'Solo para Android: en iPhone y en computadora siga usando las demás opciones de esta guía.']
+            ].forEach(function (pair) {
+                var p = document.createElement('p');
+                p.className = 'cr-row';
+                var ok = pair[0] === '\u2705';
+                var ic = icon(ok ? 'hgi-checkmark-circle-02' : 'hgi-cancel-circle');
+                ic.classList.add(ok ? 'cr-ok' : 'cr-no');
+                p.appendChild(ic);
+                var sp = document.createElement('span');
+                sp.textContent = pair[1];
+                p.appendChild(sp);
+                rDet.body.appendChild(p);
+            });
+            roclaCard.appendChild(rDet.details);
+            if (progH3) progH3.insertAdjacentElement('afterend', roclaCard);
+            cards.rocla = roclaCard;
+
             // Selector de aplicaciones: pestañas + un solo panel visible
             var tabs = document.createElement('div');
             tabs.className = 'cr-tabs';
             tabs.setAttribute('role', 'tablist');
-            var order = ['hiddify', 'outline', 'wireguard'];
+            var order = ['rocla', 'hiddify', 'outline', 'wireguard'];
             function activate(key, scroll) {
                 order.forEach(function (k) {
                     if (cards[k]) cards[k].hidden = (k !== key);
@@ -612,7 +722,7 @@
             }
 
             // Panel inicial: el del ancla si llega (#Hiddify, #Outline, #WireGuard)
-            var initial = 'hiddify';
+            var initial = 'rocla';
             if (location.hash) {
                 var hk = decodeURIComponent(location.hash.slice(1)).toLowerCase();
                 if (CLIENTS[hk]) initial = hk;
