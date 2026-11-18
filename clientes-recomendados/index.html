@@ -164,6 +164,19 @@
     #content .cr-card.cr-featured .cr-logo { width: 64px; height: 64px; flex-basis: 64px; border-radius: 17px; }
     #content .cr-head-main h3 { margin: 0; }
     #content .cr-head-main .cr-badge { margin-top: 6px; }
+    #content .cr-name-row { display: flex; align-items: center; gap: 9px; flex-wrap: wrap; }
+    #content .cr-ver {
+        display: inline-flex;
+        align-items: center;
+        padding: 3px 10px;
+        border-radius: 999px;
+        background: rgba(2, 84, 245, .1);
+        color: var(--primary);
+        font-size: .8rem;
+        font-weight: 700;
+        letter-spacing: .02em;
+        white-space: nowrap;
+    }
     #content .cr-protos { display: flex; flex-wrap: wrap; gap: 7px; margin: 0 0 14px; }
     #content .cr-protos span {
         font-size: .8rem;
@@ -546,12 +559,19 @@
             rLogo.height = 56;
             var rMain = document.createElement('div');
             rMain.className = 'cr-head-main';
+            var rNameRow = document.createElement('div');
+            rNameRow.className = 'cr-name-row';
             var rH3 = document.createElement('h3');
             rH3.textContent = 'RoCla VPN';
+            var rVer = document.createElement('span');
+            rVer.className = 'cr-ver';
+            rVer.textContent = 'v0.15';
+            rNameRow.appendChild(rH3);
+            rNameRow.appendChild(rVer);
             var rBadge = document.createElement('span');
             rBadge.className = 'cr-badge';
             rBadge.textContent = 'Recomendación principal';
-            rMain.appendChild(rH3);
+            rMain.appendChild(rNameRow);
             rMain.appendChild(rBadge);
             rHead.appendChild(rLogo);
             rHead.appendChild(rMain);
