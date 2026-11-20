@@ -704,6 +704,15 @@ body > .navbar{
     transform: translateY(-1px);
 }
 
+/* Breathing room under the "Ver todas las publicaciones" button —
+   2026-11-19. #article-footer (injected by blog/script.js) used to end
+   flush at that button: no bottom padding or margin at all, so the
+   site footer's top border sat right against it. Give the block the
+   same ~48px rhythm the share section already uses above it. */
+#article-footer {
+    padding-bottom: 48px;
+}
+
 #article-footer .plan-btn.btn-outline {
     display: inline-flex;
     align-items: center;
