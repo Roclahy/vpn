@@ -162,6 +162,102 @@
     main .hero{
       padding-top:88px!important;
     }
+
+    /* Android app download banner: small dismissible card under the header */
+    .app-banner{
+      padding:70px 0 0!important;
+      background:var(--bg)!important;
+    }
+    .app-banner .container{
+      width:min(1060px,calc(100% - 28px))!important;
+      margin:0 auto!important;
+      padding:0!important;
+    }
+    .app-banner-card{
+      display:flex!important;
+      align-items:center!important;
+      gap:12px!important;
+      background:var(--surface)!important;
+      border:1px solid var(--line)!important;
+      border-radius:18px!important;
+      padding:12px 14px!important;
+      box-shadow:0 8px 24px rgba(0,0,0,.05)!important;
+    }
+    .app-banner-logo{
+      width:42px!important;
+      height:42px!important;
+      flex:0 0 42px!important;
+      border-radius:50%!important;
+      object-fit:cover!important;
+      display:block!important;
+    }
+    .app-banner-copy{
+      flex:1 1 auto!important;
+      min-width:0!important;
+      display:flex!important;
+      flex-direction:column!important;
+      gap:1px!important;
+    }
+    .app-banner-copy strong{
+      font-size:14px!important;
+      line-height:1.25!important;
+      letter-spacing:-.01em!important;
+      color:var(--text)!important;
+    }
+    .app-banner-copy span{
+      font-size:12.5px!important;
+      line-height:1.4!important;
+      color:var(--muted)!important;
+    }
+    .app-banner-btn{
+      flex:0 0 auto!important;
+      display:inline-flex!important;
+      align-items:center!important;
+      gap:7px!important;
+      height:36px!important;
+      padding:0 15px!important;
+      border-radius:999px!important;
+      background:var(--primary)!important;
+      color:#fff!important;
+      font-size:12.5px!important;
+      font-weight:750!important;
+      line-height:1!important;
+      white-space:nowrap!important;
+      text-decoration:none!important;
+      box-shadow:0 6px 18px rgba(10,92,255,.20)!important;
+    }
+    .app-banner-btn i{font-size:16px!important;line-height:1!important}
+    .app-banner-btn:hover{background:var(--primary-hover)!important}
+    .app-banner-close{
+      flex:0 0 30px!important;
+      width:30px!important;
+      height:30px!important;
+      padding:0!important;
+      border:0!important;
+      border-radius:50%!important;
+      background:var(--surface-2)!important;
+      color:var(--muted)!important;
+      font-size:17px!important;
+      line-height:1!important;
+      display:grid!important;
+      place-items:center!important;
+      cursor:pointer!important;
+      -webkit-tap-highlight-color:transparent!important;
+    }
+    .app-banner-close:hover{color:var(--text)!important}
+    .app-banner + .hero{
+      padding-top:26px!important;
+    }
+    @media(max-width:560px){
+      .app-banner{padding-top:64px!important}
+      .app-banner .container{width:calc(100% - 20px)!important}
+      .app-banner-card{flex-wrap:wrap!important;padding:12px!important;row-gap:10px!important}
+      .app-banner-logo{order:1!important}
+      .app-banner-copy{order:2!important;flex:1 1 calc(100% - 96px)!important}
+      .app-banner-close{order:3!important}
+      .app-banner-btn{order:4!important;margin-left:54px!important}
+      .app-banner + .hero{padding-top:20px!important}
+    }
     @media(max-width:720px){
       .navbar .container.nav-shell{
         width:min(1060px,calc(100% - 20px))!important;
@@ -220,6 +316,33 @@
   </nav>
 
   <main>
+    <section class="app-banner" id="app-banner" aria-label="Aplicación de RoCla VPN para Android">
+      <div class="container">
+        <div class="app-banner-card">
+          <img src="roclavpn-logo-2.webp" alt="" class="app-banner-logo">
+          <div class="app-banner-copy">
+            <strong>Nuestra app para Android ya está disponible</strong>
+            <span>Descarga la aplicación oficial de RoCla VPN: entra con tu cuenta y conéctate sin copiar llaves.</span>
+          </div>
+          <a class="app-banner-btn" href="/clientes-recomendados/">Descargar</a>
+          <button type="button" class="app-banner-close" id="app-banner-close" aria-label="Cerrar aviso">&times;</button>
+        </div>
+      </div>
+      <script>
+        (function () {
+          var banner = document.getElementById('app-banner');
+          if (!banner) return;
+          try {
+            if (localStorage.getItem('rocla-app-banner-closed') === '1') { banner.remove(); return; }
+          } catch (e) {}
+          document.getElementById('app-banner-close').addEventListener('click', function () {
+            try { localStorage.setItem('rocla-app-banner-closed', '1'); } catch (e) {}
+            banner.remove();
+          });
+        })();
+      </script>
+    </section>
+
     <header id="inicio" class="hero">
       <div class="container hero-grid">
         <div class="hero-content reveal">
