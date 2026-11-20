@@ -2165,3 +2165,13 @@ body{
 @media(prefers-reduced-motion:reduce){
   .plans-spotlight{scroll-behavior:auto}
 }
+
+/* Planes: 5 tarjetas (Gratis, Esencial, Plus, Pro, Premium) — 2026-11-20 */
+@media(min-width:1025px){
+  .plans-spotlight{grid-template-columns:repeat(5,1fr);gap:12px}
+  .plans-spotlight .plan-card{padding:18px}
+  .plans-spotlight .plan-data{font-size:29px}
+}
+@media(min-width:621px) and (max-width:1024px){
+  .plans-spotlight{grid-template-columns:repeat(3,1fr)}
+}
