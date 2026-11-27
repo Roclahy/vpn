@@ -291,6 +291,33 @@
     "provider": {"@type": "Organization", "name": "RoCla VPN", "url": "https://vpn.roclahy.com/"}
   }
   </script>
+<style>
+.approved-primary,.approved-download{background:#0254f5!important;color:#fff!important;border:0!important;border-radius:999px!important;box-shadow:none!important}
+.hero-actions .approved-link{background:transparent!important;border:0!important;box-shadow:none!important;color:var(--primary)!important;padding-inline:8px!important}
+.hero-actions{display:flex!important;flex-direction:row!important;flex-wrap:wrap!important;justify-content:center;gap:12px!important}
+.hero-actions a{width:auto!important;min-width:0!important;font-size:clamp(14px,3.8vw,17px)}
+.approved-tech,.approved-android{background:#000;color:#e8ebf2;padding:64px 0;scroll-margin-top:65px}
+.approved-wrap{width:min(960px,calc(100% - 32px));margin:auto}
+.approved-heading{text-align:center;margin:0 auto 28px;max-width:620px}
+.approved-heading h2,.approved-android h2{font-family:'Josefin Sans',sans-serif;font-size:clamp(30px,5vw,48px);line-height:1.13;color:#fff;margin:12px 0}
+.approved-tech p,.approved-android p{color:#a5adbc;line-height:1.6;margin:10px 0;font-family:Inter,sans-serif}
+.approved-bento{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.approved-tile{background:#141820;border-radius:22px;padding:clamp(14px,3vw,28px);min-width:0;overflow-wrap:anywhere}
+.approved-engine{grid-column:1/-1}
+.approved-tile h3{font-family:'Josefin Sans',sans-serif;color:#fff;font-size:clamp(20px,3vw,28px);line-height:1.2;margin:12px 0 8px}
+.approved-tile p{font-size:clamp(14px,2vw,17px)}
+.approved-tile i{color:#83a9ff;font-size:30px}
+.approved-engine svg{display:block;width:min(100%,500px);height:auto;margin:0 auto 18px}
+.approved-tech a{color:#83a9ff}
+.approved-android{text-align:center}
+.approved-android .approved-wrap{max-width:650px}
+.approved-app-icon{width:110px;height:110px;object-fit:contain;border-radius:26px;box-shadow:0 0 65px #0254f54d;margin:0 auto 32px;display:block}
+.approved-kicker,.approved-android small{color:#a5adbc;font-size:13px}
+.approved-download{display:inline-flex!important;align-items:center;gap:8px;margin:18px auto 12px;padding:14px 22px!important}
+.approved-android small{display:block}
+@media(min-width:800px){.approved-bento{grid-template-columns:repeat(4,minmax(0,1fr))}.hero-actions{justify-content:flex-start}}
+@media(prefers-reduced-motion:reduce){.approved-tech *, .approved-android *{animation:none!important;transition:none!important}}
+</style>
 </head>
 <body>
   <nav class="navbar" aria-label="Navegación principal">
@@ -349,8 +376,8 @@
           <h1>Conecta donde otros no pueden.</h1>
           <p class="hero-lead">Internet privado y sin fronteras, diseñado para funcionar incluso cuando la conexión no lo pone fácil.</p>
           <div class="hero-actions">
-            <a href="https://t.me/roclavpnbot?start=buy_pkg_1771696163" class="button button-primary">Probar gratis</a>
-            <a href="#planes" class="button button-secondary">Ver planes</a>
+            <a href="https://t.me/roclavpnbot?start=buy_pkg_1771696163" class="button button-primary approved-primary">Comenzar gratis</a>
+            <a href="#planes" class="button approved-link">Ver planes <span aria-hidden="true">›</span></a>
           </div>
         </div>
         <div class="hero-visual reveal" aria-hidden="true">
@@ -397,6 +424,7 @@
       </div>
     </section>
 
+<section id="tecnologia" class="approved-tech"><div class="approved-wrap"><div class="approved-heading"><h2>No todas las VPN funcionan igual.</h2><p>Desarrollada para superar las dificultades de las redes reales.</p></div><div class="approved-bento"><article class="approved-tile approved-engine"><svg viewBox="0 0 320 114" aria-hidden="true"><defs><radialGradient id="engine-glow"><stop stop-color="#0254f5" stop-opacity=".45"/><stop offset="1" stop-color="#0254f5" stop-opacity="0"/></radialGradient></defs><ellipse cx="160" cy="57" rx="150" ry="57" fill="url(#engine-glow)"/><g fill="none" stroke="#315a9b"><path d="M10 12H80L115 39H205L240 12H310"/><path d="M10 30H80L115 46.2H205L240 30H310"/><path d="M10 48H80L115 53.4H205L240 48H310"/><path d="M10 66H80L115 60.6H205L240 66H310"/><path d="M10 84H80L115 67.8H205L240 84H310"/><path d="M10 102H80L115 75H205L240 102H310"/></g><rect x="115" y="12" width="90" height="90" rx="15" fill="#101b31" stroke="#538aff" stroke-width="2"/><rect x="124" y="21" width="72" height="72" rx="10" fill="#071024" stroke="#315a9b"/><text x="160" y="49" text-anchor="middle" fill="white" font-family="Inter,sans-serif" font-size="13" font-weight="700">ENGINE</text><text x="160" y="77" text-anchor="middle" fill="#83a9ff" font-family="Inter,sans-serif" font-size="29" font-weight="700">2</text></svg><h3>Potencia desde el núcleo.</h3><p>RoCla VPN Engine 2. Una arquitectura híbrida diseñada para mejorar la experiencia de conexión.</p><a href="#protocolos">Conoce nuestra tecnología ›</a></article><article class="approved-tile"><i class="hgi hgi-stroke hgi-ghost" aria-hidden="true"></i><h3>Modo Ghost</h3><p>Alternativas para cuando tu red impone restricciones.</p></article><article class="approved-tile"><i class="hgi hgi-stroke hgi-ai-magic" aria-hidden="true"></i><h3>RoCla+</h3><p>Potencia la compatibilidad con servicios de inteligencia artificial y streaming.</p></article><article class="approved-tile"><i class="hgi hgi-stroke hgi-git-branch" aria-hidden="true"></i><h3>Túnel dividido</h3><p>Decide qué aplicaciones utilizan la VPN.</p></article><article class="approved-tile"><i class="hgi hgi-stroke hgi-refresh" aria-hidden="true"></i><h3>Reconexión automática</h3><p>Recupera la conexión ante interrupciones.</p></article></div></div></section>
     <section id="planes" class="section plans-section">
       <div class="container">
         <div class="section-heading reveal">
@@ -499,6 +527,7 @@
       </div>
     </section>
 
+<section id="android" class="approved-android"><div class="approved-wrap"><img class="approved-app-icon" src="roclavpn-logo-2.webp" alt="RoCla VPN" width="110" height="110" loading="lazy"><span class="approved-kicker">ROCLA VPN PARA ANDROID</span><h2>Una app.<br>Toda la protección.</h2><p>Gestiona tus cuentas, conecta, cambia de protocolo y consulta tus datos desde un mismo lugar.</p><a class="button approved-download" href="/clientes-recomendados/"><i class="hgi hgi-stroke hgi-download-01" aria-hidden="true"></i>Descargar para Android</a><small>Android 7.0 o superior</small></div></section>
     <section id="clientes" class="section clients-section">
       <div class="container compact-client-card reveal">
         <div class="compact-client-copy">
