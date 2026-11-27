@@ -719,13 +719,13 @@
                             ['Inicie sesión con su cuenta', 'Abra la aplicación y entre con su cuenta de RoCla VPN: sus llaves, su saldo y sus planes ya están dentro; no hay que copiar enlaces ni importar configuraciones.'],
                             ['Conéctese', 'Pulse «Conectar» para establecer la conexión VPN.']],
                     hiddify: [['Descargue la aplicación', 'Instale Hiddify desde los enlaces de descarga de su tarjeta, según su sistema operativo.'],
-                              ['Copie su clave de acceso', 'Desde su cuenta de RoCla VPN, copie la clave del protocolo que desee utilizar: Hiddify es compatible con Shadowsocks, VLESS, Hysteria2 y WireGuard.'],
+                              ['Copie su clave de acceso', 'Desde su cuenta de RoCla VPN, copie la clave del protocolo que desee utilizar: Hiddify es compatible con Shadowsocks, VLESS, Hysteria2 y WireGuard.', 'su cuenta de RoCla VPN'],
                               ['Añada su cuenta y conéctese', 'Abra Hiddify, pulse «+» y elija la opción de añadir desde el portapapeles: su cuenta se creará como un nuevo perfil. Selecciónelo y pulse el botón de conexión para establecer la VPN.']],
                     outline: [['Descargue la aplicación', 'Instale Outline desde los enlaces de descarga de su tarjeta, según su sistema operativo.'],
-                              ['Copie su clave de Shadowsocks', 'Outline solo funciona con el protocolo Shadowsocks: desde su cuenta de RoCla VPN, copie su clave de acceso de Shadowsocks.'],
+                              ['Copie su clave de Shadowsocks', 'Outline solo funciona con el protocolo Shadowsocks: desde su cuenta de RoCla VPN, copie su clave de acceso de Shadowsocks.', 'su cuenta de RoCla VPN'],
                               ['Añada su servidor y conéctese', 'Abra Outline y pulse «Añadir servidor»: la aplicación detecta la clave copiada y también puede pegarla manualmente. Confirme y pulse «Conectar».']],
                     wireguard: [['Descargue la aplicación', 'Instale WireGuard desde los enlaces de descarga de su tarjeta, según su sistema operativo.'],
-                                ['Obtenga su archivo de configuración', 'Desde su cuenta de RoCla VPN, descargue el archivo .conf de su llave de WireGuard o prepare su código QR.'],
+                                ['Obtenga su archivo de configuración', 'Desde su cuenta de RoCla VPN, descargue el archivo .conf de su llave de WireGuard o prepare su código QR.', 'su cuenta de RoCla VPN'],
                                 ['Importe su cuenta y conéctese', 'Abra WireGuard, pulse «+» y elija «Importar desde archivo» o «Escanear código QR». Después, active el interruptor de su túnel para conectarse.']]
                 };
                 Object.keys(PASOS).forEach(function (k) {
@@ -743,7 +743,17 @@
                         sol.appendChild(sli);
                         dk.body.appendChild(sol);
                         var sp2 = document.createElement('p');
-                        sp2.textContent = st[1];
+                        if (st[2] && st[1].indexOf(st[2]) !== -1) {
+                            var partes = st[1].split(st[2]);
+                            sp2.appendChild(document.createTextNode(partes[0]));
+                            var enlace = document.createElement('a');
+                            enlace.href = 'https://panel.roclahy.com/login';
+                            enlace.textContent = st[2];
+                            sp2.appendChild(enlace);
+                            sp2.appendChild(document.createTextNode(partes.slice(1).join(st[2])));
+                        } else {
+                            sp2.textContent = st[1];
+                        }
                         dk.body.appendChild(sp2);
                     });
                     var kEnd = document.createElement('p');
