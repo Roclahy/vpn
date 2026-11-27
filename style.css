@@ -2175,3 +2175,6 @@ body{
 @media(min-width:621px) and (max-width:1024px){
   .plans-spotlight{grid-template-columns:repeat(3,1fr)}
 }
+
+/* Alineación de escudos: la tarjeta destacada reserva arriba el espacio de la insignia «Más elegido»; las demás reservan el mismo espacio para que los escudos queden a la misma altura. */
+.plan-card:not(.plan-featured) .plan-top{margin-top:35.5px}
