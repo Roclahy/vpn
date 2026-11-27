@@ -292,30 +292,51 @@
   }
   </script>
 <style>
-.approved-primary,.approved-download{background:#0254f5!important;color:#fff!important;border:0!important;border-radius:999px!important;box-shadow:none!important}
-.hero-actions .approved-link{background:transparent!important;border:0!important;box-shadow:none!important;color:var(--primary)!important;padding-inline:8px!important}
-.hero-actions{display:flex!important;flex-direction:row!important;flex-wrap:wrap!important;justify-content:center;gap:12px!important}
-.hero-actions a{width:auto!important;min-width:0!important;font-size:clamp(14px,3.8vw,17px)}
-.approved-tech,.approved-android{background:#000;color:#e8ebf2;padding:64px 0;scroll-margin-top:65px}
-.approved-wrap{width:min(960px,calc(100% - 32px));margin:auto}
-.approved-heading{text-align:center;margin:0 auto 28px;max-width:620px}
-.approved-heading h2,.approved-android h2{font-family:'Josefin Sans',sans-serif;font-size:clamp(30px,5vw,48px);line-height:1.13;color:#fff;margin:12px 0}
-.approved-tech p,.approved-android p{color:#a5adbc;line-height:1.6;margin:10px 0;font-family:Inter,sans-serif}
-.approved-bento{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.approved-tile{background:#141820;border-radius:22px;padding:clamp(14px,3vw,28px);min-width:0;overflow-wrap:anywhere}
-.approved-engine{grid-column:1/-1}
-.approved-tile h3{font-family:'Josefin Sans',sans-serif;color:#fff;font-size:clamp(20px,3vw,28px);line-height:1.2;margin:12px 0 8px}
-.approved-tile p{font-size:clamp(14px,2vw,17px)}
-.approved-tile i{color:#83a9ff;font-size:30px}
-.approved-engine svg{display:block;width:min(100%,500px);height:auto;margin:0 auto 18px}
-.approved-tech a{color:#83a9ff}
-.approved-android{text-align:center}
-.approved-android .approved-wrap{max-width:650px}
-.approved-app-icon{width:110px;height:110px;object-fit:contain;border-radius:26px;box-shadow:0 0 65px #0254f54d;margin:0 auto 32px;display:block}
-.approved-kicker,.approved-android small{color:#a5adbc;font-size:13px}
-.approved-download{display:inline-flex!important;align-items:center;gap:8px;margin:18px auto 12px;padding:14px 22px!important}
+:root{--home-accent:#0254f5;--home-link:#0254f5}
+[data-theme="dark"]{--home-link:#83a9ff}
+main .section{padding:36px 0!important}
+main .hero{min-height:0!important;padding-bottom:18px!important}
+.hero-grid{gap:18px!important}.hero-visual{height:260px!important}.ghost-mascot{max-height:250px!important}
+.hero-lead{margin:14px 0 18px!important}
+.hero-actions{display:flex!important;flex-direction:row!important;flex-wrap:wrap!important;gap:14px!important}
+.hero-actions .button{width:auto!important;min-height:42px!important;padding:0 16px!important;font-size:14px!important}
+.approved-primary,.approved-download{background:var(--home-accent)!important;color:white!important;border:0!important;border-radius:999px!important;box-shadow:none!important}
+.hero-actions .approved-link{background:transparent!important;border:0!important;box-shadow:none!important;color:var(--home-link)!important;padding-inline:4px!important}
+.section-heading{margin-bottom:18px!important}
+.section-heading h2,.split-copy h2,.compact-client-copy h2{font-size:clamp(27px,4vw,38px)!important;margin:6px 0 8px!important}
+.section-heading p,.split-copy p{font-size:15px!important}
+.approved-tech,.approved-android{background:var(--bg);color:var(--text);padding:28px 0;scroll-margin-top:65px}
+.approved-wrap{width:min(960px,calc(100% - 28px));margin:auto}
+.approved-heading{text-align:center;margin:0 auto 14px;max-width:620px}
+.approved-heading h2,.approved-android h2{font-size:clamp(29px,4vw,40px);line-height:1.12;margin:6px 0;color:var(--text)}
+.approved-tech p,.approved-android p{color:var(--muted);font-size:14px;line-height:1.5;margin:6px 0}
+.approved-bento{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.approved-tile{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:12px;min-width:0}
+.approved-tile h3{font-size:18px;line-height:1.2;margin:5px 0;color:var(--text)}
+.approved-tile i{color:var(--home-link);font-size:23px}
+.approved-engine{grid-column:1/-1;text-align:center;padding:12px 16px}
+.approved-engine svg{display:block;width:min(100%,300px);height:auto;margin:0 auto}
+.approved-tech a,.approved-android a:not(.approved-download){color:var(--home-link)}
+.approved-kicker,.approved-android small{color:var(--muted);font-size:12px}
+.approved-kicker{letter-spacing:.06em;font-weight:700}
+.gauge-track{stroke:var(--line)}.gauge-tick{stroke:var(--muted)}.gauge-number{fill:var(--text)}.gauge-unit{fill:var(--muted)}
+.gauge-results{display:flex;justify-content:center;gap:24px;margin:4px 0 10px}.gauge-results strong{font-size:23px;display:block;color:var(--text)}.gauge-results small{font-size:12px;color:var(--muted)}
+.gauge-note{font-size:11px!important}
+.approved-android .approved-wrap{max-width:650px;text-align:center}
+.approved-app-icon{width:70px;height:70px;object-fit:contain;border-radius:18px;margin:0 auto 10px;display:block}
+.approved-download{display:inline-flex!important;align-items:center;gap:8px;margin:10px auto 6px;padding:0 18px!important;min-height:42px}
 .approved-android small{display:block}
-@media(min-width:800px){.approved-bento{grid-template-columns:repeat(4,minmax(0,1fr))}.hero-actions{justify-content:flex-start}}
+.plan-card{min-height:0!important;padding:14px!important}
+.protocol-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important;overflow:visible!important}
+.protocol-card{min-height:0!important;padding:12px!important;width:auto!important;border-radius:16px!important}
+.protocol-icon{width:34px!important;height:34px!important;font-size:20px!important;margin-bottom:6px!important}
+.protocol-card h3{font-size:20px!important;margin:4px 0!important}
+.protocol-card p{font-size:13px!important}.protocol-card details{margin-top:6px}.protocol-card summary{cursor:pointer;color:var(--home-link);font-size:13px}
+.split-card{padding:18px!important;gap:14px!important;box-shadow:none!important}
+.steps-grid{gap:8px!important}.step-card{padding:12px!important;min-height:0!important}
+.footer{padding:24px 0 64px!important}.footer-grid{gap:18px!important}.footer-bottom{margin-top:18px!important;padding-top:12px!important}
+@media(max-width:620px){main .section{padding:26px 0!important}.hero-grid{gap:8px!important}.hero-visual{height:190px!important;margin:0!important}.ghost-mascot{max-height:185px!important;width:190px!important}.hero h1{font-size:clamp(36px,10vw,44px)!important}.hero-actions{justify-content:center!important}.blog-grid{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px!important}.home-blog-card{flex:0 0 76%;scroll-snap-align:start}.home-blog-content{padding:12px!important}.section-heading-row{flex-direction:row!important;align-items:center!important}.section-heading-row .inline-link{white-space:nowrap}.protocol-card:last-child{grid-column:1/-1}}
+@media(min-width:800px){.approved-bento{grid-template-columns:repeat(4,minmax(0,1fr))}.protocol-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
 @media(prefers-reduced-motion:reduce){.approved-tech *, .approved-android *{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -343,40 +364,13 @@
   </nav>
 
   <main>
-    <section class="app-banner" id="app-banner" aria-label="Aplicación de RoCla VPN para Android">
-      <div class="container">
-        <div class="app-banner-card">
-          <img src="roclavpn-logo-2.webp" alt="" class="app-banner-logo">
-          <div class="app-banner-copy">
-            <strong>Nuestra app para Android ya está disponible</strong>
-            <span>Descarga la aplicación oficial de RoCla VPN: entra con tu cuenta y conéctate sin copiar llaves.</span>
-          </div>
-          <a class="app-banner-btn" href="/clientes-recomendados/">Descargar</a>
-          <button type="button" class="app-banner-close" id="app-banner-close" aria-label="Cerrar aviso">&times;</button>
-        </div>
-      </div>
-      <script>
-        (function () {
-          var banner = document.getElementById('app-banner');
-          if (!banner) return;
-          try {
-            if (localStorage.getItem('rocla-app-banner-closed') === '1') { banner.remove(); return; }
-          } catch (e) {}
-          document.getElementById('app-banner-close').addEventListener('click', function () {
-            try { localStorage.setItem('rocla-app-banner-closed', '1'); } catch (e) {}
-            banner.remove();
-          });
-        })();
-      </script>
-    </section>
-
     <header id="inicio" class="hero">
       <div class="container hero-grid">
         <div class="hero-content reveal">
           <h1>Conecta donde otros no pueden.</h1>
-          <p class="hero-lead">Internet privado y sin fronteras, diseñado para funcionar incluso cuando la conexión no lo pone fácil.</p>
+          <p class="hero-lead">Tu acceso a un Internet libre, incluso en las redes más restrictivas.</p>
           <div class="hero-actions">
-            <a href="https://t.me/roclavpnbot?start=buy_pkg_1771696163" class="button button-primary approved-primary">Comenzar gratis</a>
+            <a href="https://t.me/roclavpnbot?start=buy_pkg_1771696163" class="button button-primary approved-primary">Probar gratis <i class="hgi hgi-stroke hgi-arrow-right-02" aria-hidden="true"></i></a>
             <a href="#planes" class="button approved-link">Ver planes <span aria-hidden="true">›</span></a>
           </div>
         </div>
@@ -424,7 +418,7 @@
       </div>
     </section>
 
-<section id="tecnologia" class="approved-tech"><div class="approved-wrap"><div class="approved-heading"><h2>No todas las VPN funcionan igual.</h2><p>Desarrollada para superar las dificultades de las redes reales.</p></div><div class="approved-bento"><article class="approved-tile approved-engine"><svg viewBox="0 0 320 114" aria-hidden="true"><defs><radialGradient id="engine-glow"><stop stop-color="#0254f5" stop-opacity=".45"/><stop offset="1" stop-color="#0254f5" stop-opacity="0"/></radialGradient></defs><ellipse cx="160" cy="57" rx="150" ry="57" fill="url(#engine-glow)"/><g fill="none" stroke="#315a9b"><path d="M10 12H80L115 39H205L240 12H310"/><path d="M10 30H80L115 46.2H205L240 30H310"/><path d="M10 48H80L115 53.4H205L240 48H310"/><path d="M10 66H80L115 60.6H205L240 66H310"/><path d="M10 84H80L115 67.8H205L240 84H310"/><path d="M10 102H80L115 75H205L240 102H310"/></g><rect x="115" y="12" width="90" height="90" rx="15" fill="#101b31" stroke="#538aff" stroke-width="2"/><rect x="124" y="21" width="72" height="72" rx="10" fill="#071024" stroke="#315a9b"/><text x="160" y="49" text-anchor="middle" fill="white" font-family="Inter,sans-serif" font-size="13" font-weight="700">ENGINE</text><text x="160" y="77" text-anchor="middle" fill="#83a9ff" font-family="Inter,sans-serif" font-size="29" font-weight="700">2</text></svg><h3>Potencia desde el núcleo.</h3><p>RoCla VPN Engine 2. Una arquitectura híbrida diseñada para mejorar la experiencia de conexión.</p><a href="#protocolos">Conoce nuestra tecnología ›</a></article><article class="approved-tile"><i class="hgi hgi-stroke hgi-ghost" aria-hidden="true"></i><h3>Modo Ghost</h3><p>Alternativas para cuando tu red impone restricciones.</p></article><article class="approved-tile"><i class="hgi hgi-stroke hgi-ai-magic" aria-hidden="true"></i><h3>RoCla+</h3><p>Potencia la compatibilidad con servicios de inteligencia artificial y streaming.</p></article><article class="approved-tile"><i class="hgi hgi-stroke hgi-git-branch" aria-hidden="true"></i><h3>Túnel dividido</h3><p>Decide qué aplicaciones utilizan la VPN.</p></article><article class="approved-tile"><i class="hgi hgi-stroke hgi-refresh" aria-hidden="true"></i><h3>Reconexión automática</h3><p>Recupera la conexión ante interrupciones.</p></article></div></div></section>
+<section id="tecnologia" class="approved-tech"><div class="approved-wrap"><div class="approved-heading"><span class="approved-kicker">ROCLA VPN ENGINE 2</span><h2>Supera los límites.</h2><p>Libertad sin renunciar al rendimiento.</p></div><div class="approved-bento"><article class="approved-tile approved-engine" id="engine-gauge"><svg viewBox="0 0 300 205" role="img" aria-label="Velocímetro ilustrativo de rendimiento: descarga 234,45 Mbps y subida 211 Mbps"><path d="M63.4 160 A100 100 0 1 1 236.6 160" fill="none" class="gauge-track" stroke-width="12" stroke-linecap="round"/><path id="gauge-arc" d="M63.4 160 A100 100 0 1 1 236.6 160" pathLength="250" stroke-dasharray="250" stroke-dashoffset="15.55" fill="none" stroke="#0254f5" stroke-width="10" stroke-linecap="round"/><line x1="78.98591688967602" y1="151" x2="72.05771365940052" y2="155" class="gauge-tick" stroke-width="2"/><line x1="72.94520509555552" y1="138.04565175270486" x2="65.42766412926825" y2="140.7818128993102" class="gauge-tick" stroke-width="1"/><line x1="69.24576425299894" y1="124.23915056868829" x2="61.36730222890128" y2="125.62833599002373" class="gauge-tick" stroke-width="1"/><line x1="68" y1="110.00000000000001" x2="60" y2="110.00000000000001" class="gauge-tick" stroke-width="1"/><line x1="69.24576425299894" y1="95.7608494313117" x2="61.36730222890128" y2="94.37166400997626" class="gauge-tick" stroke-width="1"/><line x1="72.94520509555551" y1="81.95434824729517" x2="65.42766412926824" y2="79.21818710068982" class="gauge-tick" stroke-width="2"/><line x1="78.98591688967603" y1="69" x2="72.05771365940052" y2="65" class="gauge-tick" stroke-width="1"/><line x1="87.18435566424381" y1="57.29141600570378" x2="81.05600011929198" y2="52.14911512821147" class="gauge-tick" stroke-width="1"/><line x1="97.29141600570377" y1="47.18435566424381" x2="92.14911512821145" y2="41.056000119291994" class="gauge-tick" stroke-width="1"/><line x1="108.99999999999997" y1="38.98591688967605" x2="104.99999999999996" y2="32.05771365940055" class="gauge-tick" stroke-width="1"/><line x1="121.95434824729512" y1="32.94520509555552" x2="119.21818710068976" y2="25.427664129268265" class="gauge-tick" stroke-width="2"/><line x1="135.76084943131173" y1="29.24576425299894" x2="134.37166400997626" y2="21.36730222890128" class="gauge-tick" stroke-width="1"/><line x1="149.99999999999997" y1="28" x2="149.99999999999997" y2="20" class="gauge-tick" stroke-width="1"/><line x1="164.23915056868825" y1="29.24576425299894" x2="165.6283359900237" y2="21.367302228901266" class="gauge-tick" stroke-width="1"/><line x1="178.0456517527048" y1="32.945205095555494" x2="180.78181289931013" y2="25.427664129268237" class="gauge-tick" stroke-width="1"/><line x1="191" y1="38.985916889676034" x2="195" y2="32.05771365940052" class="gauge-tick" stroke-width="2"/><line x1="202.70858399429622" y1="47.184355664243796" x2="207.85088487178854" y2="41.056000119291966" class="gauge-tick" stroke-width="1"/><line x1="212.8156443357562" y1="57.29141600570375" x2="218.94399988070802" y2="52.149115128211434" class="gauge-tick" stroke-width="1"/><line x1="221.01408311032395" y1="68.99999999999997" x2="227.94228634059945" y2="64.99999999999996" class="gauge-tick" stroke-width="1"/><line x1="227.0547949044445" y1="81.95434824729517" x2="234.57233587073176" y2="79.21818710068982" class="gauge-tick" stroke-width="1"/><line x1="230.75423574700105" y1="95.76084943131164" x2="238.63269777109872" y2="94.37166400997619" class="gauge-tick" stroke-width="2"/><line x1="232" y1="109.99999999999999" x2="240" y2="109.99999999999997" class="gauge-tick" stroke-width="1"/><line x1="230.75423574700108" y1="124.23915056868825" x2="238.63269777109872" y2="125.62833599002369" class="gauge-tick" stroke-width="1"/><line x1="227.05479490444446" y1="138.04565175270486" x2="234.57233587073176" y2="140.7818128993102" class="gauge-tick" stroke-width="1"/><line x1="221.014083110324" y1="150.99999999999994" x2="227.9422863405995" y2="154.99999999999994" class="gauge-tick" stroke-width="1"/><g id="gauge-needle" transform="rotate(105.072 150 110)"><path d="M147 116 L150 30 L153 116 Z" fill="#0254f5"/><circle cx="150" cy="110" r="5" fill="#0254f5"/></g><text id="gauge-value" x="150" y="158" text-anchor="middle" class="gauge-number" font-size="34" font-weight="700">234,45</text><text x="150" y="176" text-anchor="middle" class="gauge-unit" font-size="12">Mbps</text><text id="gauge-label" x="150" y="194" text-anchor="middle" class="gauge-unit" font-size="12">Descarga</text></svg><div class="gauge-results"><div><strong>234,45</strong><small>Mbps · Descarga</small></div><div><strong>211</strong><small>Mbps · Subida</small></div></div><p class="gauge-note">Máximos observados en pruebas de rendimiento. La velocidad real depende de la conexión.</p><a href="#protocolos">Conoce nuestra tecnología ›</a></article><article class="approved-tile"><i class="hgi hgi-stroke hgi-ghost" aria-hidden="true"></i><h3>Modo Ghost</h3><p>Evasión avanzada de bloqueos y censura.</p></article><article class="approved-tile"><i class="hgi hgi-stroke hgi-ai-magic" aria-hidden="true"></i><h3>RoCla+</h3><p>Compatibilidad con IA y streaming.</p></article><article class="approved-tile"><i class="hgi hgi-stroke hgi-git-branch" aria-hidden="true"></i><h3>Túnel dividido</h3><p>Elige qué apps utilizan la VPN.</p></article><article class="approved-tile"><i class="hgi hgi-stroke hgi-refresh" aria-hidden="true"></i><h3>Reconexión automática</h3><p>Recupera la conexión tras interrupciones.</p></article></div></div></section>
     <section id="planes" class="section plans-section">
       <div class="container">
         <div class="section-heading reveal">
@@ -518,26 +512,17 @@
           <p>Elige la opción que mejor responda a tu red y al tipo de conexión que necesitas.</p>
         </div>
         <div class="protocol-grid">
-          <article class="protocol-card reveal"><div class="protocol-icon"><i class="hgi hgi-stroke hgi-flash"></i></div><span class="protocol-tag">Rápido</span><h3>WireGuard</h3><p>Una opción moderna y eficiente para conexiones rápidas y sencillas.</p></article>
-          <article class="protocol-card reveal"><div class="protocol-icon"><i class="hgi hgi-stroke hgi-link-square-02"></i></div><span class="protocol-tag">Simple</span><h3>Shadowsocks</h3><p>La más simple de configurar: en Outline solo hay que pegar la llave y conectar, sin ajustes. Consume pocos recursos y puede ayudar en redes con restricciones; ante bloqueos fuertes, la opción principal es VLESS.</p></article>
-          <article class="protocol-card reveal"><div class="protocol-icon"><i class="hgi hgi-stroke hgi-layers-01"></i></div><span class="protocol-tag">Anticensura + Streaming</span><h3>X-Ray (VLESS)</h3><p>Nuestra opción principal contra la censura y los bloqueos. Es la llave que incluye el Modo Ghost, con Ghost y Ghost Nyx, para redes restrictivas donde las demás conexiones no pasan o las cortan. Con RoCla+ activado, es también la recomendada para streaming y los servicios sensibles a las VPN, como Netflix, Disney+ y la IA.</p></article>
-          <article class="protocol-card reveal"><div class="protocol-icon"><i class="hgi hgi-stroke hgi-rocket-01"></i></div><span class="protocol-tag">Turbo</span><h3>Hysteria2</h3><p>Pensado para aprovechar al máximo las conexiones inestables o con interrupciones, sin renunciar a la velocidad.</p></article>
-          <article class="protocol-card reveal"><div class="protocol-icon"><i class="hgi hgi-stroke hgi-ghost"></i></div><span class="protocol-tag">Anticensura avanzada</span><h3>Modo Ghost</h3><p>Para cuando necesitas desaparecer como un fantasma o ser menos visible que la noche misma. Dos conexiones de emergencia: Ghost, para cuando nada conecta; Ghost Nyx, para cuando conecta pero lo cortan a los pocos segundos.</p></article>
+          <article class="protocol-card reveal"><div class="protocol-icon"><i class="hgi hgi-stroke hgi-flash"></i></div><span class="protocol-tag">Rápido</span><h3>WireGuard</h3><details><summary>Conocer más</summary><p>Una opción moderna y eficiente para conexiones rápidas y sencillas.</p></details></article>
+          <article class="protocol-card reveal"><div class="protocol-icon"><i class="hgi hgi-stroke hgi-link-square-02"></i></div><span class="protocol-tag">Simple</span><h3>Shadowsocks</h3><details><summary>Conocer más</summary><p>La más simple de configurar: en Outline solo hay que pegar la llave y conectar, sin ajustes. Consume pocos recursos y puede ayudar en redes con restricciones; ante bloqueos fuertes, la opción principal es VLESS.</p></details></article>
+          <article class="protocol-card reveal"><div class="protocol-icon"><i class="hgi hgi-stroke hgi-layers-01"></i></div><span class="protocol-tag">Anticensura + Streaming</span><h3>X-Ray (VLESS)</h3><details><summary>Conocer más</summary><p>Nuestra opción principal contra la censura y los bloqueos. Es la llave que incluye el Modo Ghost, con Ghost y Ghost Nyx, para redes restrictivas donde las demás conexiones no pasan o las cortan. Con RoCla+ activado, es también la recomendada para streaming y los servicios sensibles a las VPN, como Netflix, Disney+ y la IA.</p></details></article>
+          <article class="protocol-card reveal"><div class="protocol-icon"><i class="hgi hgi-stroke hgi-rocket-01"></i></div><span class="protocol-tag">Turbo</span><h3>Hysteria2</h3><details><summary>Conocer más</summary><p>Pensado para aprovechar al máximo las conexiones inestables o con interrupciones, sin renunciar a la velocidad.</p></details></article>
+          <article class="protocol-card reveal"><div class="protocol-icon"><i class="hgi hgi-stroke hgi-ghost"></i></div><span class="protocol-tag">Anticensura avanzada</span><h3>Modo Ghost</h3><details><summary>Conocer más</summary><p>Para cuando necesitas desaparecer como un fantasma o ser menos visible que la noche misma. Dos conexiones de emergencia: Ghost, para cuando nada conecta; Ghost Nyx, para cuando conecta pero lo cortan a los pocos segundos.</p></details></article>
         </div>
       </div>
     </section>
 
-<section id="android" class="approved-android"><div class="approved-wrap"><img class="approved-app-icon" src="roclavpn-logo-2.webp" alt="RoCla VPN" width="110" height="110" loading="lazy"><span class="approved-kicker">ROCLA VPN PARA ANDROID</span><h2>Una app.<br>Toda la protección.</h2><p>Gestiona tus cuentas, conecta, cambia de protocolo y consulta tus datos desde un mismo lugar.</p><a class="button approved-download" href="/clientes-recomendados/"><i class="hgi hgi-stroke hgi-download-01" aria-hidden="true"></i>Descargar para Android</a><small>Android 7.0 o superior</small></div></section>
-    <section id="clientes" class="section clients-section">
-      <div class="container compact-client-card reveal">
-        <div class="compact-client-copy">
-          <span class="section-kicker">Clientes compatibles</span>
-          <h2>Usa la app que mejor te funcione.</h2>
-          <p>Consulta qué clientes recomendamos para cada plataforma y cómo conectarlos.</p>
-        </div>
-        <a href="/clientes-recomendados/" class="button button-primary">Ver clientes compatibles</a>
-      </div>
-    </section>
+<section id="android" class="approved-android"><div class="approved-wrap"><img class="approved-app-icon" src="roclavpn-logo-2.webp" alt="RoCla VPN" width="110" height="110" loading="lazy"><span class="approved-kicker">ROCLA VPN PARA ANDROID</span><h2>Tu Internet. Sin fronteras.</h2><p>Evade la censura, cambia de protocolo y gestiona tu conexión desde una sola aplicación.</p><a class="button approved-download" href="/clientes-recomendados/"><i class="hgi hgi-stroke hgi-download-01" aria-hidden="true"></i>Descargar para Android</a><small>Android 7.0 o superior</small><a href="/clientes-recomendados/">Otras plataformas ›</a></div></section>
+
 
     <section id="novedades" class="section blog-section">
       <div class="container">
@@ -551,12 +536,7 @@
       </div>
     </section>
 
-    <section class="section final-cta">
-      <div class="container final-card reveal">
-        <div><span class="section-kicker">Empieza cuando quieras</span><h2>100 MB para probar RoCla VPN.</h2><p>Comprueba la conexión antes de elegir un plan mayor.</p></div>
-        <a href="https://t.me/roclavpnbot?start=buy_pkg_1771696163" class="button button-primary">Obtener prueba gratis</a>
-      </div>
-    </section>
+
   </main>
 
   <footer class="footer">
@@ -582,5 +562,11 @@
   <a href="https://panel.roclahy.com/portal?tab=soporte" target="_blank" rel="noopener" class="support-float" aria-label="Centro de soporte de RoCla VPN"><img src="/assets/soporte.png" alt=""></a>
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.getElementById('copyright-year').textContent = new Date().getFullYear();</script>
   <script src="script.js?v=20261113-proxy"></script>
-</body>
+<script>
+(function(){var el=document.getElementById('engine-gauge');if(!el||!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+var arc=document.getElementById('gauge-arc'),needle=document.getElementById('gauge-needle'),value=document.getElementById('gauge-value'),label=document.getElementById('gauge-label');
+function draw(v){arc.setAttribute('stroke-dashoffset',250-v);needle.setAttribute('transform','rotate('+(-120+240*v/250)+' 150 110)');value.textContent=v.toLocaleString('es-ES',{maximumFractionDigits:2,minimumFractionDigits:2});}
+var observer=new IntersectionObserver(function(entries){if(!entries.some(function(e){return e.isIntersecting;}))return;observer.disconnect();var start=performance.now();function frame(now){var t=(now-start)/1000;if(t<2.2){label.textContent='Descarga';draw(234.45*(1-Math.pow(1-t/2.2,3)));}else if(t<3.4){draw(234.45);}else if(t<5.6){label.textContent='Subida';draw(211*(1-Math.pow(1-(t-3.4)/2.2,3)));}else{draw(211);return;}requestAnimationFrame(frame);}requestAnimationFrame(frame);},{threshold:.3});observer.observe(el);
+})();
+</script></body>
 </html>
