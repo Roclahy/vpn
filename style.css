@@ -2178,3 +2178,6 @@ body{
 
 /* Alineación de escudos: la tarjeta destacada reserva arriba el espacio de la insignia «Más elegido»; las demás reservan el mismo espacio para que los escudos queden a la misma altura. */
 .plan-card:not(.plan-featured) .plan-top{margin-top:35.5px}
+
+/* Botón de soporte: se eleva en móvil para que no lo tape la barra inferior del navegador. */
+@media (max-width:900px){.support-float{bottom:calc(76px + env(safe-area-inset-bottom, 0px))!important}}
