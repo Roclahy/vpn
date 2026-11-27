@@ -714,36 +714,43 @@
             // Instrucciones detalladas dentro de cada tarjeta: se muestran las del cliente seleccionado
             var anchor = cards.wireguard || cards.outline || cards.hiddify;
             if (stepsNodes.length) {
-                ['hiddify', 'outline', 'wireguard'].forEach(function (k) {
+                var PASOS = {
+                    rocla: [['Descargue la aplicación', 'Instale RoCla VPN desde esta misma tarjeta, según la arquitectura de su dispositivo.'],
+                            ['Inicie sesión con su cuenta', 'Abra la aplicación y entre con su cuenta de RoCla VPN: sus llaves, su saldo y sus planes ya están dentro; no hay que copiar enlaces ni importar configuraciones.'],
+                            ['Conéctese', 'Pulse «Conectar» para establecer la conexión VPN.']],
+                    hiddify: [['Descargue la aplicación', 'Instale Hiddify desde los enlaces de descarga de su tarjeta, según su sistema operativo.'],
+                              ['Copie su clave de acceso', 'Desde su cuenta de RoCla VPN, copie la clave del protocolo que desee utilizar: Hiddify es compatible con Shadowsocks, VLESS, Hysteria2 y WireGuard.'],
+                              ['Añada su cuenta y conéctese', 'Abra Hiddify, pulse «+» y elija la opción de añadir desde el portapapeles: su cuenta se creará como un nuevo perfil. Selecciónelo y pulse el botón de conexión para establecer la VPN.']],
+                    outline: [['Descargue la aplicación', 'Instale Outline desde los enlaces de descarga de su tarjeta, según su sistema operativo.'],
+                              ['Copie su clave de Shadowsocks', 'Outline solo funciona con el protocolo Shadowsocks: desde su cuenta de RoCla VPN, copie su clave de acceso de Shadowsocks.'],
+                              ['Añada su servidor y conéctese', 'Abra Outline y pulse «Añadir servidor»: la aplicación detecta la clave copiada y también puede pegarla manualmente. Confirme y pulse «Conectar».']],
+                    wireguard: [['Descargue la aplicación', 'Instale WireGuard desde los enlaces de descarga de su tarjeta, según su sistema operativo.'],
+                                ['Obtenga su archivo de configuración', 'Desde su cuenta de RoCla VPN, descargue el archivo .conf de su llave de WireGuard o prepare su código QR.'],
+                                ['Importe su cuenta y conéctese', 'Abra WireGuard, pulse «+» y elija «Importar desde archivo» o «Escanear código QR». Después, active el interruptor de su túnel para conectarse.']]
+                };
+                Object.keys(PASOS).forEach(function (k) {
                     if (!cards[k]) return;
                     var dk = makeDetails('cr-acc', 'Instrucciones detalladas', 'hgi-link-01');
-                    stepsNodes.forEach(function (el) { dk.body.appendChild(el.cloneNode(true)); });
-                    cards[k].appendChild(dk.details);
-                });
-                if (cards.rocla) {
-                    var dr = makeDetails('cr-acc', 'Instrucciones detalladas', 'hgi-link-01');
-                    var rh3 = document.createElement('h3');
-                    rh3.textContent = 'Usar su cuenta de RoCla VPN es así de sencillo';
-                    dr.body.appendChild(rh3);
-                    [['Descargue la aplicación', 'Instale RoCla VPN desde esta misma tarjeta, según la arquitectura de su dispositivo.'],
-                     ['Inicie sesión con su cuenta', 'Abra la aplicación y entre con su cuenta de RoCla VPN: sus llaves, su saldo y sus planes ya están dentro; no hay que copiar enlaces ni importar configuraciones.'],
-                     ['Conéctese', 'Pulse «Conectar» para establecer la conexión VPN.']].forEach(function (st) {
+                    var kh3 = document.createElement('h3');
+                    kh3.textContent = 'Usar su cuenta de RoCla VPN es así de sencillo';
+                    dk.body.appendChild(kh3);
+                    PASOS[k].forEach(function (st) {
                         var sol = document.createElement('ol');
                         var sli = document.createElement('li');
                         var sst = document.createElement('strong');
                         sst.textContent = st[0];
                         sli.appendChild(sst);
                         sol.appendChild(sli);
-                        dr.body.appendChild(sol);
+                        dk.body.appendChild(sol);
                         var sp2 = document.createElement('p');
                         sp2.textContent = st[1];
-                        dr.body.appendChild(sp2);
+                        dk.body.appendChild(sp2);
                     });
-                    var rEnd = document.createElement('p');
-                    rEnd.textContent = '¡Listo! Ya puede disfrutar de una conexión rápida y segura con RoCla VPN.';
-                    dr.body.appendChild(rEnd);
-                    cards.rocla.appendChild(dr.details);
-                }
+                    var kEnd = document.createElement('p');
+                    kEnd.textContent = '¡Listo! Ya puede disfrutar de una conexión rápida y segura con RoCla VPN.';
+                    dk.body.appendChild(kEnd);
+                    cards[k].appendChild(dk.details);
+                });
                 stepsNodes.forEach(function (el) { el.remove(); });
             }
             var about = makeDetails('cr-acc', 'Acerca de esta guía', 'hgi-information-circle');
