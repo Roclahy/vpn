@@ -711,23 +711,47 @@
             note.textContent = 'Elija una aplicación compatible, instálela y añada su cuenta.';
             strip.insertAdjacentElement('afterend', note);
 
-            // Acordeones al final: instrucciones detalladas y acerca de la guía
+            // Instrucciones detalladas dentro de cada tarjeta: se muestran las del cliente seleccionado
             var anchor = cards.wireguard || cards.outline || cards.hiddify;
             if (stepsNodes.length) {
-                var d1 = makeDetails('cr-acc', 'Instrucciones detalladas', 'hgi-link-01');
-                stepsNodes.forEach(function (el) { d1.body.appendChild(el); });
-                if (anchor) anchor.insertAdjacentElement('afterend', d1.details);
+                ['hiddify', 'outline', 'wireguard'].forEach(function (k) {
+                    if (!cards[k]) return;
+                    var dk = makeDetails('cr-acc', 'Instrucciones detalladas', 'hgi-link-01');
+                    stepsNodes.forEach(function (el) { dk.body.appendChild(el.cloneNode(true)); });
+                    cards[k].appendChild(dk.details);
+                });
+                if (cards.rocla) {
+                    var dr = makeDetails('cr-acc', 'Instrucciones detalladas', 'hgi-link-01');
+                    var rh3 = document.createElement('h3');
+                    rh3.textContent = 'Usar su cuenta de RoCla VPN es así de sencillo';
+                    dr.body.appendChild(rh3);
+                    [['Descargue la aplicación', 'Instale RoCla VPN desde esta misma tarjeta, según la arquitectura de su dispositivo.'],
+                     ['Inicie sesión con su cuenta', 'Abra la aplicación y entre con su cuenta de RoCla VPN: sus llaves, su saldo y sus planes ya están dentro; no hay que copiar enlaces ni importar configuraciones.'],
+                     ['Conéctese', 'Pulse «Conectar» para establecer la conexión VPN.']].forEach(function (st) {
+                        var sol = document.createElement('ol');
+                        var sli = document.createElement('li');
+                        var sst = document.createElement('strong');
+                        sst.textContent = st[0];
+                        sli.appendChild(sst);
+                        sol.appendChild(sli);
+                        dr.body.appendChild(sol);
+                        var sp2 = document.createElement('p');
+                        sp2.textContent = st[1];
+                        dr.body.appendChild(sp2);
+                    });
+                    var rEnd = document.createElement('p');
+                    rEnd.textContent = '¡Listo! Ya puede disfrutar de una conexión rápida y segura con RoCla VPN.';
+                    dr.body.appendChild(rEnd);
+                    cards.rocla.appendChild(dr.details);
+                }
+                stepsNodes.forEach(function (el) { el.remove(); });
             }
             var about = makeDetails('cr-acc', 'Acerca de esta guía', 'hgi-information-circle');
             var aboutHas = false;
             introPs.forEach(function (p) { about.body.appendChild(p); aboutHas = true; });
             if (heroFig) heroFig.remove();
             if (closeFig) { about.body.appendChild(closeFig); aboutHas = true; }
-            if (aboutHas) {
-                var after = content.querySelector('details.cr-acc');
-                if (after) after.insertAdjacentElement('afterend', about.details);
-                else if (anchor) anchor.insertAdjacentElement('afterend', about.details);
-            }
+            if (aboutHas && anchor) anchor.insertAdjacentElement('afterend', about.details);
 
             // Cierre como franja
             if (closeH3) {
