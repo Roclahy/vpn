@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>(function(){try{if(localStorage.getItem('rocla-lang')==='es'){location.replace('/'+location.search+location.hash);}}catch(e){}})();</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <title>RoCla VPN | A VPN for Cuba you can pay for in CUP — Transfermóvil and EnZona</title>
+  <meta name="description" content="RoCla VPN is the Cuban VPN designed for Cuba: pay in CUP with Transfermóvil and EnZona, a free 100 MB trial, and plans from 250 CUP for 30 days. WireGuard, VLESS, Shadowsocks and Hysteria2, with human support from 7:00 a.m. to 7:00 p.m.">
+  <meta name="keywords" content="VPN Cuba, VPN para Cuba, VPN en CUP, VPN Transfermóvil, VPN cubana, privacidad, WireGuard, Shadowsocks, VLESS, X-Ray, Hysteria2, RoCla VPN">
+  <meta name="author" content="RoCla VPN">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#f5f5f7">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vpn.roclahy.com/en/">
+  <link rel="canonical" href="https://vpn.roclahy.com/en/">
+  <link rel="alternate" hreflang="es" href="https://vpn.roclahy.com/">
+  <link rel="alternate" hreflang="en" href="https://vpn.roclahy.com/en/">
+  <link rel="alternate" hreflang="x-default" href="https://vpn.roclahy.com/">
+  <meta property="og:title" content="RoCla VPN | A VPN for Cuba you can pay for in CUP — Transfermóvil and EnZona">
+  <meta property="og:description" content="A VPN for Cuba with payments in CUP via Transfermóvil and EnZona. A free 100 MB trial, plans from 250 CUP, and 4 protocols for difficult networks.">
+  <meta property="og:image" content="https://vpn.roclahy.com/roclavpn-logo-2.webp">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="RoCla VPN | A VPN for Cuba you can pay for in CUP — Transfermóvil and EnZona">
+  <meta property="twitter:description" content="A VPN for Cuba with payments in CUP via Transfermóvil and EnZona. A free 100 MB trial, plans from 250 CUP, and 4 protocols for difficult networks.">
+  <meta property="twitter:image" content="https://vpn.roclahy.com/roclavpn-logo-2.webp">
+  <link rel="icon" type="image/webp" href="/roclavpn-logo.webp?v=20261002-official">
+  <link rel="shortcut icon" type="image/webp" href="/roclavpn-logo.webp?v=20261002-official">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.hugeicons.com/font/icons.css">
+  <link rel="stylesheet" href="/style.css?v=20261127-2">
+  <style>
+    /* Critical service header: exact visual match with proxy.roclavpn.com */
+    .navbar{
+      position:fixed!important;
+      top:0!important;
+      left:0!important;
+      right:0!important;
+      z-index:100!important;
+      background:color-mix(in srgb,var(--bg) 82%,transparent)!important;
+      backdrop-filter:saturate(180%) blur(18px)!important;
+      -webkit-backdrop-filter:saturate(180%) blur(18px)!important;
+      border:0!important;
+      border-bottom:1px solid var(--line)!important;
+      border-radius:0!important;
+      box-shadow:none!important;
+    }
+    .navbar .container.nav-shell{
+      width:min(1060px,calc(100% - 28px))!important;
+      height:54px!important;
+      min-height:54px!important;
+      max-height:54px!important;
+      margin:0 auto!important;
+      padding:0!important;
+      border:0!important;
+      border-radius:0!important;
+      background:transparent!important;
+      box-shadow:none!important;
+      display:flex!important;
+      align-items:center!important;
+      justify-content:space-between!important;
+      gap:0!important;
+    }
+    .navbar .nav-links{display:none!important}
+    .navbar .logo{
+      display:flex!important;
+      align-items:center!important;
+      gap:9px!important;
+      margin:0!important;
+      padding:0!important;
+      font-size:16px!important;
+      font-weight:760!important;
+      line-height:1!important;
+      letter-spacing:-.03em!important;
+      white-space:nowrap!important;
+    }
+    .navbar .logo strong{
+      color:inherit!important;
+      font-weight:760!important;
+    }
+    .navbar .logo .logo-icon{
+      display:block!important;
+      width:28px!important;
+      height:28px!important;
+      min-width:28px!important;
+      min-height:28px!important;
+      max-width:28px!important;
+      max-height:28px!important;
+      padding:0!important;
+      margin:0!important;
+      border:0!important;
+      border-radius:50%!important;
+      background:transparent!important;
+      box-shadow:none!important;
+      object-fit:cover!important;
+      transform:none!important;
+    }
+    .navbar .nav-actions{
+      margin-left:auto!important;
+      display:flex!important;
+      align-items:center!important;
+      gap:8px!important;
+    }
+    .navbar .proxy-pill-btn{
+      box-sizing:border-box!important;
+      width:auto!important;
+      height:36px!important;
+      min-width:0!important;
+      min-height:36px!important;
+      max-height:36px!important;
+      padding:0 13px!important;
+      margin:0!important;
+      border:0!important;
+      border-radius:999px!important;
+      display:flex!important;
+      align-items:center!important;
+      justify-content:center!important;
+      background:var(--surface)!important;
+      color:var(--text)!important;
+      box-shadow:inset 0 0 0 1px var(--line)!important;
+      font-size:12px!important;
+      font-weight:800!important;
+      line-height:1!important;
+      letter-spacing:0!important;
+      white-space:nowrap!important;
+      flex:0 0 auto!important;
+      outline:0!important;
+    }
+    .navbar #theme-toggle.icon-button,
+    .navbar #theme-toggle.icon-button:hover,
+    .navbar #theme-toggle.icon-button:active,
+    .navbar #theme-toggle.icon-button:focus,
+    .navbar #theme-toggle.icon-button:focus-visible{
+      box-sizing:border-box!important;
+      appearance:none!important;
+      -webkit-appearance:none!important;
+      width:36px!important;
+      height:36px!important;
+      min-width:36px!important;
+      min-height:36px!important;
+      max-width:36px!important;
+      max-height:36px!important;
+      flex:0 0 36px!important;
+      padding:0!important;
+      margin:0!important;
+      border:0!important;
+      border-radius:50%!important;
+      display:grid!important;
+      place-items:center!important;
+      background:var(--surface)!important;
+      color:var(--text)!important;
+      box-shadow:inset 0 0 0 1px var(--line)!important;
+      outline:0!important;
+      outline-offset:0!important;
+      transform:none!important;
+      -webkit-tap-highlight-color:transparent!important;
+    }
+    .navbar #theme-toggle.icon-button i{
+      font-size:18px!important;
+      line-height:1!important;
+    }
+
+    /* Keep the hero below the fixed 54px service header, matching RoCla Proxy's 24px breathing room */
+    main .hero{
+      padding-top:88px!important;
+    }
+
+    /* Android app download banner: small dismissible card under the header */
+    .app-banner{
+      padding:70px 0 0!important;
+      background:var(--bg)!important;
+    }
+    .app-banner .container{
+      width:min(1060px,calc(100% - 28px))!important;
+      margin:0 auto!important;
+      padding:0!important;
+    }
+    .app-banner-card{
+      display:flex!important;
+      align-items:center!important;
+      gap:12px!important;
+      background:var(--surface)!important;
+      border:1px solid var(--line)!important;
+      border-radius:18px!important;
+      padding:12px 14px!important;
+      box-shadow:0 8px 24px rgba(0,0,0,.05)!important;
+    }
+    .app-banner-logo{
+      width:42px!important;
+      height:42px!important;
+      flex:0 0 42px!important;
+      border-radius:50%!important;
+      object-fit:cover!important;
+      display:block!important;
+    }
+    .app-banner-copy{
+      flex:1 1 auto!important;
+      min-width:0!important;
+      display:flex!important;
+      flex-direction:column!important;
+      gap:1px!important;
+    }
+    .app-banner-copy strong{
+      font-size:14px!important;
+      line-height:1.25!important;
+      letter-spacing:-.01em!important;
+      color:var(--text)!important;
+    }
+    .app-banner-copy span{
+      font-size:12.5px!important;
+      line-height:1.4!important;
+      color:var(--muted)!important;
+    }
+    .app-banner-btn{
+      flex:0 0 auto!important;
+      display:inline-flex!important;
+      align-items:center!important;
+      gap:7px!important;
+      height:36px!important;
+      padding:0 15px!important;
+      border-radius:999px!important;
+      background:var(--primary)!important;
+      color:#fff!important;
+      font-size:12.5px!important;
+      font-weight:750!important;
+      line-height:1!important;
+      white-space:nowrap!important;
+      text-decoration:none!important;
+      box-shadow:0 6px 18px rgba(10,92,255,.20)!important;
+    }
+    .app-banner-btn i{font-size:16px!important;line-height:1!important}
+    .app-banner-btn:hover{background:var(--primary-hover)!important}
+    .app-banner-close{
+      flex:0 0 30px!important;
+      width:30px!important;
+      height:30px!important;
+      padding:0!important;
+      border:0!important;
+      border-radius:50%!important;
+      background:var(--surface-2)!important;
+      color:var(--muted)!important;
+      font-size:17px!important;
+      line-height:1!important;
+      display:grid!important;
+      place-items:center!important;
+      cursor:pointer!important;
+      -webkit-tap-highlight-color:transparent!important;
+    }
+    .app-banner-close:hover{color:var(--text)!important}
+    .app-banner + .hero{
+      padding-top:26px!important;
+    }
+    @media(max-width:560px){
+      .app-banner{padding-top:64px!important}
+      .app-banner .container{width:calc(100% - 20px)!important}
+      .app-banner-card{flex-wrap:wrap!important;padding:12px!important;row-gap:10px!important}
+      .app-banner-logo{order:1!important}
+      .app-banner-copy{order:2!important;flex:1 1 calc(100% - 96px)!important}
+      .app-banner-close{order:3!important}
+      .app-banner-btn{order:4!important;margin-left:54px!important}
+      .app-banner + .hero{padding-top:20px!important}
+    }
+    @media(max-width:720px){
+      .navbar .container.nav-shell{
+        width:min(1060px,calc(100% - 20px))!important;
+      }
+      /* With the login pill added, tighten the mobile header so brand + both pills + theme fit at 360-390px */
+      .navbar .logo{gap:7px!important;font-size:15px!important}
+      .navbar .nav-actions{gap:6px!important}
+      .navbar .proxy-pill-btn{padding:0 10px!important;font-size:11.5px!important}
+      main .hero{
+        padding-top:78px!important;
+      }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "RoCla VPN",
+    "url": "https://vpn.roclahy.com/",
+    "applicationCategory": "SecurityApplication",
+    "operatingSystem": "Android, Windows, iOS, macOS, Linux",
+    "description": "VPN para Cuba con pagos en CUP por Transfermóvil y EnZona, prueba gratis de 100 MB y planes desde 250 CUP por 30 días.",
+    "offers": [
+      {"@type": "Offer", "name": "Gratis", "price": "0", "priceCurrency": "CUP"},
+      {"@type": "Offer", "name": "Esencial 6 GB", "price": "250", "priceCurrency": "CUP"},
+      {"@type": "Offer", "name": "Plus 10 GB", "price": "300", "priceCurrency": "CUP"},
+      {"@type": "Offer", "name": "Pro 40 GB", "price": "500", "priceCurrency": "CUP"},
+      {"@type": "Offer", "name": "Premium 100 GB", "price": "900", "priceCurrency": "CUP"}
+    ],
+    "areaServed": "CU",
+    "provider": {"@type": "Organization", "name": "RoCla VPN", "url": "https://vpn.roclahy.com/"}
+  }
+  </script>
+<style>
+:root{--home-accent:#0254f5;--home-link:#0254f5}
+[data-theme="dark"]{--home-link:#83a9ff}
+main .section{padding:36px 0!important}
+main .hero{min-height:0!important;padding-bottom:18px!important}
+.hero-grid{gap:18px!important}.hero-visual{height:260px!important}.ghost-mascot{max-height:250px!important}
+.hero-lead{margin:14px 0 18px!important}
+.hero-actions{display:flex!important;flex-direction:row!important;flex-wrap:wrap!important;gap:14px!important}
+.hero-actions .button{width:auto!important;min-height:42px!important;padding:0 16px!important;font-size:14px!important}
+.approved-primary,.approved-download{background:var(--home-accent)!important;color:white!important;border:0!important;border-radius:999px!important;box-shadow:none!important}
+.hero-actions .approved-link{background:transparent!important;border:0!important;box-shadow:none!important;color:var(--home-link)!important;padding-inline:4px!important}
+.section-heading{margin-bottom:18px!important}
+.section-heading h2,.split-copy h2,.compact-client-copy h2{font-size:clamp(27px,4vw,38px)!important;margin:6px 0 8px!important}
+.section-heading p,.split-copy p{font-size:15px!important}
+.approved-tech,.approved-android{background:var(--bg);color:var(--text);padding:28px 0;scroll-margin-top:65px}
+.approved-wrap{width:min(960px,calc(100% - 28px));margin:auto}
+.approved-heading{text-align:center;margin:0 auto 14px;max-width:620px}
+.approved-heading h2,.approved-android h2{font-size:clamp(29px,4vw,40px);line-height:1.12;margin:6px 0;color:var(--text)}
+.approved-tech p,.approved-android p{color:var(--muted);font-size:14px;line-height:1.5;margin:6px 0}
+.approved-bento{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.approved-tile{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:12px;min-width:0}
+.approved-tile h3{font-size:18px;line-height:1.2;margin:5px 0;color:var(--text)}
+.approved-tile i{color:var(--home-link);font-size:23px}
+.approved-engine{grid-column:1/-1;text-align:center;padding:12px 16px}
+.approved-engine svg{display:block;width:min(100%,300px);height:auto;margin:0 auto}
+.approved-tech a,.approved-android a:not(.approved-download){color:var(--home-link)}
+.approved-kicker,.approved-android small{color:var(--muted);font-size:12px}
+.approved-kicker{letter-spacing:.06em;font-weight:700}
+.gauge-track{stroke:var(--line)}.gauge-tick{stroke:var(--muted)}.gauge-number{fill:var(--text)}.gauge-unit{fill:var(--muted)}
+.gauge-results{display:flex;justify-content:center;gap:24px;margin:4px 0 10px}.gauge-results strong{font-size:23px;display:block;color:var(--text)}.gauge-results small{font-size:12px;color:var(--muted)}
+.gauge-note{font-size:11px!important}
+.approved-android .approved-wrap{max-width:650px;text-align:center}
+.approved-app-icon{width:70px;height:70px;object-fit:contain;border-radius:18px;margin:0 auto 10px;display:block}
+.approved-download{display:inline-flex!important;align-items:center;gap:8px;margin:10px auto 6px;padding:0 18px!important;min-height:42px}
+.approved-android small{display:block}
+.plan-card{min-height:0!important;padding:14px!important}
+.protocol-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important;overflow:visible!important}
+.protocol-card{min-height:0!important;padding:12px!important;width:auto!important;border-radius:16px!important}
+.protocol-icon{width:34px!important;height:34px!important;font-size:20px!important;margin-bottom:6px!important}
+.protocol-card h3{font-size:20px!important;margin:4px 0!important}
+.protocol-card p{font-size:13px!important}.protocol-card details{margin-top:6px}.protocol-card summary{cursor:pointer;color:var(--home-link);font-size:13px}
+.split-card{padding:18px!important;gap:14px!important;box-shadow:none!important}
+.steps-grid{gap:8px!important}.step-card{padding:12px!important;min-height:0!important}
+.footer{padding:24px 0 64px!important}.footer-grid{gap:18px!important}.footer-bottom{margin-top:18px!important;padding-top:12px!important}
+@media(max-width:620px){main .section{padding:26px 0!important}.hero-grid{gap:8px!important}.hero-visual{height:190px!important;margin:0!important}.ghost-mascot{max-height:185px!important;width:190px!important}.hero h1{font-size:clamp(36px,10vw,44px)!important}.hero-actions{justify-content:center!important}.blog-grid{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px!important}.home-blog-card{flex:0 0 76%;scroll-snap-align:start}.home-blog-content{padding:12px!important}.section-heading-row{flex-direction:row!important;align-items:center!important}.section-heading-row .inline-link{white-space:nowrap}.protocol-card:last-child{grid-column:1/-1}}
+@media(min-width:800px){.approved-bento{grid-template-columns:repeat(4,minmax(0,1fr))}.protocol-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+@media(prefers-reduced-motion:reduce){.approved-tech *, .approved-android *{animation:none!important;transition:none!important}}
+</style>
+<style>
+.hero-actions{justify-content:center!important;gap:14px!important}.hero-actions .button{flex:0 0 auto!important;width:auto!important;max-width:none!important;min-width:0!important}.hero-actions .approved-link{display:inline-flex;gap:3px}.hero-actions .approved-primary{gap:6px}
+.mobile-nav{display:none;position:relative}.mobile-nav summary,.protocol-card summary{list-style:none}.mobile-nav summary::-webkit-details-marker,.protocol-card summary::-webkit-details-marker{display:none}
+.approved-engine{background:none!important;border:0!important;padding:4px 0!important}.approved-engine svg{width:min(100%,360px)!important}.race-segment{fill:var(--line)}.race-segment.active{fill:#0254f5}.race-segment.hot{fill:#70aaff}.race-readout{font-variant-numeric:tabular-nums;line-height:1.05}.race-readout strong{font-size:clamp(48px,12vw,78px);letter-spacing:-.06em}.race-readout span{color:var(--muted);font-size:16px}#race-label{font-size:13px;color:var(--muted);margin:4px 0}.race-results{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin:12px 0 4px}.race-results strong{color:var(--text)}.race-results[hidden]{display:none}
+.approved-tile:not(.approved-engine){background:none!important;border:0!important;border-radius:0!important;padding:8px 4px!important;display:grid;grid-template-columns:25px 1fr;gap:2px 8px;align-items:center}.approved-tile:not(.approved-engine) h3{font-size:16px!important;margin:0!important}.approved-tile:not(.approved-engine) p{grid-column:2;font-size:12px!important;margin:0!important}
+.protocol-grid{display:block!important}.protocol-card,.protocol-card:last-child{background:none!important;border:0!important;border-bottom:1px solid var(--line)!important;border-radius:0!important;box-shadow:none!important;padding:0!important;min-height:0!important}.protocol-card details{margin:0!important}.protocol-card summary{display:flex;align-items:center;gap:8px;min-height:48px;padding:8px 0;cursor:pointer}.protocol-card .protocol-icon{background:none!important;margin:0!important;flex:none;width:25px!important;height:25px!important}.protocol-name{font-weight:650;font-size:15px}.protocol-card .protocol-tag{margin-left:auto;text-align:right;font-size:11px}.protocol-chevron{color:var(--muted);transition:transform .25s}.protocol-card details[open] .protocol-chevron{transform:rotate(180deg)}.protocol-card details p{padding:0 12px 12px 33px}
+.approved-tech,.approved-android{padding:20px 0!important}.approved-heading{margin-bottom:8px!important}.approved-heading p{max-width:560px;margin:6px auto!important}.approved-app-icon{width:52px!important;height:52px!important}.support-float{width:42px!important;height:42px!important}.service-status-line{box-shadow:none!important}
+@media(max-width:900px){.nav-actions>.proxy-pill-btn{display:none!important}.mobile-nav{display:block}.mobile-nav summary{display:grid;place-items:center;width:40px;height:40px;cursor:pointer;font-size:23px}.mobile-nav>div{position:absolute;right:0;top:48px;width:190px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:6px;box-shadow:var(--shadow)}.mobile-nav a{display:block;padding:10px;font-size:14px}.nav-actions{gap:4px!important}}
+@media(max-width:620px){main .section{padding:18px 0!important}.hero-actions{gap:12px!important}.hero-lead{margin:10px 0 14px!important}.section-heading{margin-bottom:10px!important}.approved-bento{gap:5px!important}.approved-heading h2{font-size:29px!important}.approved-android h2{font-size:27px!important}.section-heading-row h2{font-size:25px!important}.hero-visual{height:180px!important}}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;transition:none!important}}
+</style><style>
+.nav-actions>.login-pill{display:inline-flex!important;background:none!important;border:0!important;box-shadow:none!important;color:var(--text)!important;padding:0 6px!important;font-size:13px!important;white-space:nowrap}.nav-actions #theme-toggle{background:none!important;border:0!important;box-shadow:none!important;width:34px!important}.nav-shell{gap:8px!important}.nav-actions{gap:3px!important}.hero-actions .button{flex:none!important}.home-benefits{padding:16px 0 22px}.home-benefits .benefit-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px!important}.home-benefits .benefit{background:none!important;border:0!important;padding:0!important;box-shadow:none!important;align-items:flex-start}.home-benefits .benefit i{color:var(--home-link);font-size:23px}.home-benefits .benefit small{font-size:12px}.core-art{width:min(100%,350px)!important;margin:-8px auto!important}.core-trace{fill:none;stroke:var(--home-link);stroke-opacity:.28;stroke-width:.8}.core-live{stroke-opacity:.8;stroke-width:1.4}.core-outline{fill:none;stroke:var(--home-link);stroke-opacity:.25}.core-orbit,.core-chip{transform-origin:180px 150px}.core-art.visible .core-orbit{animation:core-turn 2s cubic-bezier(.2,.7,.2,1) both}.core-art.visible .core-chip{animation:core-wake 1.3s ease-out both}.core-art.visible .core-live{animation:core-flow 1.2s ease-out both;stroke-dasharray:150}.core-generation{font-size:clamp(21px,4vw,29px);margin:0 0 8px}.core-description{max-width:560px;margin:auto!important}.core-metrics{display:flex;justify-content:center;gap:28px;margin:16px 0 6px}.core-metrics>div+div{border-left:1px solid var(--line);padding-left:28px}.core-metrics strong{display:block;font-size:30px;line-height:1.15;letter-spacing:-.04em}.core-metrics small{font-size:12px;color:var(--muted)}
+@keyframes core-turn{from{transform:rotate(-100deg);opacity:.2}to{transform:rotate(0);opacity:1}}@keyframes core-wake{from{transform:scale(.86);opacity:.2}to{transform:scale(1);opacity:1}}@keyframes core-flow{from{stroke-dashoffset:150}to{stroke-dashoffset:0}}
+.protocol-tabs{display:flex;overflow-x:auto;gap:7px;padding:3px 0 8px;scrollbar-width:thin}.protocol-tabs button{flex:none;border:0;background:var(--surface-2);color:var(--text);border-radius:999px;padding:8px 13px;font-size:13px;cursor:pointer}.protocol-tabs button[aria-selected=true]{background:#0254f5;color:#fff}.protocol-panel{text-align:center;padding:12px 0;max-width:660px;margin:auto}.protocol-panel[hidden]{display:none}.protocol-panel-icon{font-size:35px;color:var(--home-link)}.protocol-panel h3{font-size:25px;margin:4px 0}.protocol-panel strong{font-size:14px}.protocol-panel p{color:var(--muted);font-size:14px;margin:7px 0}.other-platforms{border-top:1px solid var(--line);margin:16px auto 0;padding-top:12px;max-width:340px}.other-platforms>div{display:flex;justify-content:center;gap:24px;margin-top:8px}.other-platforms a{display:flex;flex-direction:column;align-items:center;font-size:12px;gap:4px}.other-platforms i{font-size:24px}
+.reveal{transition:opacity .65s ease,transform .65s cubic-bezier(.2,.7,.2,1)!important}.reveal:not(.visible){opacity:0;transform:translateY(12px)}@media(min-width:800px){.home-benefits .benefit-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}@media(prefers-reduced-motion:reduce){.core-art *{animation:none!important}.reveal{opacity:1!important;transform:none!important;transition:none!important}}
+</style><style>.core-art{width:min(100%,460px)!important;margin:0 auto!important}.v5-trace{fill:none;stroke:#2475ee;stroke-opacity:.35;stroke-width:.8}.v5-live{stroke-opacity:.8;stroke-width:1.4}.v5-chip{transform-origin:170px 115px}.core-art.visible .v5-chip{animation:core-wake 1.2s ease-out both}.core-art.visible .v5-live{stroke-dasharray:500;animation:core-flow-v5 1.2s ease-out both}@keyframes core-flow-v5{from{stroke-dashoffset:500}to{stroke-dashoffset:0}}.core-metrics{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:0!important;max-width:360px;margin:16px auto 6px!important}.core-metrics>div{padding:0 8px!important;min-width:0;display:flex;flex-direction:column;align-items:center;gap:4px;position:static!important}.core-metrics span,.core-metrics small{display:block!important;position:static!important;font-size:12px;line-height:1.4;color:var(--muted);margin:0!important;white-space:nowrap}.core-metrics strong{font-size:clamp(26px,8vw,36px);line-height:1.15;white-space:nowrap;font-variant-numeric:tabular-nums}.other-platforms>div{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px!important}.other-platforms a{color:var(--text)!important;gap:7px}.brand-logo{display:block;width:28px;height:28px;object-fit:contain}.brand-apple{filter:none}[data-theme=dark] .brand-apple{filter:invert(1)}@media(prefers-reduced-motion:reduce){.core-art *{animation:none!important}}</style><style>.square-trace{fill:none;stroke:#4876B9;stroke-width:1.1;opacity:.8}.square-pulse{fill:none;stroke:#80AAFF;stroke-width:1.8;stroke-dasharray:8 92;stroke-dashoffset:100;opacity:0}.core-art.visible .square-pulse{animation:square-flow 1.6s cubic-bezier(.55,.05,.95,.55) both}@keyframes square-flow{0%{opacity:0;stroke-dashoffset:100}15%{opacity:1}85%{opacity:1}100%{opacity:0;stroke-dashoffset:-100}}.square-title{font-size:clamp(25px,5vw,38px);line-height:1.15;margin:12px 0 10px}.core-metrics strong{color:var(--home-link)}@media(prefers-reduced-motion:reduce){.square-pulse{animation:none!important}}</style><style>.engine-heading{margin:0 0 8px}.engine-kicker{display:block;color:var(--home-link);font-size:12px;font-weight:600;letter-spacing:.09em}.engine-heading h2{font-size:clamp(32px,7vw,48px);line-height:1.1;margin:6px 0 0}.square-trace{stroke-width:1.4}.core-art.visible .square-pulse{animation:square-flow 1.6s cubic-bezier(.55,.05,.95,.55) var(--pulse-delay,0ms) both!important}.navbar .nav-links{display:none!important}#home-menu-toggle{display:inline-flex!important;align-items:center;justify-content:center;background:none!important;border:0!important;box-shadow:none!important;width:40px;height:40px;font-size:24px;color:var(--text)}#home-menu{position:absolute;top:100%;left:0;right:0;background:var(--bg);color:var(--text);display:grid;grid-template-rows:0fr;visibility:hidden;opacity:0;transition:grid-template-rows .3s ease,opacity .3s ease,visibility .3s;overflow:hidden;box-shadow:0 12px 20px #0001}#home-menu.open{grid-template-rows:1fr;visibility:visible;opacity:1}.home-menu-inner{min-height:0;overflow:hidden;width:min(100%,1060px);margin:auto;box-sizing:border-box}.home-menu-inner a{display:flex;justify-content:space-between;align-items:center;padding:12px 28px;font-family:'Josefin Sans',sans-serif;font-size:26px;font-weight:600;color:var(--text);text-decoration:none;opacity:0;transform:translateY(-6px);transition:opacity .22s,transform .22s}.home-menu-inner a:first-child{margin-top:14px}.home-menu-inner a:last-child{margin-bottom:14px}.home-menu-inner a i{font-size:18px;color:var(--muted)}#home-menu.open a{opacity:1;transform:none}#home-menu.open a:nth-child(2){transition-delay:35ms}#home-menu.open a:nth-child(3){transition-delay:70ms}#home-menu.open a:nth-child(4){transition-delay:105ms}#home-menu.open a:nth-child(5){transition-delay:140ms}.home-menu-inner .home-menu-login{border-top:1px solid var(--line);margin:8px 28px 0;padding:18px 0;color:var(--home-link);font-size:22px}.home-menu-login i{color:var(--home-link)!important}.scroll-ready .reveal{transition:opacity .65s ease,transform .65s cubic-bezier(.2,.7,.2,1)!important}.scroll-ready .reveal:not(.scroll-seen){opacity:0!important;transform:translateY(12px)!important}.scroll-ready .reveal.scroll-seen{opacity:1!important;transform:none!important}section[id]{scroll-margin-top:70px}@media(prefers-reduced-motion:reduce){#home-menu,#home-menu a,.scroll-ready .reveal{transition:none!important}.scroll-ready .reveal{opacity:1!important;transform:none!important}.core-art.visible .square-pulse{animation:none!important}}</style><style>.navbar #theme-toggle.icon-button,.navbar #theme-toggle.icon-button:hover,.navbar #theme-toggle.icon-button:active,.navbar #theme-toggle.icon-button:focus,.navbar #theme-toggle.icon-button:focus-visible,.navbar #home-menu-toggle.icon-button{background:transparent!important;box-shadow:none!important;border:0!important;border-radius:0!important;width:40px!important;height:40px!important;min-width:40px!important;min-height:40px!important;max-width:40px!important;max-height:40px!important;flex:0 0 40px!important;color:#000!important;display:grid!important;place-items:center!important;padding:0!important}.navbar #theme-toggle.icon-button i{font-size:24px!important}.navbar [aria-expanded] .home-menu-lines{width:24px;height:24px;position:relative;display:block}.home-menu-lines span{position:absolute;right:3px;height:2px;background:currentColor;border-radius:2px;transition:transform .25s ease,width .25s ease,top .25s ease}.home-menu-lines span:first-child{top:7px;width:18px}.home-menu-lines span:last-child{top:15px;width:11px}#home-menu-toggle[aria-expanded=true] .home-menu-lines span{top:11px;width:18px}#home-menu-toggle[aria-expanded=true] .home-menu-lines span:first-child{transform:rotate(45deg)}#home-menu-toggle[aria-expanded=true] .home-menu-lines span:last-child{transform:rotate(-45deg)}[data-theme=dark] .navbar #theme-toggle.icon-button,[data-theme=dark] .navbar #home-menu-toggle.icon-button{color:#fff!important}.navbar #theme-toggle.icon-button:focus-visible,.navbar #home-menu-toggle.icon-button:focus-visible{outline:2px solid var(--home-link)!important;outline-offset:2px!important}@media(prefers-reduced-motion:reduce){.home-menu-lines span{transition:none!important}}</style></head>
+<body>
+  <nav class="navbar" aria-label="Main navigation">
+    <div class="container nav-shell">
+      <a class="logo" href="#inicio" aria-label="RoCla VPN, home">
+        <img src="/roclavpn-logo-2.webp" alt="" class="logo-icon">
+        <span>RoCla <strong>VPN</strong></span>
+      </a>
+      <div class="nav-links" aria-label="Sections">
+        <a href="#planes">Plans</a>
+        <a href="#protocolos">Protocols</a>
+        <a href="#android">Clients</a>
+        <a href="#novedades">News</a>
+      </div>
+      <div class="nav-actions">
+        
+        
+        <button id="theme-toggle" class="icon-button" aria-label="Change theme" title="Change theme">
+          <i class="hgi hgi-stroke hgi-moon-02" aria-hidden="true"></i>
+        </button><button id="home-menu-toggle" class="icon-button" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="home-menu"><span class="home-menu-lines" aria-hidden="true"><span></span><span></span></span></button>
+      </div>
+    </div>
+  <div id="home-menu" inert aria-hidden="true"><div class="home-menu-inner"><a href="#planes">Plans <i class="hgi hgi-stroke hgi-arrow-right-01"></i></a><a href="#protocolos">Protocols <i class="hgi hgi-stroke hgi-arrow-right-01"></i></a><a href="#android">Downloads <i class="hgi hgi-stroke hgi-arrow-right-01"></i></a><a href="/blog/">Blog <i class="hgi hgi-stroke hgi-arrow-right-01"></i></a><a class="home-menu-login" href="https://panel.roclahy.com/login">Log in <i class="hgi hgi-stroke hgi-arrow-up-right-01"></i></a><a href="/" data-lang-switch="es">Español <i class="hgi hgi-stroke hgi-arrow-up-right-01"></i></a></div></div></nav>
+
+  <main>
+    <header id="inicio" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <h1>Connect where others can't.</h1>
+          <p class="hero-lead">Your access to a free Internet, even on the most restrictive networks.</p>
+          <div class="hero-actions">
+            <a href="https://t.me/roclavpnbot?start=buy_pkg_1771696163" class="button button-primary approved-primary">Try it free </a>
+            <a href="#planes" class="button approved-link">See plans </a>
+          </div>
+        </div>
+        <div class="hero-visual reveal" aria-hidden="true">
+          <img src="/ghost_mascot.webp" alt="" class="ghost-mascot">
+        </div>
+      </div>
+    </header>
+
+    
+
+    <section class="home-benefits" aria-label="Benefits"><div class="container"><div class="benefit-grid">
+          <div class="benefit reveal"><i class="hgi hgi-stroke hgi-bank"></i><span><strong>Payments in CUP</strong><small>Transfermóvil, EnZona and cryptocurrencies.</small></span></div>
+          <div class="benefit reveal"><i class="hgi hgi-stroke hgi-global"></i><span><strong>United States</strong><small>Servers available.</small></span></div>
+          <div class="benefit reveal"><i class="hgi hgi-stroke hgi-shield-energy"></i><span><strong>Restricted networks</strong><small>Alternative protocols.</small></span></div>
+          <div class="benefit reveal"><i class="hgi hgi-stroke hgi-customer-support"></i><span><strong>Human support</strong><small>7:00 a.m. – 7:00 p.m.</small></span></div>
+        </div>
+      </div></section>
+
+<section id="tecnologia" class="approved-tech"><div class="approved-wrap"><div class="approved-bento"><article class="approved-engine" id="engine-core"><div class="engine-heading"><span class="engine-kicker reveal">ROCLA VPN TECHNOLOGY</span><h2 class="reveal">Engine 2</h2></div><svg class="core-art reveal" viewBox="0 0 340 160" role="img" aria-label="Engine 2"><defs><linearGradient id="squareface" x2="1" y2="1"><stop stop-color="#111B30"/><stop offset="1" stop-color="#090F1C"/></linearGradient><radialGradient id="squarehalo"><stop stop-color="#0254F5" stop-opacity=".23"/><stop offset="1" stop-color="#0254F5" stop-opacity="0"/></radialGradient></defs><ellipse cx="170" cy="80" rx="160" ry="80" fill="url(#squarehalo)"/><path class="square-trace" d="M8 28 H83 L110 48"/><path class="square-pulse" style="--pulse-delay:0ms" pathLength="100" d="M8 28 H83 L110 48"/><path class="square-trace" d="M230 48 L257 28 H332"/><path class="square-pulse" style="--pulse-delay:0ms" pathLength="100" d="M230 48 L257 28 H332"/><path class="square-trace" d="M8 80 H110"/><path class="square-pulse" style="--pulse-delay:120ms" pathLength="100" d="M8 80 H110"/><path class="square-trace" d="M230 80 H332"/><path class="square-pulse" style="--pulse-delay:120ms" pathLength="100" d="M230 80 H332"/><path class="square-trace" d="M8 132 H83 L110 112"/><path class="square-pulse" style="--pulse-delay:240ms" pathLength="100" d="M8 132 H83 L110 112"/><path class="square-trace" d="M230 112 L257 132 H332"/><path class="square-pulse" style="--pulse-delay:240ms" pathLength="100" d="M230 112 L257 132 H332"/><rect x="110" y="20" width="120" height="120" rx="21" fill="url(#squareface)" stroke="#5489F5" stroke-width="2.5"/><rect x="120" y="30" width="100" height="100" rx="13" fill="none" stroke="#36598D" stroke-width="1.2"/><text x="170" y="72" fill="#fff" font-size="17" font-weight="700" text-anchor="middle">ENGINE</text><text x="170" y="111" fill="#80AAFF" font-size="42" font-weight="700" text-anchor="middle">2</text></svg><h3 class="square-title reveal">Power from the core.</h3><p class="core-description reveal">A hybrid architecture designed to evade censorship and maximize your connection's performance.</p><div class="core-metrics"><div class="reveal"><span>Download</span><strong data-metric="234.45">234.45</strong><small>Mbps</small></div><div class="reveal"><span>Upload</span><strong data-metric="211">211</strong><small>Mbps</small></div></div><p class="gauge-note reveal">Maximums recorded in real-world tests.<br>Performance depends on the connection.</p></article><article class="approved-tile reveal"><i class="hgi hgi-stroke hgi-ghost" aria-hidden="true"></i><h3>Ghost Mode</h3><p>Advanced evasion of blocks and censorship.</p></article><article class="approved-tile reveal"><i class="hgi hgi-stroke hgi-ai-magic" aria-hidden="true"></i><h3>RoCla+</h3><p>Compatibility with AI and streaming.</p></article><article class="approved-tile reveal"><i class="hgi hgi-stroke hgi-git-branch" aria-hidden="true"></i><h3>Split tunneling</h3><p>Choose which apps use the VPN.</p></article><article class="approved-tile reveal"><i class="hgi hgi-stroke hgi-refresh" aria-hidden="true"></i><h3>Automatic reconnection</h3><p>Restores the connection after interruptions.</p></article></div></div></section>
+    <section id="planes" class="section plans-section">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker">Planes</span>
+          <h2>Choose how much you need.</h2>
+          <p>Start free or scale with your usage. All plans last 30 days.</p>
+        </div>
+        <div class="plans-spotlight" id="plans-carousel" role="region" aria-label="Available plans">
+          <article class="plan-card reveal">
+            <div class="plan-top"><span class="plan-name">Free</span><img src="/assets/plan-icons/mini.webp" alt=""></div>
+            <div class="plan-data">100 MB</div><div class="plan-price">0 CUP</div>
+            <div class="plan-actions"><button class="text-button" onclick="openModal('gratis')">Details</button><a href="https://t.me/roclavpnbot?start=buy_pkg_1771696163" class="button button-card">Get</a></div>
+          </article>
+          <article class="plan-card reveal">
+            <div class="plan-top"><span class="plan-name">Essential</span><img src="/assets/plan-icons/essencial.webp" alt=""></div>
+            <div class="plan-data">6 GB</div><div class="plan-price">250 CUP</div>
+            <div class="plan-actions"><button class="text-button" onclick="openModal('esencial')">Details</button><a href="https://t.me/roclavpnbot?start=buy_pkg_1771696877" class="button button-card">Get</a></div>
+          </article>
+          <article class="plan-card reveal">
+            <div class="plan-top"><span class="plan-name">Plus</span><img src="/assets/plan-icons/plus.webp" alt=""></div>
+            <div class="plan-data">10 GB</div><div class="plan-price">300 CUP</div>
+            <div class="plan-actions"><button class="text-button" onclick="openModal('plus')">Details</button><a href="https://t.me/roclavpnbot?start=buy_pkg_1771696889" class="button button-card">Get</a></div>
+          </article>
+          <article class="plan-card plan-featured reveal">
+            <div class="recommended">Most popular</div>
+            <div class="plan-top"><span class="plan-name">Pro</span><img src="/assets/plan-icons/pro.webp" alt=""></div>
+            <div class="plan-data">40 GB</div><div class="plan-price">500 CUP</div>
+            <div class="plan-actions"><button class="text-button" onclick="openModal('pro')">Details</button><a href="https://t.me/roclavpnbot?start=buy_pkg_1771696902" class="button button-card">Get</a></div>
+          </article>
+          <article class="plan-card reveal">
+            <div class="plan-top"><span class="plan-name">Premium</span><img src="/assets/plan-icons/premium.webp" alt=""></div>
+            <div class="plan-data">100 GB</div><div class="plan-price">900 CUP</div>
+            <div class="plan-actions"><button class="text-button" onclick="openModal('premium')">Details</button><a href="https://t.me/roclavpnbot?start=buy_pkg_1771696915" class="button button-card">Get</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    
+
+    
+
+    <section id="protocolos" class="section protocols-section">
+      <div class="container">
+        <div class="section-heading reveal">
+          
+          <h2>One connection for every network.</h2>
+          
+        </div>
+        <div class="protocol-picker reveal"><div class="protocol-tabs" role="tablist" aria-label="Protocols"><button type="button" role="tab" id="proto-tab-0" aria-controls="proto-panel-0" aria-selected="false" tabindex="-1">WireGuard</button><button type="button" role="tab" id="proto-tab-1" aria-controls="proto-panel-1" aria-selected="false" tabindex="-1">Shadowsocks</button><button type="button" role="tab" id="proto-tab-2" aria-controls="proto-panel-2" aria-selected="true" tabindex="0">X-Ray (VLESS)</button><button type="button" role="tab" id="proto-tab-3" aria-controls="proto-panel-3" aria-selected="false" tabindex="-1">Hysteria2</button><button type="button" role="tab" id="proto-tab-4" aria-controls="proto-panel-4" aria-selected="false" tabindex="-1">Ghost Mode</button></div><div class="protocol-panel" role="tabpanel" id="proto-panel-0" aria-labelledby="proto-tab-0" hidden><div class="protocol-panel-icon"><i class="hgi hgi-stroke hgi-flash"></i></div><h3>WireGuard</h3><strong>Fast</strong><p>A modern, efficient option for fast, simple connections.</p></div><div class="protocol-panel" role="tabpanel" id="proto-panel-1" aria-labelledby="proto-tab-1" hidden><div class="protocol-panel-icon"><i class="hgi hgi-stroke hgi-link-square-02"></i></div><h3>Shadowsocks</h3><strong>Simple</strong><p>The simplest to set up: in Outline you just paste the key and connect, with no settings to adjust. It uses few resources and can help on restricted networks; against strong blocks, the main option is VLESS.</p></div><div class="protocol-panel" role="tabpanel" id="proto-panel-2" aria-labelledby="proto-tab-2" ><div class="protocol-panel-icon"><i class="hgi hgi-stroke hgi-layers-01"></i></div><h3>X-Ray (VLESS)</h3><strong>Anti-censorship + Streaming</strong><p>Our main option against censorship and blocks. It is the key that includes Ghost Mode, with Ghost and Ghost Nyx, for restrictive networks where the other connections don't get through or get cut off. With RoCla+ enabled, it is also the recommended one for streaming and VPN-sensitive services such as Netflix, Disney+ and AI.</p></div><div class="protocol-panel" role="tabpanel" id="proto-panel-3" aria-labelledby="proto-tab-3" hidden><div class="protocol-panel-icon"><i class="hgi hgi-stroke hgi-rocket-01"></i></div><h3>Hysteria2</h3><strong>Turbo</strong><p>Designed to make the most of unstable or interrupted connections, without giving up speed.</p></div><div class="protocol-panel" role="tabpanel" id="proto-panel-4" aria-labelledby="proto-tab-4" hidden><div class="protocol-panel-icon"><i class="hgi hgi-stroke hgi-ghost"></i></div><h3>Ghost Mode</h3><strong>Advanced anti-censorship</strong><p>For when you need to disappear like a ghost or be less visible than the night itself. Two emergency connections: Ghost, for when nothing connects; Ghost Nyx, for when it connects but gets cut off after a few seconds.</p></div></div></div></section>
+
+<section id="android" class="approved-android"><div class="approved-wrap reveal"><img class="approved-app-icon" src="/roclavpn-logo-2.webp" alt="RoCla VPN" width="110" height="110" loading="lazy"><span class="approved-kicker">ROCLA VPN FOR ANDROID</span><h2>Your Internet. Without borders.</h2><p>Evade censorship, switch protocols and manage your connection from a single app.</p><a class="button approved-download" href="/clientes-recomendados/"><i class="hgi hgi-stroke hgi-download-01" aria-hidden="true"></i>Download for Android</a><small>Android 7.0 or higher</small><div class="other-platforms reveal"><small>Connect from other devices</small><div><a href="https://vpn.roclahy.com/clientes-recomendados/#Programas-recomendados"><img class="brand-logo brand-windows" alt="" width="28" height="28" src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2024%2024%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20fill%3D%22%230078D4%22%20d%3D%22M0%200h11.5v11.5H0zM12.5%200H24v11.5H12.5zM0%2012.5h11.5V24H0zM12.5%2012.5H24V24H12.5z%22%2F%3E%3C%2Fsvg%3E"><span>Windows</span></a><a href="https://vpn.roclahy.com/clientes-recomendados/#Programas-recomendados"><img class="brand-logo brand-apple" alt="" width="28" height="28" src="data:image/svg+xml,%3Csvg%20role%3D%22img%22%20viewBox%3D%220%200%2024%2024%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Ctitle%3EApple%3C%2Ftitle%3E%3Cpath%20d%3D%22M12.152%206.896c-.948%200-2.415-1.078-3.96-1.04-2.04.027-3.91%201.183-4.961%203.014-2.117%203.675-.546%209.103%201.519%2012.09%201.013%201.454%202.208%203.09%203.792%203.039%201.52-.065%202.09-.987%203.935-.987%201.831%200%202.35.987%203.96.948%201.637-.026%202.676-1.48%203.676-2.948%201.156-1.688%201.636-3.325%201.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04%202.48-4.494%202.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675%201.09-4.61%201.09zM15.53%203.83c.843-1.012%201.4-2.427%201.245-3.83-1.207.052-2.662.805-3.532%201.818-.78.896-1.454%202.338-1.273%203.714%201.338.104%202.715-.688%203.559-1.701%22%2F%3E%3C%2Fsvg%3E"><span>Apple</span></a><a href="https://vpn.roclahy.com/clientes-recomendados/#Programas-recomendados"><img class="brand-logo brand-linux" alt="" width="28" height="28" loading="lazy" decoding="async" src="/linux-tux.webp"><span>Linux</span></a></div></div></div></section>
+
+
+    <section id="novedades" class="section blog-section">
+      <div class="container">
+        <div class="section-heading section-heading-row reveal">
+          <div><span class="section-kicker">Novedades</span><h2>Latest posts.</h2></div>
+          <a href="/blog/" class="inline-link">View all <i class="hgi hgi-stroke hgi-arrow-right-02"></i></a>
+        </div>
+        <div id="blog-carousel" class="blog-grid" aria-live="polite">
+          <div class="blog-loading">Loading posts…</div>
+        </div>
+      </div>
+    </section>
+
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid footer-grid-simple">
+      <div class="footer-brand">
+        <a class="logo" href="#inicio"><img src="/roclavpn-logo-2.webp" alt="" class="logo-icon"><span>RoCla <strong>VPN</strong></span></a>
+        <p>Connect where others can't.</p>
+        <div class="footer-contact">
+          <a href="/cdn-cgi/l/email-protection#a9dbc6cac5c8dfd9c7e9dbc6cac5c8c1d087cac6c4"><i class="hgi hgi-stroke hgi-mail-01"></i> <span class="__cf_email__" data-cfemail="f0829f939c9186809eb0829f939c919889de939f9d">[email&#160;protected]</span></a>
+          <a href="https://t.me/roclavpn"><i class="hgi hgi-stroke hgi-sent-02"></i> Telegram</a>
+        </div>
+      </div>
+      <div class="footer-col"><strong>Legal</strong><a href="https://vpn.roclahy.com/privacidad">Privacy</a><a href="/términos-de-uso/">Terms of use</a><a href="https://vpn.roclahy.com/descargo">Disclaimer</a></div>
+      <div class="footer-col"><strong>Project</strong><a href="/nuestra-hoja-de-ruta/">Roadmap</a><a href="/base-de-conocimientos/">Knowledge base</a><a href="https://t.me/roclavpn">Official channel</a></div>
+    </div>
+    <div class="container footer-bottom">© <span id="copyright-year"></span> RoCla VPN. All rights reserved.</div>
+  </footer>
+
+  <div id="planModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-content" role="document"><div id="modal-body"></div></div>
+  </div>
+
+  <a href="https://panel.roclahy.com/portal?tab=soporte" target="_blank" rel="noopener" class="support-float" aria-label="RoCla VPN support center"><img src="/assets/soporte.png" alt=""></a>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.getElementById('copyright-year').textContent = new Date().getFullYear();</script>
+  <script src="/en/script.js?v=20261127-en1"></script>
+<script>document.querySelectorAll('[data-lang-switch]').forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('rocla-lang',a.getAttribute('data-lang-switch'));}catch(e){}});});</script>
+<script>(function(){var tabs=Array.from(document.querySelectorAll('.protocol-tabs [role=tab]'));function select(i,focus){tabs.forEach(function(t,j){t.setAttribute('aria-selected',String(i===j));t.tabIndex=i===j?0:-1;document.getElementById(t.getAttribute('aria-controls')).hidden=i!==j;});if(focus)tabs[i].focus();}tabs.forEach(function(t,i){t.addEventListener('click',function(){select(i,false);});t.addEventListener('keydown',function(e){var n=e.key==='ArrowRight'?(i+1)%tabs.length:e.key==='ArrowLeft'?(i+tabs.length-1)%tabs.length:e.key==='Home'?0:e.key==='End'?tabs.length-1:-1;if(n>=0){e.preventDefault();select(n,true);}});});})();</script><script>(function(){if(!('IntersectionObserver'in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;var el=document.querySelector('.core-metrics');if(!el)return;var o=new IntersectionObserver(function(e){if(!e.some(function(x){return x.isIntersecting}))return;o.disconnect();var start=performance.now();function f(now){var p=Math.min(1,(now-start)/950);el.querySelectorAll('[data-metric]').forEach(function(n){n.textContent=(Number(n.dataset.metric)*(1-Math.pow(1-p,3))).toLocaleString('en-US',{maximumFractionDigits:2});});if(p<1)requestAnimationFrame(f);}requestAnimationFrame(f);},{threshold:.35});o.observe(el);})();</script><script>(function(){var b=document.getElementById('home-menu-toggle'),m=document.getElementById('home-menu');function set(open){b.setAttribute('aria-expanded',String(open));b.setAttribute('aria-label',open?'Close menu':'Open menu');m.classList.toggle('open',open);m.inert=!open;m.setAttribute('aria-hidden',String(!open));}b.addEventListener('click',function(){set(b.getAttribute('aria-expanded')!=='true')});m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){set(false)})});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&m.classList.contains('open')){set(false);b.focus()}});document.addEventListener('click',function(e){if(!m.contains(e.target)&&!b.contains(e.target)&&m.classList.contains('open'))set(false)});if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;var nodes=document.querySelectorAll('.reveal');document.documentElement.classList.add('scroll-ready');var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(!entry.isIntersecting)return;entry.target.classList.add('scroll-seen','visible');observer.unobserve(entry.target)});},{threshold:0,rootMargin:'0px 0px -24px 0px'});nodes.forEach(function(el){observer.observe(el)});})();</script></body>
+</html>
